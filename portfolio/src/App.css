@@ -145,6 +145,17 @@ body {
 
 .comentarios label {
   color: orange;
+  padding: 10px;
+}
+
+.contactame {
+  text-align: center;
+  height: 80px;
+}
+
+.formulario {
+  height: 30px;
+  width: 40%;
 }
 
 .btn {
@@ -261,5 +272,10 @@ body {
     width: 100%;
     text-align: center;
     padding: 0px;
+  }
+
+  .formulario {
+    width: 100%;
+    height: 40px;
   }
 }

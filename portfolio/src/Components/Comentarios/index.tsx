@@ -21,7 +21,7 @@ function Comentarios() {
         alert("GRACIAS POR COMENTAR");
       }}
     >
-      <fieldset>
+      <fieldset className="contactame">
         <h1>
           <label>Contactame</label>
         </h1>
