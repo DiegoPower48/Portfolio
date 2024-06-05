@@ -38,7 +38,7 @@ function Comentarios() {
         />
       </fieldset>
       <fieldset>
-        <label> Nombre: </label>
+        <label> Email: </label>
         <input
           required
           placeholder="Email"
