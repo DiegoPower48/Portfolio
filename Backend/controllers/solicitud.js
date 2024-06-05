@@ -85,7 +85,7 @@ var controller = {
       var validarComentario = !validator.isEmpty(params.comentario);
     } catch (error) {
       return res.status(404).send({
-        mensaje: "faltan datos por enviar",
+        mensaje: "faltan datoS por enviar",
       });
     }
     if (validarNombre && validarCorreo && validarComentario) {
