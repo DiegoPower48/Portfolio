@@ -1,14 +1,1 @@
-{
-  "builds": [
-    {
-      "scr": "./index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "scr": "/(.*)",
-      "dest": "/"
-    }
-  ]
-}
+{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
