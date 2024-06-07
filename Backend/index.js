@@ -4,8 +4,6 @@ var mongoose = require("mongoose");
 var app = require("./app");
 var port = 27017;
 
-process.env.API_URL;
-
 mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://localhost:27017/apirestportfolio").then(() => {
