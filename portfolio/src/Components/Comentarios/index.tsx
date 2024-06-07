@@ -9,10 +9,7 @@ function Comentarios() {
 
   const Datos = () => {
     axios
-      .post(
-        "https://diego-dev-portfolio-backend.vercel.app/correo",
-        datosObtenidos
-      )
+      .post("http://localhost:3900/correo", datosObtenidos)
       .then((response) => {
         console.log(response);
       });
