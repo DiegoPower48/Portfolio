@@ -140,7 +140,6 @@ body {
   color: black;
   text-shadow: 3px 3px 3px orange;
   clear: both;
-  text-align: left;
 }
 
 .comentarios label {
@@ -148,14 +147,23 @@ body {
   padding: 10px;
 }
 
-.contactame {
-  text-align: center;
-  height: 80px;
-}
-
 .formulario {
   height: 30px;
   width: 40%;
+}
+
+.textarea {
+  text-align: left;
+  width: 100%;
+  height: 150px;
+  color: black;
+  border: solid 1px orange;
+  resize: none;
+}
+
+.contactame {
+  text-align: center;
+  height: 80px;
 }
 
 .btn {
@@ -170,14 +178,6 @@ body {
 .btn:hover {
   background-color: rgb(241, 164, 20);
   color: white;
-}
-
-.textareas {
-  width: 100%;
-  height: 150px;
-  color: black;
-  border: solid 1px orange;
-  resize: none;
 }
 
 .Footers {
@@ -205,8 +205,7 @@ body {
   .card-text,
   .detalle,
   .proyectos,
-  .tecnologias,
-  .comentarios {
+  .tecnologias {
     padding-left: 0px;
   }
   .card-img {

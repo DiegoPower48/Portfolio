@@ -1,36 +1,18 @@
 import axios from "axios";
-import { useState } from "react";
-
-interface form {
-  nombre: string;
-  correo: string;
-  comentario: string;
-}
+import { useForm } from "react-hook-form";
 
 function Comentarios() {
-  // const Datos = () => {
-  //   axios.get("http://localhost:3900/solicitudes").then((response) => {
-  //     const datos = response.data;
-  //     const informacion = datos.solicitud;
-  //     const solicitado = informacion[1].nombre;
-  //     return solicitado;
-  //   });
-  // };
+  //HOOK DE FORMS
+  const { register, handleSubmit, watch } = useForm();
 
-  const [state, setState] = useState<form[]>([]);
+  const datosObtenidos = watch();
 
-  const manejador = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert("GRACIAS POR COMENTAR");
-  };
-
-  const manejadorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setState({
-      ...state,
-      [e.currentTarget.name]: e.currentTarget.value,
-      [e.currentTarget.name]: e.currentTarget.value,
-      [e.currentTarget.name]: e.currentTarget.value,
-    });
+  const Datos = () => {
+    axios
+      .post("http://localhost:3900/correo", datosObtenidos)
+      .then((response) => {
+        console.log(response);
+      });
   };
 
   return (
@@ -38,7 +20,9 @@ function Comentarios() {
       className="comentarios"
       id="Contactos"
       method="GET"
-      onSubmit={manejador}
+      onSubmit={handleSubmit((data) => {
+        console.log(data);
+      })}
     >
       <fieldset className="contactame">
         <h1>
@@ -49,12 +33,10 @@ function Comentarios() {
         <label>Nombre:</label>
         <input
           placeholder="Name"
-          name="nombre"
           type="text"
           className="formulario"
-          id="numero"
-          onChange={manejadorChange}
           required
+          {...register("nombre")}
         />
       </fieldset>
       <fieldset>
@@ -62,25 +44,28 @@ function Comentarios() {
         <input
           required
           placeholder="Email"
-          name="correo"
+          id="email"
           type="text"
           className="formulario"
-          onChange={manejadorChange}
+          {...register("correo")}
         />
       </fieldset>
       <fieldset>
         <label>Comentarios:</label>
 
-        <input
-          type="textarea"
+        <textarea
           required
           placeholder="Write your questions and comments here please"
-          className="textareas"
-          name="comentario"
-          onChange={manejadorChange}
-        ></input>
+          className="textarea"
+          {...register("comentario")}
+        ></textarea>
 
-        <button type="submit" className="btn btn-warning" value="Enviar">
+        <button
+          type="submit"
+          className="btn btn-warning"
+          value="Enviar"
+          onClick={Datos}
+        >
           Enviar
         </button>
       </fieldset>
