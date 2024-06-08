@@ -33,8 +33,8 @@ var controller = {
     }
   },
 
-  getsolicitudes: (req, res) => {
-    var query = Solicitud.find({});
+  getsolicitudes: async (req, res) => {
+    var query = await Solicitud.find({});
 
     var last = req.params.last;
 
@@ -56,7 +56,7 @@ var controller = {
     });
   },
 
-  getsolicitud: (req, res) => {
+  getsolicitud: async (req, res) => {
     var solicitudId = req.params.id;
 
     if (!solicitudId) {
@@ -66,14 +66,14 @@ var controller = {
       });
     }
 
-    Solicitud.findById(solicitudId).then((solicitud) => {
+    await Solicitud.findById(solicitudId).then((solicitud) => {
       return res.status(404).send({
         mensaje: "exito",
         solicitud,
       });
     });
   },
-  update: (req, res) => {
+  update: async (req, res) => {
     var solicitudId = req.params.id;
 
     var params = req.body;
@@ -88,7 +88,7 @@ var controller = {
       });
     }
     if (validarNombre && validarCorreo && validarComentario) {
-      Solicitud.findOneAndUpdate({ _id: solicitudId }, params, {
+      await Solicitud.findOneAndUpdate({ _id: solicitudId }, params, {
         new: true,
       }).then((solicitudActualizada) => {
         if (!solicitudActualizada) {
@@ -107,10 +107,10 @@ var controller = {
       });
     }
   },
-  delete: (req, res) => {
+  delete: async (req, res) => {
     var solicitudId = req.params.id;
 
-    Solicitud.findOneAndDelete({ _id: solicitudId }).then(
+    await Solicitud.findOneAndDelete({ _id: solicitudId }).then(
       (solicitudBorrada) => {
         if (!solicitudBorrada) {
           return res.status(404).send({
@@ -124,7 +124,7 @@ var controller = {
       }
     );
   },
-  upload: (req, res) => {
+  upload: async (req, res) => {
     var solicitudId = req.params.id;
     var file_name = "imagen no subida";
 
@@ -147,7 +147,7 @@ var controller = {
         });
       });
     } else {
-      Solicitud.findOneAndUpdate(
+      await Solicitud.findOneAndUpdate(
         { _id: solicitudId },
         { file: file_name },
         { new: true }
