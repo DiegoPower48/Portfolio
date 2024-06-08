@@ -3,7 +3,6 @@
 var validator = require("validator");
 var Solicitud = require("../models/solicitud");
 var fs = require("fs");
-var path = require("path");
 
 var controller = {
   correo: (req, res) => {
