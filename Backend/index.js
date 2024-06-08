@@ -17,6 +17,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
+var express = require("express");
+var cors = require("cors");
+
+var PORT = process.env.PORT || 3000;
+
 // MongoDB connection
 mongoose
   .connect("mongodb://127.0.0.1:27017/apirestportfolio", {
@@ -28,3 +33,25 @@ mongoose
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+var express = require("express");
+var bodyParser = require("body-parser");
+var cors = require("cors");
+
+// EJECUTAR XPRES
+var app = express();
+
+//CARGAR RUTAS
+
+var solicitudRutas = require("./routes/solicitud");
+
+//CARGAR MIDDLEWARE
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
+
+//CORSE
+
+//AÑADIR PREFIJOS A RUTAS
+
+app.use(solicitudRutas);
