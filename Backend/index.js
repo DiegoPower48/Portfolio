@@ -48,3 +48,5 @@ app.use(cors());
 //AÑADIR PREFIJOS A RUTAS
 
 app.use(solicitudRutas);
+
+module.exports.app;
