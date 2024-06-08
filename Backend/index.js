@@ -20,12 +20,11 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
 // MongoDB connection
-mongoose
-  .connect("mongodb://127.0.0.1:27017/apirestportfolio")
-  .then(() => {
-    console.log("La conexión a la base de datos se ha realizado con bien!!");
-  })
-  .catch((err) => console.log(err));
+const run = async () => {
+  await mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio");
+};
+
+run().catch((err) => console.error(err));
 
 // EJECUTAR XPRES
 const app = express();
