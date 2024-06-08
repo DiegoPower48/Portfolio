@@ -6,10 +6,8 @@ var fs = require("fs");
 
 var controller = {
   correo: async (req, res) => {
-    res.header(
-      "Access-Control-Allow-Origin",
-      "https://diego-dev-portfolio.vercel.app"
-    );
+    res.header("Access-Control-Allow-Origin", "*");
+
     var params = req.body;
 
     var solicitud = new Solicitud();
