@@ -18,7 +18,7 @@ var controller = {
     if(ACCEPTED_ORIGINS.includes(origin) || !origin){
 res.header('Access-Control-Allow-Origin', origin)
 res.header('Access-Control-Allow-Methods',"POST","OPTIONS")
-    }res.sendStatus(200);
+    };
 
 
     var params = req.body;
