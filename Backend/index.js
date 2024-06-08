@@ -19,20 +19,20 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
+mongoose.Promise = global.Promise;
 // MongoDB connection
 
 // EJECUTAR XPRES
 const app = express();
 
+mongoose
+  .connect("mongodb://127.0.0.1:27017/apirestportfolio")
+  .then(() => console.log("MongoDB connected..."))
+  .catch((err) => console.log(err));
+
 app.listen(PORT, () => {
   console.log("servidor corriendo en http://localhost:" + PORT);
 });
-
-const run = async () => {
-  await mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio");
-};
-
-run().catch((err) => console.error(err));
 
 //CARGAR RUTAS
 const solicitudRutas = require("./routes/solicitud");
