@@ -4,12 +4,21 @@ var validator = require("validator");
 var Solicitud = require("../models/solicitud");
 var fs = require("fs");
 
+const ACCEPTED_ORIGINS=[
+  'https://diego-dev-portfolio.vercel.app',
+  'http://localhost:5173'
+]
+
+
+
+
 var controller = {
   correo: async (req, res) => {
-    res.header(
-      'Access-Control-Allow-Origin',
-      'https://diego-dev-portfolio.vercel.app'
-    );
+    const origin = req.header('origin');
+    if(ACCEPTED_ORIGINS.includes(origin) || !origin){
+res.header('Access-Control-Allow-Origin', origin)
+    };
+
 
     var params = req.body;
 
