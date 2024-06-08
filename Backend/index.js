@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:5173", // Reemplaza con tu dominio
+  origin: "https://diego-dev-portfolio.vercel.app", // Reemplaza con tu dominio
   optionsSuccessStatus: 200,
 };
 
