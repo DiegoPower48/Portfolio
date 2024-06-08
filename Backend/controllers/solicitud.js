@@ -5,7 +5,7 @@ var Solicitud = require("../models/solicitud");
 var fs = require("fs");
 
 var controller = {
-  correo: (req, res) => {
+  correo: async (req, res) => {
     var params = req.body;
 
     var solicitud = new Solicitud();
@@ -24,7 +24,7 @@ var controller = {
       solicitud.correo = params.correo;
       solicitud.comentario = params.comentario;
 
-      solicitud.save();
+      await solicitud.save();
 
       return res.status(200).send({
         status: "sucess",
