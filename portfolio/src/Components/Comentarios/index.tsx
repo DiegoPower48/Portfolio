@@ -9,7 +9,7 @@ function Comentarios() {
 
   const Datos = () => {
     axios
-      .post("https://portfolio-lala-3w3v.onrender.com/correo", datosObtenidos)
+      .post("https://portfolio-lala-3w3v.onrender.com", datosObtenidos)
       .then((response) => {
         console.log(response);
       });
@@ -19,7 +19,7 @@ function Comentarios() {
     <form
       className="comentarios"
       id="Contactos"
-      method="GET"
+      method="POST"
       onSubmit={handleSubmit((data) => {
         console.log(data);
       })}
