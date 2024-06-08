@@ -20,7 +20,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 const corsOptions = {
   origin: "http://localhost:5173/", // Reemplaza con tu dominio
