@@ -10,7 +10,7 @@ function Comentarios() {
   const Datos = () => {
     axios
       .post(
-        "hhttps://portfolio-backend-git-main-diegotorres-projects.vercel.app/correo",
+        "https://portfolio-backend-git-main-diegotorres-projects.vercel.app/correo",
         datosObtenidos
       )
       .then((response) => {
