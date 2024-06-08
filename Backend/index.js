@@ -49,4 +49,4 @@ app.use(cors());
 
 app.use(solicitudRutas);
 
-module.exports.app;
+module.exports = app;
