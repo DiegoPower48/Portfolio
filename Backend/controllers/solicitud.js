@@ -17,7 +17,8 @@ var controller = {
     const origin = req.header('origin');
     if(ACCEPTED_ORIGINS.includes(origin) || !origin){
 res.header('Access-Control-Allow-Origin', origin)
-res.header('Access-Control-Allow-Methods',"POST","OPTIONS")
+res.header('Access-Control-Allow-Methods','POST','OPTIONS')
+res.senStatus(200);
     };
 
 
