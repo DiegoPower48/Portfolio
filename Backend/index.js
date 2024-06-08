@@ -18,16 +18,8 @@ const PORT = process.env.PORT || 3000;
 // EJECUTAR XPRES
 const app = express();
 
-const corsOptions = {
-  origin: "https://diego-dev-portfolio.vercel.app", // Reemplaza con tu dominio
-  optionsSuccessStatus: 200,
-};
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
-
-app.use(cors(corsOptions));
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/apirestportfolio")
