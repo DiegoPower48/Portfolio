@@ -13,30 +13,27 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
-mongoose.Promise = global.Promise;
 // MongoDB connection
 
 // EJECUTAR XPRES
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/apirestportfolio")
   .then(() => console.log("conexion a la base de datos exitosa"))
   .catch((err) => console.log(err));
 
+//CARGAR RUTAS
+
+const solicitudRutas = require("./routes/solicitud");
+app.use(solicitudRutas);
+
+//CARGAR MIDDLEWARE
+
 app.listen(PORT, () => {
   console.log("servidor corriendo en http://localhost:" + PORT);
 });
-
-//CARGAR RUTAS
-const solicitudRutas = require("./routes/solicitud");
-
-//CARGAR MIDDLEWARE
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
-
-//CORSE
-
-//AÑADIR PREFIJOS A RUTAS
-app.use(solicitudRutas);
