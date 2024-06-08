@@ -30,14 +30,14 @@ mongoose
   .then(() => console.log("MongoDB connected..."))
   .catch((err) => console.log(err));
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
 // EJECUTAR XPRES
 var app = express();
 
 //CARGAR RUTAS
 
 var solicitudRutas = require("./routes/solicitud");
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 //CARGAR MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
