@@ -26,13 +26,8 @@ mongoose.Promise = global.Promise;
 const app = express();
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/apirestportfolio", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000, // Reduce el tiempo de espera
-    socketTimeoutMS: 45000, // Configura el tiempo de espera del socket
-  })
-  .then(() => console.log("MongoDB connected..."))
+  .connect("mongodb://127.0.0.1:27017/apirestportfolio")
+  .then(() => console.log("conexion a la base de datos exitosa"))
   .catch((err) => console.log(err));
 
 app.listen(PORT, () => {
