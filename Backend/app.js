@@ -1,28 +1,28 @@
-// "use strict";
+"use strict";
 
-// //CARGAR MODULOS DE NODE PARA CREAR EL SERVER
-// var express = require("express");
-// var bodyParser = require("body-parser");
-// var cors = require("cors");
+//CARGAR MODULOS DE NODE PARA CREAR EL SERVER
+var express = require("express");
+var bodyParser = require("body-parser");
+var cors = require("cors");
 
-// // EJECUTAR XPRES
-// var app = express();
+// EJECUTAR XPRES
+var app = express();
 
-// //CARGAR RUTAS
+//CARGAR RUTAS
 
-// var solicitudRutas = require("./routes/solicitud");
+var solicitudRutas = require("./routes/solicitud");
 
-// //CARGAR MIDDLEWARE
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-// app.use(cors());
+//CARGAR MIDDLEWARE
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
 
-// //CORSE
+//CORSE
 
-// //AÑADIR PREFIJOS A RUTAS
+//AÑADIR PREFIJOS A RUTAS
 
-// app.use(solicitudRutas);
+app.use(solicitudRutas);
 
-// //EXPORTAR EL MODULO
+//EXPORTAR EL MODULO
 
-// module.exports = app;
+module.exports = app;
