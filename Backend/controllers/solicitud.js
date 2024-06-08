@@ -6,7 +6,10 @@ var fs = require("fs");
 
 var controller = {
   correo: async (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      'Access-Control-Allow-Origin',
+      'https://diego-dev-portfolio.vercel.app'
+    );
 
     var params = req.body;
 
