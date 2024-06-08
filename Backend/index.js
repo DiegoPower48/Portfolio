@@ -17,11 +17,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-const app = express();
-
-// Middlewares
-app.use(bodyParser.json());
-
 // MongoDB connection
 mongoose
   .connect("mongodb://127.0.0.1:27017/apirestportfolio", {
@@ -30,10 +25,6 @@ mongoose
   })
   .then(() => console.log("MongoDB connected..."))
   .catch((err) => console.log(err));
-
-// Routes
-const usersRoute = require("./routes/users");
-app.use("/api/users", usersRoute);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
