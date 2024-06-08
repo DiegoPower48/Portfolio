@@ -9,7 +9,10 @@ function Comentarios() {
 
   const Datos = () => {
     axios
-      .post("https://portfolio-lala-3w3v.onrender.com/correo", datosObtenidos)
+      .post(
+        "https://portfolio-backend-iyt4rcibf-diegotorres-projects.vercel.app/correo",
+        datosObtenidos
+      )
       .then((response) => {
         console.log(response);
       });
