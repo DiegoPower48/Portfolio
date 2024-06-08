@@ -34,10 +34,6 @@ mongoose
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-var express = require("express");
-var bodyParser = require("body-parser");
-var cors = require("cors");
-
 // EJECUTAR XPRES
 var app = express();
 
