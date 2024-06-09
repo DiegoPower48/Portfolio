@@ -66,13 +66,6 @@ router.options("/correo", (req, res) => {
 
 app.use(cors(allowedOrigins));
 
-app.use((req, res, next) => {
-  console.log(`Request Method: ${req.method}`);
-  console.log(`Request Origin: ${req.headers.origin}`);
-  console.log(`Request Headers: ${JSON.stringify(req.headers)}`);
-  next();
-});
-
 //CONECTAR MONGOOSE
 
 mongoose
