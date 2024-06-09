@@ -3,7 +3,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,7 +10,9 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // Conectar a MongoDB
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(
+  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net/?retryWrites=true&w=majority&appName=PortfolioSolicitudes"
+);
 console.log("Conectado a MongoDB");
 
 // Definir un modelo
@@ -28,7 +29,11 @@ const Item = mongoose.model("Item", itemSchema);
 
 // Rutas
 
-const ACCEPTED_ORIGINS = ["http://localhost:5173/"];
+const ACCEPTED_ORIGINS = [
+  "http://localhost:5173/",
+  "https://portfolio-8az3.onrender.com/correo",
+  "https://portfolio-8az3.onrender.com",
+];
 
 app.post("/correo", async (req, res) => {
   const origin = req.header("origin");
@@ -48,7 +53,7 @@ app.post("/correo", async (req, res) => {
   }
 });
 
-app.options("/correo", async (req, res) => {
+app.options("/correo", (req, res) => {
   const origin = req.header("origin");
   if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
     res.header("Access-Control-Allow-Origin", origin);
