@@ -57,7 +57,7 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 
-async function startServer() {
+const startServer = async () => {
   try {
     // Conectar a MongoDB
     await mongoose.connect("mongodb://localhost:27017/apirestportfolio");
@@ -115,5 +115,5 @@ async function startServer() {
     console.error("Error al conectar a MongoDB:", err.message);
     process.exit(1); // Salir del proceso si no se puede conectar a la base de datos
   }
-}
+};
 startServer();
