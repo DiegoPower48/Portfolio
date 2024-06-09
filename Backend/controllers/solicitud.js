@@ -4,9 +4,21 @@ var validator = require("validator");
 var Solicitud = require("../models/solicitud");
 var fs = require("fs");
 
+const allowedOrigins = [
+  "https://diego-dev-portfolio.vercel.app",
+  "http://localhost:5173",
+];
+
 var controller = {
   correo: async (req, res) => {
     var params = req.body;
+
+    const origin = req.header("origin");
+    if (allowedOrigins.includes(origin) || !origin) {
+      res.header("Access-Control-Allow-Origin", origin);
+      res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
+    }
+    res.sendStatus(200);
 
     var solicitud = new Solicitud();
 
