@@ -18,7 +18,7 @@ var controller = {
       res.header("Access-Control-Allow-Origin", origin);
       res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
     }
-    res.sendStatus(200);
+    await res.sendStatus(200);
 
     var solicitud = new Solicitud();
 
