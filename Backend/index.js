@@ -23,31 +23,48 @@ app.use(bodyParser.json());
 
 // CONFIGURAR EL CORS
 
+// const allowedOrigins = [
+//   "https://diego-dev-portfolio.vercel.app",
+//   "http://localhost:5173",
+// ];
+
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     // Permitir solicitudes sin origen (por ejemplo, curl, Postman)
+//     if (!origin) return callback(null, true);
+
+//     if (allowedOrigins.indexOf(origin) !== -1) {
+//       // Si el origen está en la lista de permitidos
+//       callback(null, true);
+//     } else {
+//       // Si el origen no está en la lista de permitidos
+//       callback(new Error("No permitido por el CORS"));
+//     }
+//   },
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+// };
+
+// app.use(cors(corsOptions));
+var router = express.Router();
+
 const allowedOrigins = [
   "https://diego-dev-portfolio.vercel.app",
   "http://localhost:5173",
 ];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    // Permitir solicitudes sin origen (por ejemplo, curl, Postman)
-    if (!origin) return callback(null, true);
+router.options("/correo", (req, res) => {
+  const origin = req.header("origin");
+  if (allowedOrigins.includes(origin) || !origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
+  }
+  res.sendStatus(200);
+});
 
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      // Si el origen está en la lista de permitidos
-      callback(null, true);
-    } else {
-      // Si el origen no está en la lista de permitidos
-      callback(new Error("No permitido por el CORS"));
-    }
-  },
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
-
-app.use(cors(corsOptions));
+app.use(cors(allowedOrigins));
 
 app.use((req, res, next) => {
   console.log(`Request Method: ${req.method}`);
