@@ -66,14 +66,37 @@ const Item = mongoose.model(
 
 // Rutas
 
+const allowedOrigins = ["http://localhost:5173"];
+
 app.post("/correo", async (req, res) => {
+  const origin = req.header("origin");
+  if (allowedOrigins.includes(origin) || !origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
+  }
+
   const item = new Solicitud({
     name: req.body.name,
     name: req.body.correo,
     name: req.body.comentario,
   });
+
   await item.save();
   res.send(item);
+});
+
+app.options("/correo", async (req, res) => {
+  const origin = req.header("origin");
+  if (allowedOrigins.includes(origin) || !origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
+  }
+
+  const item = new Solicitud({
+    name: req.body.name,
+    name: req.body.correo,
+    name: req.body.comentario,
+  });
 });
 
 // Iniciar el servidor
