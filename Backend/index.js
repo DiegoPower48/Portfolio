@@ -84,7 +84,7 @@ app.post("/correo", async (req, res) => {
   }
 });
 
-app.options("/api/items", cors(corsOptions), (req, res) => {
+app.options("/api/items", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
 });
 
