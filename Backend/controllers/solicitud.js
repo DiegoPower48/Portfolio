@@ -4,10 +4,8 @@ var validator = require("validator");
 var Solicitud = require("../models/solicitud");
 var fs = require("fs");
 
-
 var controller = {
   correo: async (req, res) => {
-   
     var params = req.body;
 
     var solicitud = new Solicitud();

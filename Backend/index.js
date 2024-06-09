@@ -21,10 +21,13 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 // CONFIGURAR EL CORS
 
-const allowedOrigins = ['https://diego-dev-portfolio.vercel.app', 'http://localhost:5173','https://portfolio-lala-3w3v.onrender.com'];
+const allowedOrigins = [
+  "https://diego-dev-portfolio.vercel.app",
+  "http://localhost:5173",
+  "https://portfolio-lala-3w3v.onrender.com",
+];
 
 const corsOptions = {
   origin: (origin, callback) => {
@@ -36,15 +39,14 @@ const corsOptions = {
       callback(null, true);
     } else {
       // Si el origen no está en la lista de permitidos
-      callback(new Error('No permitido por el CORS'));
+      callback(new Error("No permitido por el CORS"));
     }
   },
-  methods: 'POST',
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: "POST",
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
-  optionsSuccessStatus: 204
+  optionsSuccessStatus: 204,
 };
-
 
 app.use(cors(corsOptions));
 
