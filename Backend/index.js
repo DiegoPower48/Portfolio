@@ -1,57 +1,17 @@
 "use strict";
 
-// // mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio").then(() => {
-// //   console.log("La conexión a la base de datos se ha realizado con bien!!");
-// //   app.listen(PORT, () => {
-// //     console.log("servidor corriendo en http://localhost:" + PORT);
-// //   });
-// // });
-
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const bodyParser = require("body-parser");
-// const cors = require("cors");
-// const PORT = process.env.PORT || 3000;
-
-// // MongoDB connection
-
-// // EJECUTAR XPRES
-// const app = express();
-
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-// app.use(cors());
-
-// mongoose
-//   .connect("mongodb://127.0.0.1:27017/apirestportfolio")
-//   .then(() => console.log("conexion a la base de datos exitosa"))
-//   .catch((err) => console.log(err));
-
-// //CARGAR RUTAS
-
-// const solicitudRutas = require("./routes/solicitud");
-// app.use(solicitudRutas);
-
-// //CARGAR MIDDLEWARE
-
-// app.listen(PORT, () => {
-//   console.log("servidor corriendo en http://localhost:" + PORT);
-// });
-
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-const MONGODB_URI =
-  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net";
-
 // Conectar a MongoDB
-mongoose.connect(MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 console.log("Conectado a MongoDB");
 
 // Definir un modelo
@@ -68,10 +28,14 @@ const Item = mongoose.model("Item", itemSchema);
 
 // Rutas
 
-app.post("/correo", async (req, res) => {
-  try {
-    res.header("Access-Control-Allow-Origin", "*");
+const ACCEPTED_ORIGINS = ["http://localhost:5173/"];
 
+app.post("/correo", async (req, res) => {
+  const origin = req.header("origin");
+  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+  try {
     const item = new Item({
       nombre: req.body.nombre,
       correo: req.body.correo,
@@ -84,8 +48,13 @@ app.post("/correo", async (req, res) => {
   }
 });
 
-app.options("/api/items", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
+app.options("/correo", async (req, res) => {
+  const origin = req.header("origin");
+  if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Methods", "POST");
+  }
+  res.status(200);
 });
 
 // Iniciar el servidor
