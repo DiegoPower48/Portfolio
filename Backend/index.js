@@ -26,7 +26,6 @@ app.use(bodyParser.json());
 const allowedOrigins = [
   "https://diego-dev-portfolio.vercel.app",
   "http://localhost:5173",
-  "https://portfolio-lala-3w3v.onrender.com",
 ];
 
 const corsOptions = {
@@ -49,6 +48,13 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+  console.log(`Request Method: ${req.method}`);
+  console.log(`Request Origin: ${req.headers.origin}`);
+  console.log(`Request Headers: ${JSON.stringify(req.headers)}`);
+  next();
+});
 
 //CONECTAR MONGOOSE
 
