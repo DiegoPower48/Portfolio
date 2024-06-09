@@ -66,8 +66,27 @@ router.options("/correo", (req, res) => {
 
 app.use(cors(allowedOrigins));
 
+//CARGAR SCHEMA
+
+var Schema = mongoose.Schema;
+var Solicitud = Schema({
+  nombre: String,
+  correo: String,
+  comentario: String,
+  file: String,
+});
+
 //CONECTAR MONGOOSE
 
+async function run() {
+  await mongoose
+    .connect("mongodb://127.0.0.1:27017/apirestportfolio")
+    .then(() => console.log("conexion a la base de datos exitosa"))
+    .catch((err) => console.log(err));
+  await mongoose.model("Solicitud").findOne();
+}
+
+run();
 //CARGAR RUTAS
 
 const solicitudRutas = require("./routes/solicitud");
@@ -77,16 +96,6 @@ app.use(solicitudRutas);
 
 app.listen(PORT, () => {
   console.log("servidor corriendo en http://localhost:" + PORT);
-});
-
-//CARGAR SCHEMA
-
-var Schema = mongoose.Schema;
-var Solicitud = Schema({
-  nombre: String,
-  correo: String,
-  comentario: String,
-  file: String,
 });
 
 //UPLOAD
@@ -134,8 +143,3 @@ var controller = {
 var router = express.Router();
 
 router.post("/correo", controller.correo);
-
-mongoose
-  .connect("mongodb://127.0.0.1:27017/apirestportfolio")
-  .then(() => console.log("conexion a la base de datos exitosa"))
-  .catch((err) => console.log(err));
