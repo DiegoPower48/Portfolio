@@ -41,12 +41,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware
 app.use(bodyParser.json());
+
+const corsOptions = {
+  origin: "http://localhost:5173", // Permitir solo este origen
+  methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+  allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
+};
+
+// Middleware
+app.use(cors(corsOptions));
 
 // Conexión a MongoDB
 mongoose
@@ -91,12 +100,6 @@ app.options("/correo", async (req, res) => {
     res.header("Access-Control-Allow-Origin", origin);
     res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
   }
-
-  const item = new Solicitud({
-    name: req.body.name,
-    name: req.body.correo,
-    name: req.body.comentario,
-  });
 });
 
 // Iniciar el servidor
