@@ -60,7 +60,7 @@ app.use(cors(corsOptions));
 const startServer = async () => {
   try {
     // Conectar a MongoDB
-    await mongoose.connect("mongodb://localhost:27017/apirestportfolio");
+    await mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio");
     console.log("Conectado a MongoDB");
 
     // Definir un modelo

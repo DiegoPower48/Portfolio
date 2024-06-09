@@ -9,7 +9,7 @@ function Comentarios() {
 
   const Datos = () => {
     axios
-      .post("https://portfolio-8az3.onrender.com/correo", datosObtenidos)
+      .post("http://localhost:3000/correo", datosObtenidos)
       .then((response) => {
         console.log(response);
       });
