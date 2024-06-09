@@ -49,7 +49,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: "*", // Permitir solo este origen
+  origin: "http://localhost:5173", // Permitir solo este origen
   methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
   allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
 };
