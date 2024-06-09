@@ -58,7 +58,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const MONGODB_URI =
-  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net/";
+  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net";
 
 // Conectar a MongoDB
 mongoose.connect(MONGODB_URI);

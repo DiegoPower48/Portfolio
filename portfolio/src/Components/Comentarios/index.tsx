@@ -9,7 +9,7 @@ function Comentarios() {
 
   const Datos = () => {
     axios
-      .post("http://localhost:3000/correo", datosObtenidos)
+      .post("https://backend-drab-three-76.vercel.app/correo", datosObtenidos)
       .then((response) => {
         console.log(response);
       })
