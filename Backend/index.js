@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 // CONFIGURAR EL CORS
 
-const allowedOrigins = ['https://diego-dev-portfolio.vercel.app', 'http://localhost:5173'];
+const allowedOrigins = ['https://diego-dev-portfolio.vercel.app', 'http://localhost:5173','https://portfolio-lala-3w3v.onrender.com'];
 
 const corsOptions = {
   origin: (origin, callback) => {
