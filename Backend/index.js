@@ -41,21 +41,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-
-const corsOptions = {
-  origin: "*", // Permitir solo este origen
-  methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
-  allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
-};
-
-// Middleware
-app.use(cors(corsOptions));
 
 const MONGODB_URI =
   "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net";
@@ -80,6 +70,8 @@ const Item = mongoose.model("Item", itemSchema);
 
 app.post("/correo", async (req, res) => {
   try {
+    res.header("Access-Control-Allow-Origin", "*");
+
     const item = new Item({
       nombre: req.body.nombre,
       correo: req.body.correo,
@@ -93,7 +85,7 @@ app.post("/correo", async (req, res) => {
 });
 
 app.options("/api/items", cors(corsOptions), (req, res) => {
-  res.sendStatus(204);
+  res.header("Access-Control-Allow-Origin", "*");
 });
 
 // Iniciar el servidor
