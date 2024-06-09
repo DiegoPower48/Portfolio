@@ -46,12 +46,10 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
-const router = express.Router();
-
 app.use(bodyParser.json());
 
 const corsOptions = {
-  origin: "http://localhost:5173", // Permitir solo este origen
+  origin: "*", // Permitir solo este origen
   methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
   allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
 };
@@ -77,7 +75,7 @@ const Item = mongoose.model("Item", itemSchema);
 
 // Rutas
 
-router.post("/correo", async (req, res) => {
+app.post("/correo", async (req, res) => {
   try {
     const item = new Item({
       nombre: req.body.nombre,
@@ -91,11 +89,11 @@ router.post("/correo", async (req, res) => {
   }
 });
 
-router.options("/api/items", cors(corsOptions), (req, res) => {
+app.options("/api/items", cors(corsOptions), (req, res) => {
   res.sendStatus(204);
 });
 
 // Iniciar el servidor
 app.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
+  console.log("servidor corriendo en http://localhost:" + port);
 });

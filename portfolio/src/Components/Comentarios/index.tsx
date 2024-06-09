@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 function Comentarios() {
@@ -13,10 +14,11 @@ function Comentarios() {
       .then((response) => {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   };
+
   return (
     <form
       className="comentarios"
