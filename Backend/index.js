@@ -46,6 +46,8 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
+const router = express.Router();
+
 app.use(bodyParser.json());
 
 const corsOptions = {
@@ -57,63 +59,55 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 
-const startServer = async () => {
-  try {
-    // Conectar a MongoDB
-    await mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio");
-    console.log("Conectado a MongoDB");
+// Conectar a MongoDB
+await mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio");
+console.log("Conectado a MongoDB");
 
-    // Definir un modelo
-    const itemSchema = new mongoose.Schema(
-      {
-        nombre: { type: String },
-        correo: { type: String },
-        comentario: { type: String },
-      },
-      { collection: "diegos" }
-    );
+// Definir un modelo
+const itemSchema = new mongoose.Schema(
+  {
+    nombre: { type: String },
+    correo: { type: String },
+    comentario: { type: String },
+  },
+  { collection: "diegos" }
+);
 
-    const Item = mongoose.model("Item", itemSchema);
+const Item = mongoose.model("Item", itemSchema);
 
-    // Rutas
+// Rutas
 
-    app.post("/correo", async (req, res) => {
-      const allowedOrigins = ["http://localhost:5173"];
-      const origin = req.header("origin");
-      if (allowedOrigins.includes(origin) || !origin) {
-        res.header("Access-Control-Allow-Origin");
-        res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
-      }
-
-      try {
-        const item = new Item({
-          nombre: req.body.nombre,
-          correo: req.body.correo,
-          comentario: req.body.comentario,
-        });
-        await item.save();
-        res.send(item);
-      } catch (err) {
-        res.status(500).send({ message: err.message });
-      }
-    });
-
-    app.options("/correo", async (req, res) => {
-      const allowedOrigins = ["http://localhost:5173"];
-      const origin = req.header("origin");
-      if (allowedOrigins.includes(origin) || !origin) {
-        res.header("Access-Control-Allow-Origin", origin);
-        res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
-      }
-    });
-
-    // Iniciar el servidor
-    app.listen(port, () => {
-      console.log(`Servidor escuchando en el puerto ${port}`);
-    });
-  } catch (err) {
-    console.error("Error al conectar a MongoDB:", err.message);
-    process.exit(1); // Salir del proceso si no se puede conectar a la base de datos
+router.post("/correo", async (req, res) => {
+  const allowedOrigins = ["http://localhost:5173"];
+  const origin = req.header("origin");
+  if (allowedOrigins.includes(origin) || !origin) {
+    res.header("Access-Control-Allow-Origin");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
   }
-};
-startServer();
+
+  try {
+    const item = new Item({
+      nombre: req.body.nombre,
+      correo: req.body.correo,
+      comentario: req.body.comentario,
+    });
+    await item.save();
+    res.send(item);
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+});
+
+router.options("/correo", async (req, res) => {
+  const allowedOrigins = ["http://localhost:5173"];
+  const origin = req.header("origin");
+  if (allowedOrigins.includes(origin) || !origin) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
+  }
+});
+
+// Iniciar el servidor
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});
