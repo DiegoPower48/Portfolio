@@ -57,8 +57,11 @@ const corsOptions = {
 // Middleware
 app.use(cors(corsOptions));
 
+const MONGODB_URI =
+  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net/";
+
 // Conectar a MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio");
+mongoose.connect(MONGODB_URI);
 console.log("Conectado a MongoDB");
 
 // Definir un modelo
