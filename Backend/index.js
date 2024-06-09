@@ -78,13 +78,6 @@ const Item = mongoose.model("Item", itemSchema);
 // Rutas
 
 router.post("/correo", async (req, res) => {
-  const allowedOrigins = ["http://localhost:5173"];
-  const origin = req.header("origin");
-  if (allowedOrigins.includes(origin) || !origin) {
-    res.header("Access-Control-Allow-Origin");
-    res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
-  }
-
   try {
     const item = new Item({
       nombre: req.body.nombre,
@@ -95,15 +88,6 @@ router.post("/correo", async (req, res) => {
     res.send(item);
   } catch (err) {
     res.status(500).send({ message: err.message });
-  }
-});
-
-router.options("/correo", async (req, res) => {
-  const allowedOrigins = ["http://localhost:5173"];
-  const origin = req.header("origin");
-  if (allowedOrigins.includes(origin) || !origin) {
-    res.header("Access-Control-Allow-Origin", origin);
-    res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
   }
 });
 
