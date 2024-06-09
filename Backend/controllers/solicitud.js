@@ -20,7 +20,7 @@ var controller = {
     }
     await res.sendStatus(200);
 
-    var solicitud = await new Solicitud();
+    var solicitud = new Solicitud();
 
     try {
       var validarNombre = !validator.isEmpty(params.nombre);

@@ -68,11 +68,6 @@ app.use(cors(allowedOrigins));
 
 //CONECTAR MONGOOSE
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/apirestportfolio")
-  .then(() => console.log("conexion a la base de datos exitosa"))
-  .catch((err) => console.log(err));
-
 //CARGAR RUTAS
 
 const solicitudRutas = require("./routes/solicitud");
@@ -83,3 +78,64 @@ app.use(solicitudRutas);
 app.listen(PORT, () => {
   console.log("servidor corriendo en http://localhost:" + PORT);
 });
+
+//CARGAR SCHEMA
+
+var Schema = mongoose.Schema;
+var Solicitud = Schema({
+  nombre: String,
+  correo: String,
+  comentario: String,
+  file: String,
+});
+
+//UPLOAD
+
+var validator = require("validator");
+
+var controller = {
+  correo: async (req, res) => {
+    var params = req.body;
+
+    const origin = req.header("origin");
+    if (allowedOrigins.includes(origin) || !origin) {
+      res.header("Access-Control-Allow-Origin", origin);
+      res.header("Access-Control-Allow-Methods", "GET,POST,PATCH");
+    }
+    await res.sendStatus(200);
+
+    var solicitud = new Solicitud();
+
+    try {
+      var validarNombre = !validator.isEmpty(params.nombre);
+      var validarcorreo = !validator.isEmpty(params.correo);
+      var validarcomentario = !validator.isEmpty(params.comentario);
+    } catch (err) {
+      return res.status(400).send({
+        mensaje: "falta datos",
+      });
+    }
+    if (validarNombre && validarcorreo && validarcomentario) {
+      solicitud.nombre = params.nombre;
+      solicitud.correo = params.correo;
+      solicitud.comentario = params.comentario;
+
+      await solicitud.save();
+
+      return res.status(200).send({
+        status: "sucess",
+        solicitud,
+      });
+    }
+  },
+};
+
+//ROUTRE
+var router = express.Router();
+
+router.post("/correo", controller.correo);
+
+mongoose
+  .connect("mongodb://127.0.0.1:27017/apirestportfolio")
+  .then(() => console.log("conexion a la base de datos exitosa"))
+  .catch((err) => console.log(err));
