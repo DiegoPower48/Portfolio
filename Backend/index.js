@@ -53,7 +53,7 @@ app.use(cors(corsOptions));
 //CONECTAR MONGOOSE
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/apirestportfolio")
+  .connect("mongodb://0.0.0.0:27017/apirestportfolio")
   .then(() => console.log("conexion a la base de datos exitosa"))
   .catch((err) => console.log(err));
 
