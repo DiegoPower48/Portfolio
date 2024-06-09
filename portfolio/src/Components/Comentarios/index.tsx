@@ -7,13 +7,13 @@ function Comentarios() {
 
   const datosObtenidos = watch();
 
-  const Datos = () => {
-    axios
-      .post("https://portfolio-lala-3w3v.onrender.com/correo", datosObtenidos)
-      .then((response) => {
-        console.log(response);
-      });
-  };
+  // const Datos = () => {
+  //   axios
+  //     .post("http://localhost:3000/correo", datosObtenidos)
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  // };
 
   return (
     <form
@@ -64,7 +64,7 @@ function Comentarios() {
           type="submit"
           className="btn btn-warning"
           value="Enviar"
-          onClick={Datos}
+          // onClick={Datos}
         >
           Enviar
         </button>
