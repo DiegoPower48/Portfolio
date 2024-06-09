@@ -92,7 +92,6 @@ router.post("/correo", async (req, res) => {
 });
 
 router.options("/api/items", cors(corsOptions), (req, res) => {
-  res.set("Allow", "GET,POST,PUT,DELETE,OPTIONS");
   res.sendStatus(204);
 });
 
