@@ -42,7 +42,7 @@ const corsOptions = {
       callback(new Error("No permitido por el CORS"));
     }
   },
-  methods: "POST",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
   optionsSuccessStatus: 204,
