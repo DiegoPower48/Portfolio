@@ -64,7 +64,7 @@ mongoose
   .catch((err) => console.error("Error al conectar a MongoDB", err));
 
 // Definir un modelo
-const Item = mongoose.model(
+const Solicitud = mongoose.model(
   "Solicitud",
   new mongoose.Schema({
     nombre: String,
