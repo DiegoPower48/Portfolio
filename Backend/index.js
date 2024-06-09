@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 
 // // mongoose.connect("mongodb://127.0.0.1:27017/apirestportfolio").then(() => {
 // //   console.log("La conexión a la base de datos se ha realizado con bien!!");
