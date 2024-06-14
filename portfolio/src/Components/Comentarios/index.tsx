@@ -12,6 +12,7 @@ function Comentarios() {
       .post("https://portfolio-8az3.onrender.com/correo", datosObtenidos)
       .then((response) => {
         console.log(response);
+        alert("Gracias por el mensaje, la web esta en desarrollo aun :)");
       })
       .catch((error) => {
         console.log(error);
