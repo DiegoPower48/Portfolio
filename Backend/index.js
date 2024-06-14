@@ -3,6 +3,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,9 +11,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // Conectar a MongoDB
-mongoose.connect(
-  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net/?retryWrites=true&w=majority&appName=PortfolioSolicitudes"
-);
+mongoose.connect(process.env.MONGODB_URI);
 console.log("Conectado a MongoDB");
 
 // Definir un modelo
@@ -58,6 +57,7 @@ app.options("/correo", (req, res) => {
   if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
     res.header("Access-Control-Allow-Origin", origin);
     res.header("Access-Control-Allow-Methods", "POST");
+    res.set("Allow", "OPTIONS, POST");
   }
   res.status(200);
 });
