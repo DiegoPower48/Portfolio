@@ -74,9 +74,9 @@ app.post("/correo", async (req, res) => {
       comentario: req.body.comentario,
     });
     await item.save();
-    res.send(item);
+    res.status(201).send(item);
   } catch (err) {
-    res.status(500).send({ message: err.message });
+    res.status(400).send({ message: err.message });
   }
 });
 
