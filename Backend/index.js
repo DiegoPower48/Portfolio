@@ -29,25 +29,14 @@ const itemSchema = new mongoose.Schema(
     correo: { type: String },
     comentario: { type: String },
   },
-  { collection: "diegos" }
+  { collection: "COMENTARIOS" }
 );
 
 const Item = mongoose.model("Item", itemSchema);
 
 // Rutas
 
-const ACCEPTED_ORIGINS = [
-  "http://localhost:5173",
-  "https://portfolio-8az3.onrender.com/correo",
-  "https://portfolio-8az3.onrender.com",
-];
-
 app.post("/correo", async (req, res) => {
-  // const origin = req.headers.origin;
-  // if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-  //   res.header("Access-Control-Allow-Origin", origin);
-  // }
-
   try {
     const item = new Item({
       nombre: req.body.nombre,
@@ -60,15 +49,6 @@ app.post("/correo", async (req, res) => {
     res.status(400).send({ message: err.message });
   }
 });
-
-// app.options("/correo", (req, res) => {
-//   const origin = req.headers.origin;
-//   if (ACCEPTED_ORIGINS.includes(origin) || !origin) {
-//     res.header("Access-Control-Allow-Origin", origin);
-//     res.header("Access-Control-Allow-Methods", "POST, OPTIONS");
-//   }
-//   res.sendStatus(200);
-// });
 
 // Iniciar el servidor
 app.listen(port, () => {
