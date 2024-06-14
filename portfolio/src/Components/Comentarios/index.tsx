@@ -61,14 +61,12 @@ function Comentarios() {
           {...register("comentario")}
         ></textarea>
 
-        <button
+        <input
           type="submit"
           className="btn btn-warning"
           value="Enviar"
           onClick={Datos}
-        >
-          Enviar
-        </button>
+        />
       </fieldset>
     </form>
   );
