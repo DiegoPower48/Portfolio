@@ -11,24 +11,20 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Lista de orígenes permitidos
-      const ACCEPTED_ORIGINS = [
-        "http://localhost:5173",
-        "https://portfolio-8az3.onrender.com",
-      ];
-      // Permitir solicitudes sin origen (como curl o Postman)
-      if (!origin) return callback(null, true);
-      if (ACCEPTED_ORIGINS.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Permitir solicitudes sin origen (como curl o Postman)
+    if (!origin) return callback(null, true);
+    if (ACCEPTED_ORIGINS.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 
 // Conectar a MongoDB
 mongoose.connect(
