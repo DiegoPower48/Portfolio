@@ -5,6 +5,7 @@ import Proyectos from "./Components/Proyectos";
 import Tecnologias, { Iconos } from "./Components/Tecnologias";
 import Comentarios from "./Components/Comentarios";
 import Footers from "./Components/Footers";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       </Tecnologias>
       <Comentarios />
       <Footers />
+      <Analytics />
     </>
   );
 }
