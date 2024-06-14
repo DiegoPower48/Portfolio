@@ -9,8 +9,6 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
-
 const corsOptions = {
   origin: function (origin, callback) {
     // Permitir solicitudes sin origen (como curl o Postman)
@@ -26,9 +24,13 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
+// Middleware
+app.use(bodyParser.json());
+app.use(cors(corsOptions));
+
 // Conectar a MongoDB
 mongoose.connect(
-  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net/"
+  "mongodb+srv://diegotorres11:aCljStNR9of8uZhi@portfoliosolicitudes.zim6muz.mongodb.net/?retryWrites=true&w=majority&appName=PortfolioSolicitudes"
 );
 mongoose.connection.on("connected", () => {
   console.log("Conectado a MongoDB");
