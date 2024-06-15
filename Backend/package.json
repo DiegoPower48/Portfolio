@@ -10,6 +10,7 @@
   "author": "Diego Torres",
   "license": "ISC",
   "dependencies": {
+    "@getbrevo/brevo": "^2.1.1",
     "body-parser": "^1.20.2",
     "connect-multiparty": "^2.2.0",
     "cors": "^2.8.5",
