@@ -3,14 +3,16 @@ import { useForm } from "react-hook-form";
 
 function Comentarios() {
   //HOOK DE FORMS
-  const { register, handleSubmit, watch } = useForm();
 
-  const datosObtenidos = watch();
+  const { register, watch, handleSubmit, reset } = useForm();
+
+  const informacionFormulario = watch();
 
   const Datos = () => {
     axios
-      .post("https://portfolio-8az3.onrender.com/correo", datosObtenidos)
+      .post("https://portfolio-8az3.onrender.com/correo", informacionFormulario)
       .then((response) => {
+        reset();
         console.log(response);
         alert("Gracias por el mensaje, la web esta en desarrollo aun :)");
       })
@@ -20,12 +22,7 @@ function Comentarios() {
   };
 
   return (
-    <form
-      className="comentarios"
-      id="Contactos"
-      method="POST"
-      onSubmit={handleSubmit((data) => console.log(data))}
-    >
+    <form className="comentarios" id="Contactos" method="POST">
       <fieldset className="contactame">
         <h1>
           <label>Contactame</label>
@@ -62,14 +59,21 @@ function Comentarios() {
           {...register("comentario")}
         ></textarea>
 
-        <input
-          type="submit"
-          className="btn btn-warning"
-          value="Enviar"
-          onClick={Datos}
-        />
+        <Boton onClick={handleSubmit(Datos)} />
       </fieldset>
     </form>
+  );
+}
+
+interface BotonProps {
+  onClick: () => void;
+}
+
+function Boton({ onClick }: BotonProps) {
+  return (
+    <button type="submit" className="btn btn-warning" onClick={onClick}>
+      Enviar
+    </button>
   );
 }
 
