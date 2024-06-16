@@ -1,6 +1,6 @@
 "use strict";
 
-const sendMail = require("./resend");
+const sendMail = require("./mail");
 var Item = require("../models/solicitud");
 
 require("dotenv").config();
@@ -14,7 +14,7 @@ var controller = {
         comentario: req.body.comentario,
       });
 
-      sendMail(item.correo, item.comentario);
+      sendMail(item.nombre, item.correo, item.comentario);
 
       await item.save();
       res.status(201).send(item);
