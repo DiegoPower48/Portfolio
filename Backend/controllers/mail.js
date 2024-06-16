@@ -17,7 +17,7 @@ async function sendMail(nombre, correo, comentario) {
       { email: correo, name: "otros" },
     ];
 
-    enviarCorreo.htmlContent = `<h1>${nombre}</h1><br><h2>${comentario}</h2>`;
+    enviarCorreo.htmlContent = `<h1>${nombre}</h1><br><p>${comentario}</p><br><p>Correo enviado desde: ${correo}</p>`;
 
     enviarCorreo.sender = {
       name: "Diego Torres",

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { Toaster, toast } from "react-hot-toast";
 
 function Comentarios() {
   //HOOK DE FORMS
@@ -14,7 +15,7 @@ function Comentarios() {
       .then((response) => {
         reset();
         console.log(response);
-        alert("Gracias por el mensaje, la web esta en desarrollo aun :)");
+        toast.success("GRACIAS POR EL MENSAJE!!!!🎉🎉🎉");
       })
       .catch((error) => {
         console.log(error);
@@ -34,8 +35,7 @@ function Comentarios() {
           placeholder="Name"
           type="text"
           className="formulario"
-          required
-          {...register("nombre")}
+          {...register("nombre", { required: true })}
         />
       </fieldset>
       <fieldset>
@@ -46,7 +46,7 @@ function Comentarios() {
           id="email"
           type="text"
           className="formulario"
-          {...register("correo")}
+          {...register("correo", { required: true })}
         />
       </fieldset>
       <fieldset>
@@ -56,11 +56,12 @@ function Comentarios() {
           required
           placeholder="Write your questions and comments here please"
           className="textarea"
-          {...register("comentario")}
+          {...register("comentario", { required: true })}
         ></textarea>
 
         <Boton onClick={handleSubmit(Datos)} />
       </fieldset>
+      <Toaster />
     </form>
   );
 }
