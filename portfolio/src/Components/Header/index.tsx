@@ -2,7 +2,7 @@ function Header() {
   return (
     <ul className="nav justify-content-end header">
       <li className="nav-item">
-        <a className="nav-link " href="#Resume">
+        <a className="nav-link " href="#Resume" translate="no">
           Resumen
         </a>
       </li>
