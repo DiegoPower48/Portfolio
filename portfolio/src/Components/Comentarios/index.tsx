@@ -11,7 +11,7 @@ function Comentarios() {
 
   const Datos = () => {
     axios
-      .post("http://localhost:3000/correo", informacionFormulario)
+      .post("https://portfolio-8az3.onrender.com/correo", informacionFormulario)
       .then((response) => {
         reset();
         console.log(response);
