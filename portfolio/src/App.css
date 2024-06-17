@@ -398,7 +398,10 @@ body {
     text-align: center;
     padding: 0px;
   }
-
+  .tecnologias {
+    height: 250px;
+    margin-top: 80px;
+  }
   .formulario {
     width: 100%;
     height: 40px;
