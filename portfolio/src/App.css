@@ -1,6 +1,6 @@
 body {
   border: 0px;
-  padding: 30px;
+  padding: 20px;
   font-size: 15px;
   background-color: #070e29;
   color: white;
@@ -294,6 +294,9 @@ body {
 }
 
 @media (max-width: 659px) {
+  body {
+    padding: 0px;
+  }
   .header {
     display: block;
     text-align: center;
@@ -343,6 +346,7 @@ body {
     height: 40px;
   }
   .Iconos {
+    width: 500px;
     animation-duration: 20s;
   }
   .Icono1 {
