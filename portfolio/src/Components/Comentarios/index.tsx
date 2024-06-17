@@ -12,10 +12,10 @@ function Comentarios() {
   const Datos = () => {
     axios
       .post("https://portfolio-8az3.onrender.com/correo", informacionFormulario)
-      .then((response) => {
-        reset();
+      .then(async (response) => {
+        await reset();
         console.log(response);
-        toast.success("GRACIAS POR EL MENSAJE!!!!🎉🎉🎉");
+        await toast.success("GRACIAS POR EL MENSAJE!!!!🎉🎉🎉");
       })
       .catch((error) => {
         console.log(error);
