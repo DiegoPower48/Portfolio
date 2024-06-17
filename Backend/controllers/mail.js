@@ -13,8 +13,7 @@ async function sendMail(nombre, correo, comentario) {
     const enviarCorreo = new brevo.SendSmtpEmail();
     enviarCorreo.subject = "COMENTARIO DE PORTFOLIO";
     enviarCorreo.to = [
-      { email: "diego_torres_11@hotmail.com", name: "diegoTorres" },
-      { email: correo, name: "otros" },
+      { email: "diego_torres_11@hotmail.com", name: "Portfolio dice" },
     ];
 
     enviarCorreo.htmlContent = `<h1>${nombre}</h1><br><p>${comentario}</p><br><p>Correo enviado desde: ${correo}</p>`;
