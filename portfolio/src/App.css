@@ -1,6 +1,6 @@
 body {
   border: 0px;
-  padding: 0px;
+  padding: 30px;
   font-size: 15px;
   background-color: #070e29;
   color: white;
@@ -123,6 +123,9 @@ body {
   float: left;
   color: orange;
   text-shadow: 3px 3px 3px orange;
+}
+
+.wrapper {
 }
 
 .Iconos {

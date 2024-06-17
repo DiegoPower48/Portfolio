@@ -10,12 +10,21 @@ function Comentarios() {
   const informacionFormulario = watch();
 
   const Datos = () => {
-    axios
-      .post("https://portfolio-8az3.onrender.com/correo", informacionFormulario)
+    toast
+      .promise(
+        axios.post(
+          "https://portfolio-8az3.onrender.com/correo",
+          informacionFormulario
+        ),
+        {
+          loading: "⏳⏳  ENVIANDO COMENTARIO......",
+          success: <b>"GRACIAS POR EL COMENTARIO!!!!🚀🚀🚀"</b>,
+          error: <b>NO SE PUDO GUARDAR</b>,
+        }
+      )
       .then((response) => {
         reset();
         console.log(response);
-        toast.success("GRACIAS POR EL MENSAJE!!!!🎉🎉🎉");
       })
       .catch((error) => {
         console.log(error);

@@ -9,7 +9,7 @@ function Tecnologias(props: TecnologiasProps) {
   return (
     <div className="tecnologias" id="Tecnologias">
       <h1>Tecnologias:</h1>
-      <h1>{children}</h1>
+      <h1 className="wrapper">{children}</h1>
     </div>
   );
 }
