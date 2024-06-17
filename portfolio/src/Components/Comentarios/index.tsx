@@ -13,7 +13,7 @@ function Comentarios() {
     toast
       .promise(
         axios.post(
-          "https://portfolio-8az3.onrender.com/correo",
+          "https://backendportfolio-one.vercel.app/correo",
           informacionFormulario
         ),
         {
