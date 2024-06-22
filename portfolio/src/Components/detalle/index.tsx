@@ -1,7 +1,7 @@
 function detalle() {
   return (
     <div className="detalle">
-      <h1>SOBRE MI:</h1>
+      <h1> {"<SOBRE MI/>"} </h1>
       <br />
       <p>
         Soy un Desarrollador Web con un profundo interes en mejorar herramientas

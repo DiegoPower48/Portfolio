@@ -1,7 +1,7 @@
 function Proyectos() {
   return (
     <div className="proyectos" id="Proyectos">
-      <h1>Proyectos:</h1>
+      <h1>{"<Proyectos/>"}:</h1>
 
       <Trabajos />
     </div>
