@@ -264,6 +264,12 @@ body {
   width: 40%;
 }
 
+.correoError {
+  color: red;
+  margin-left: 10px;
+  text-shadow: 2px 2px 2px red;
+}
+
 .textarea {
   text-align: left;
   width: 100%;

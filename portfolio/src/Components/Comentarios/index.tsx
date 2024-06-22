@@ -5,7 +5,13 @@ import { Toaster, toast } from "react-hot-toast";
 function Comentarios() {
   //HOOK DE FORMS
 
-  const { register, watch, handleSubmit, reset } = useForm();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
   const informacionFormulario = watch();
 
@@ -30,6 +36,7 @@ function Comentarios() {
         console.log(error);
       });
   };
+  console.log(errors);
 
   return (
     <form className="comentarios" id="Contactos" method="POST">
@@ -39,30 +46,41 @@ function Comentarios() {
         </h1>
       </fieldset>
       <fieldset>
-        <label>Nombre:</label>
+        <label htmlFor="nombre">Nombre:</label>
         <input
+          id="nombre"
           placeholder="Name"
           type="text"
           className="formulario"
           {...register("nombre", { required: true })}
         />
+        {errors.nombre && (
+          <span className="correoError">ingresa un nombre porfavor!</span>
+        )}
       </fieldset>
       <fieldset>
-        <label> Email: </label>
+        <label htmlFor="correo"> Email: </label>
         <input
-          required
           placeholder="Email"
-          id="email"
-          type="text"
+          id="correo"
+          type="email"
           className="formulario"
-          {...register("correo", { required: true })}
+          {...register("correo", {
+            required: { value: true, message: "ingresa correo" },
+          })}
         />
+        {errors.correo && (
+          <span className="correoError">Ingresa un correo valido</span>
+        )}
       </fieldset>
       <fieldset>
-        <label>Comentarios:</label>
+        <label htmlFor="comentarios">Comentarios:</label>
+        {errors.comentario && (
+          <span className="correoError">Ingresa un comentario porfavor!</span>
+        )}
 
         <textarea
-          required
+          id="comentarios"
           placeholder="Write your questions and comments here please"
           className="textarea"
           {...register("comentario", { required: true })}
@@ -70,6 +88,7 @@ function Comentarios() {
 
         <Boton onClick={handleSubmit(Datos)} />
       </fieldset>
+
       <Toaster />
     </form>
   );
