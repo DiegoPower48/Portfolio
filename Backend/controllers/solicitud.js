@@ -8,12 +8,12 @@ require("dotenv").config();
 var controller = {
   correo: async (req, res) => {
     try {
-      await Item.create({
+      const item = new Item({
         nombre: req.body.nombre,
         correo: req.body.correo,
         comentario: req.body.comentario,
       });
-
+      await item.save();
       await sendMail(item.nombre, item.correo, item.comentario);
 
       res.status(201).send(item);

@@ -22,22 +22,20 @@ function Trabajos() {
   return (
     <>
       {proyectos.map((element, index) => (
-        <>
-          <div className="cajaProyectos" key={index}>
-            <a href={element.direccion}>
-              <p className="tituloProyectos">{element.nombre}</p>
-            </a>
+        <div className="cajaProyectos" key={index}>
+          <a href={element.direccion}>
+            <p className="tituloProyectos">{element.nombre}</p>
+          </a>
 
-            <a href={element.direccion} target="_blank" className="cajaimagen">
-              <img
-                src={element.imagen}
-                className="imagenProyectos"
-                alt="github-icon"
-              />
-            </a>
-            <p className="descripcionProyecto">{proyectos[0].descripcion}</p>
-          </div>
-        </>
+          <a href={element.direccion} target="_blank" className="cajaimagen">
+            <img
+              src={element.imagen}
+              className="imagenProyectos"
+              alt="github-icon"
+            />
+          </a>
+          <p className="descripcionProyecto">{element.descripcion}</p>
+        </div>
       ))}
     </>
   );

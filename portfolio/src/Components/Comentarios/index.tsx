@@ -5,13 +5,7 @@ import { Toaster, toast } from "react-hot-toast";
 function Comentarios() {
   //HOOK DE FORMS
 
-  const {
-    register,
-    watch,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, watch, handleSubmit, reset } = useForm();
 
   const informacionFormulario = watch();
 
@@ -36,13 +30,12 @@ function Comentarios() {
         console.log(error);
       });
   };
-  console.log(errors);
 
   return (
     <form className="comentarios" id="Contactos" method="POST">
       <fieldset className="contactame">
         <h1>
-          <label>{"<Contactame/>"}</label>
+          <label>Contactame</label>
         </h1>
       </fieldset>
       <fieldset>
@@ -54,9 +47,6 @@ function Comentarios() {
           className="formulario"
           {...register("nombre", { required: true })}
         />
-        {errors.nombre && (
-          <span className="correoError">ingresa un nombre porfavor!</span>
-        )}
       </fieldset>
       <fieldset>
         <label htmlFor="correo"> Email: </label>
@@ -69,15 +59,9 @@ function Comentarios() {
             required: { value: true, message: "ingresa correo" },
           })}
         />
-        {errors.correo && (
-          <span className="correoError">Ingresa un correo valido</span>
-        )}
       </fieldset>
       <fieldset>
         <label htmlFor="comentarios">Comentarios:</label>
-        {errors.comentario && (
-          <span className="correoError">Ingresa un comentario porfavor!</span>
-        )}
 
         <textarea
           id="comentarios"
