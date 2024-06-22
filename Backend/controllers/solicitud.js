@@ -11,7 +11,7 @@ var controller = {
       await Item.create({
         nombre: req.body.nombre,
         correo: req.body.correo,
-        comentario: req.body.message,
+        comentario: req.body.comentario,
       });
 
       await sendMail(item.nombre, item.correo, item.comentario);
