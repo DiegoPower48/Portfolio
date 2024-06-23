@@ -34,10 +34,10 @@ body {
 }
 
 .card-title {
-  color: orange;
-  font-size: 40px;
+  color: #921e21;
+  font-size: 50px;
   padding-bottom: 40px;
-  text-shadow: 2px 2px 2px orange;
+  text-shadow: 3px 3px 3px #921e21;
 }
 
 .Titulo {
@@ -68,11 +68,15 @@ body {
 
 .nav-link {
   font-size: 20px;
-  color: orange;
+  color: white;
   transition: 100ms all;
   padding-right: 40px;
   margin: 3px;
   border-bottom: solid 1px;
+}
+
+#contactos {
+  border: 1px 1px 1px 1px solid orange;
 }
 
 .nav-item :hover {
@@ -94,6 +98,7 @@ body {
 .detalle {
   padding-left: 150px;
   padding-right: 100px;
+
   width: 100%;
   color: white;
   height: 300px;
@@ -114,8 +119,8 @@ body {
 
 .proyectos h1 {
   padding-left: 150px;
-  color: orange;
-  text-shadow: 3px 3px 3px orange;
+  color: white;
+  text-shadow: 3px 3px 3px orangewhite;
   clear: both;
 }
 
@@ -250,7 +255,6 @@ body {
   display: block;
   float: left;
   color: black;
-  text-shadow: 3px 3px 3px orange;
   clear: both;
 }
 
@@ -262,12 +266,6 @@ body {
 .formulario {
   height: 30px;
   width: 40%;
-}
-
-.correoError {
-  color: red;
-  margin-left: 10px;
-  text-shadow: 2px 2px 2px red;
 }
 
 .textarea {
