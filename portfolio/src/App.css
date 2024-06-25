@@ -13,6 +13,14 @@ body {
   src: url("./assets/Montserrat-Light.otf");
 }
 
+.header {
+  background: #070e29;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  text-decoration: none;
+}
+
 .Resume {
   width: 100%;
   height: 500px;
@@ -72,11 +80,7 @@ body {
   transition: 100ms all;
   padding-right: 40px;
   margin: 3px;
-  border-bottom: solid 1px;
-}
-
-#contactos {
-  border: 1px 1px 1px 1px solid orange;
+  border-bottom: 1px solid white;
 }
 
 .nav-item :hover {
@@ -87,6 +91,14 @@ body {
 .nav-item :active {
   color: white;
   text-shadow: 8px 8px 8px white;
+}
+
+.contactos-header {
+  background: orange;
+  border: 1px solid orange;
+  border-radius: 15px;
+  color: white;
+  padding: -15px;
 }
 
 .card-img-top {
@@ -106,22 +118,11 @@ body {
   float: left;
 }
 
-.detalle h1 {
-  color: orange;
-  text-shadow: 3px 3px 3px orange;
-}
-
 .proyectos {
+  padding-top: 53px;
   width: 100%;
   clear: both;
   display: block;
-}
-
-.proyectos h1 {
-  padding-left: 150px;
-  color: white;
-  text-shadow: 3px 3px 3px orangewhite;
-  clear: both;
 }
 
 .cajaProyectos {
@@ -131,6 +132,10 @@ body {
   border-radius: 5px 5px 5px 5px;
   display: inline-block;
   margin: 25px;
+}
+
+.proyectos h1 {
+  padding-left: 150px;
 }
 
 .cajaProyectos a {
@@ -183,6 +188,7 @@ body {
 
 .wrapper {
   width: 100%;
+
   margin-inline: auto;
   position: relative;
   height: 100%;
@@ -312,6 +318,11 @@ body {
   width: 5%;
 }
 
+h1 {
+  color: orange;
+  text-shadow: 3px 3px 3px orange;
+}
+
 @media (max-width: 1160px) {
   .card,
   .card-body,
@@ -319,7 +330,6 @@ body {
   .card-text,
   .detalle,
   .proyectos,
-  .proyectos h1,
   .tecnologias {
     padding-left: 0px;
     padding-right: 0%;
@@ -395,7 +405,6 @@ body {
 
   .detalle,
   .proyectos,
-  .proyectos h1,
   .tecnologias,
   .comentarios {
     width: 100%;
