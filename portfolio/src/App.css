@@ -38,6 +38,7 @@ body {
   top: 0px;
   display: block;
   width: 50%;
+  border: none;
   float: left;
 }
 
@@ -142,7 +143,6 @@ body {
   width: 45%;
   height: 300px;
   background-color: #121212;
-  border-radius: 5px 5px 5px 5px;
   display: inline-block;
   margin: 25px;
   color: white;

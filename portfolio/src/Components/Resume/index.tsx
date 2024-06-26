@@ -29,10 +29,18 @@ export function Card() {
           <h5 className="card-title">DIEGO TORRES</h5>
           <h3 className="Titulo-resume">WEB DEVELOPER</h3>
           <br />
-          <p className="card-text">Edad: 30 años</p>
-          <p className="card-text">Nacionalidad: Peruano</p>
-          <p className="card-text">Email: diego_torres_11@hotmail.com</p>
-          <p className="card-text">Celular: +51 986377441</p>
+          <p className="card-text">
+            <b>Edad:</b> 30 años
+          </p>
+          <p className="card-text">
+            <b>Nacionalidad:</b> Peruano
+          </p>
+          <p className="card-text">
+            <b>Email:</b> diego_torres_11@hotmail.com
+          </p>
+          <p className="card-text">
+            <b>Celular:</b> +51 986377441
+          </p>
         </div>
       </div>
     </>
