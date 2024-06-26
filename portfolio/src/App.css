@@ -213,8 +213,9 @@ body {
 
 .tecnologias {
   width: 100%;
-  height: 350px;
+  height: 150px;
   padding-left: 150px;
+  margin-bottom: 200px;
   display: block;
   color: orange;
   text-shadow: 3px 3px 3px orange;
@@ -230,7 +231,6 @@ body {
   display: block;
   margin-inline: auto;
   position: relative;
-  height: 100%;
   overflow: hidden;
   mask-image: linear-gradient(
     to right,
@@ -375,6 +375,9 @@ body {
   .cajaProyectos {
     margin: 20px;
   }
+  .proyectos h1 {
+    padding-left: 0px;
+  }
 }
 @media (max-width: 968px) {
   .card,
@@ -458,16 +461,26 @@ body {
     padding-left: 0px;
   }
   .tecnologias {
-    height: 350px;
     text-align: center;
     padding: 0px;
-    padding-top: 150px;
-    margin-top: 80px;
+    padding-top: 200px;
   }
+
+  .comentarios {
+    width: 100%;
+    padding: 0;
+    padding-top: 200px;
+  }
+
   .formulario {
     width: 100%;
-    height: 40px;
+    padding: 0;
   }
+
+  .Footers {
+    padding-top: 180px;
+  }
+
   .Iconos {
     animation-duration: 20s;
   }

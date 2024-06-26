@@ -18,7 +18,7 @@ function Comentarios() {
         ),
         {
           loading: "⏳⏳  ENVIANDO COMENTARIO......",
-          success: <b>"GRACIAS POR EL COMENTARIO!!!!🚀🚀🚀"</b>,
+          success: <b>"GRACIAS POR EL COMENTARIO!!!!🚀"</b>,
           error: <b>NO SE PUDO GUARDAR</b>,
         }
       )
