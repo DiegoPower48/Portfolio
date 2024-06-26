@@ -19,8 +19,7 @@ async function sendMail(nombre, correo, comentario) {
     ];
 
     const templatePath = path.join(__dirname, "..", "models", "template.html");
-
-    fs.readFileSync(templatePath, "utf8");
+    let htmlContent = fs.readFileSync(templatePath, "utf8");
 
     // Reemplazar los marcadores de posición con valores reales
     htmlContent = htmlContent.replace("{{nombre}}", nombre);
