@@ -1,5 +1,7 @@
 require("dotenv").config();
 const brevo = require("@getbrevo/brevo");
+const fs = require("fs");
+const path = require("path");
 
 async function sendMail(nombre, correo, comentario) {
   try {
@@ -16,8 +18,15 @@ async function sendMail(nombre, correo, comentario) {
       { email: "diego_torres_11@hotmail.com", name: "Portfolio dice" },
     ];
 
-    enviarCorreo.htmlContent = `<h1>${nombre}</h1><br><p>${comentario}</p><br><p>Correo enviado desde: ${correo}</p>`;
+    const templatePath = path.join(__dirname, "..", "models", "template.html");
+    let htmlContent = fs.readFileSync(templatePath, "utf8");
 
+    // Reemplazar los marcadores de posición con valores reales
+    htmlContent = htmlContent.replace("{{nombre}}", nombre);
+    htmlContent = htmlContent.replace("{{comentario}}", comentario);
+    htmlContent = htmlContent.replace("{{correo}}", correo);
+
+    enviarCorreo.htmlContent = htmlContent;
     enviarCorreo.sender = {
       name: "Diego Torres",
       email: "diego_torres_11@hotmail.com",
