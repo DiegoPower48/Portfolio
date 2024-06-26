@@ -4,26 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comentario de Portfolio</title>
-
-    <style>
-      body {
-        background-color: black;
-        color: white;
-        clear: both;
-        text-align: center;
-      }
-
-      .comentario {
-        background-color: blue;
-        color: orange;
-        width: 60%;
-        margin-left: 270px;
-        margin-right: 700px;
-        border-radius: 15px;
-      }
-    </style>
   </head>
-  <body>
+  <body
+    style="
+      background-color: black;
+      color: white;
+      clear: both;
+      text-align: center;
+    "
+  >
     <h1>Comentario desde Portfolio</h1>
     <br />
     <h1
@@ -41,7 +30,17 @@
       {{nombre}} te ha dejado un comentario en tu portfolio
     </h1>
     <br />
-    <div class="comentario">
+    <div
+      style="
+        background-color: blue;
+        color: orange;
+        width: 60%;
+        margin-left: 270px;
+        margin-right: 700px;
+        border-radius: 15px;
+      "
+      class="comentario"
+    >
       <h2>El comentario dice:</h2>
       <p>{{comentario}}</p>
     </div>
