@@ -1,6 +1,6 @@
 function Resume() {
   return (
-    <div className="Resume">
+    <div className="Resume" id="Resume">
       <Card />
       <Fotos />
     </div>
@@ -24,10 +24,10 @@ export function Fotos() {
 export function Card() {
   return (
     <>
-      <div className="card" id="Resume">
+      <div className="card">
         <div className="card-body">
           <h5 className="card-title">DIEGO TORRES</h5>
-          <h3 className="Titulo">WEB DEVELOPER</h3>
+          <h3 className="Titulo-resume">WEB DEVELOPER</h3>
           <br />
           <p className="card-text">Edad: 30 años</p>
           <p className="card-text">Nacionalidad: Peruano</p>

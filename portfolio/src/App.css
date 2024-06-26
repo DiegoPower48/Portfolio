@@ -21,6 +21,10 @@ body {
   text-decoration: none;
 }
 
+.Titulo-resume {
+  color: orange;
+}
+
 .Resume {
   width: 100%;
   height: 500px;
@@ -48,10 +52,11 @@ body {
   text-shadow: 3px 3px 3px #921e21;
 }
 
-.Titulo {
+.titulo {
   color: orange;
-  font-size: 30px;
+  font-size: 50px;
   text-shadow: 3px 3px 3px orange;
+  clear: both;
 }
 
 .card-text {
@@ -117,6 +122,10 @@ body {
   display: block;
   float: left;
 }
+.introduccion {
+  line-height: 40px;
+  font-size: 17px;
+}
 
 .proyectos {
   padding-top: 53px;
@@ -125,17 +134,19 @@ body {
   display: block;
 }
 
+.proyectos h1 {
+  padding-left: 150px;
+}
+
 .cajaProyectos {
   width: 45%;
   height: 300px;
-  background-color: white;
+  background-color: #121212;
   border-radius: 5px 5px 5px 5px;
   display: inline-block;
   margin: 25px;
-}
-
-.proyectos h1 {
-  padding-left: 150px;
+  color: white;
+  border-radius: 20px;
 }
 
 .cajaProyectos a {
@@ -144,17 +155,19 @@ body {
 
 .tituloProyectos {
   width: 100%;
-  color: black;
+  background-color: black;
+  color: white;
   text-shadow: none;
   font-size: 30px;
   clear: both;
   text-align: center;
   margin: 0px;
+  height: 15%;
 }
 
 .cajaimagen {
   width: 50%;
-  height: 255px;
+  height: 85%;
   display: block;
   float: left;
 }
@@ -162,15 +175,40 @@ body {
 .imagenProyectos {
   width: 100%;
   height: 100%;
+  padding: 15px;
 }
 .descripcionProyecto {
-  color: black;
-  text-shadow: none;
-  height: 255px;
+  height: 30%;
   width: 50%;
   display: block;
   float: right;
   text-align: left;
+  padding: 15px;
+}
+
+.descripcion-tecnologias {
+  width: 50%;
+  height: 55%;
+  padding: 15px;
+  top: 0;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.descripcion-elementos {
+  padding: 3px;
+  background-color: black;
+  border-radius: 10px;
+  text-align: center;
+  margin: 3px;
+  word-spacing: 10px;
+  display: inline-block;
+  color: orange;
+}
+
+.descripcion-elementos:hover {
+  color: black;
+  background-color: white;
 }
 
 .tecnologias {
@@ -318,11 +356,6 @@ body {
   width: 5%;
 }
 
-h1 {
-  color: orange;
-  text-shadow: 3px 3px 3px orange;
-}
-
 @media (max-width: 1160px) {
   .card,
   .card-body,
@@ -341,6 +374,9 @@ h1 {
   .cajaProyectos {
     margin: 20px;
   }
+  .contactame {
+    margin-top: 90px;
+  }
 }
 
 @media (max-width: 968px) {
@@ -358,6 +394,9 @@ h1 {
   .cajaProyectos {
     margin: 15px;
   }
+  .contactame {
+    margin-top: 60px;
+  }
 }
 
 @media (max-width: 659px) {
@@ -369,7 +408,9 @@ h1 {
     text-align: center;
     background-color: orange;
   }
-
+  .Resume {
+    padding-top: 200px;
+  }
   .nav-link {
     color: black;
   }
@@ -387,7 +428,9 @@ h1 {
     text-align: center;
     clear: none;
   }
-
+  .contactame {
+    margin-top: 0px;
+  }
   .fotografia,
   .foto {
     margin-top: 0px;
@@ -410,6 +453,7 @@ h1 {
     width: 100%;
     text-align: center;
     padding: 0px;
+    padding-top: 200px;
   }
   .tecnologias {
     height: 250px;

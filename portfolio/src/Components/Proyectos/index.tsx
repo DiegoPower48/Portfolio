@@ -11,11 +11,20 @@ function Proyectos() {
 function Trabajos() {
   const proyectos = [
     {
-      nombre: "aplicación vacia",
-      imagen: "https://www.svgrepo.com/show/512317/github-142.svg",
-      direccion: "https://github.com/DiegoPower48",
+      nombre: "CHAT ONLINE",
+      imagen: "https://i.ibb.co/p2WFM8j/image.png",
+      direccion: "https://chatportfolio.vercel.app/",
       descripcion:
-        "Proyecto creado utilizando React, NodeJS, Express, conectado a una api",
+        "Chat en linea, implementando websockets con login y salas de chat",
+      Tecnologias: ["Websocket", "NodeJS", "React", "Vite", "MongoDB"],
+    },
+    {
+      nombre: "CHAT ONLINE",
+      imagen: "https://i.ibb.co/p2WFM8j/image.png",
+      direccion: "https://chatportfolio.vercel.app/",
+      descripcion:
+        "Chat en linea, implementando websockets con login y salas de chat",
+      Tecnologias: ["Websocket", "NodeJS", "React", "Vite", "MongoDB"],
     },
   ];
 
@@ -35,6 +44,13 @@ function Trabajos() {
             />
           </a>
           <p className="descripcionProyecto">{element.descripcion}</p>
+          <div className="descripcion-tecnologias">
+            {element.Tecnologias.map((element, index) => (
+              <span className="descripcion-elementos" key={index}>
+                {element}
+              </span>
+            ))}
+          </div>
         </div>
       ))}
     </>

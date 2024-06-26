@@ -1,9 +1,9 @@
 function detalle() {
   return (
     <div className="detalle">
-      <h1 className="titulo"> {"<SOBRE MI/>"} </h1>
+      <span className="titulo"> {"<SOBRE MI/>"} </span>
       <br />
-      <p>
+      <p className="introduccion">
         Soy un Desarrollador Web con un profundo interes en mejorar herramientas
         para el uso de todas las personas, me gusta aprender acerca de distintas
         tecnologias y siempre estar actualizado con las nuevas funcionalidades,
