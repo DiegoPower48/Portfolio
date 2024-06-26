@@ -34,9 +34,7 @@ function Comentarios() {
   return (
     <form className="comentarios" id="Contactos" method="POST">
       <fieldset className="contactame">
-        <h1>
-          <label className="titulo">Contactame</label>
-        </h1>
+        <h1 className="titulo">Contactame</h1>
       </fieldset>
       <fieldset>
         <label htmlFor="nombre">Nombre:</label>
