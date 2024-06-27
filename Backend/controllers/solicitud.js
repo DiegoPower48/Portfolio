@@ -19,7 +19,7 @@ var controller = {
 
       res.status(201).send(item);
     } catch (err) {
-      res.status(400).send({ message: err.message });
+      res.status(400).send("error en backend");
     }
   },
 
@@ -35,6 +35,26 @@ var controller = {
       res.status(201).send(usuario);
     } catch (err) {
       res.status(400).send({ message: err.message });
+    }
+  },
+  login: async (req, res) => {
+    try {
+      const UserOk = usuario.findOne(
+        { nombre: req.params.nombre },
+        { contraseña: req.params.contraseña }
+      );
+      if (UserOk) {
+        console.log(
+          "usuario exitente",
+          req.params.nombre,
+          req.params.contraseña
+        );
+        res.status(201).send(usuario);
+      } else {
+        res.status(404).send("usuario no existe");
+      }
+    } catch (error) {
+      res.status(400).send("error en backend");
     }
   },
 };
