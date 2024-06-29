@@ -1,12 +1,14 @@
 "use strict";
 
 const sendMail = require("../models/mail");
-var Item = require("../models/solicitud");
-var User = require("../models/user");
+const Item = require("../models/solicitud");
+const User = require("../models/user");
+const bcrypt = require("bcryptjs");
+const createAccessToken = require("./jwt");
 
 require("dotenv").config();
 
-var controller = {
+const controller = {
   correo: async (req, res) => {
     try {
       const item = new Item({
@@ -24,37 +26,68 @@ var controller = {
   },
 
   registro: async (req, res) => {
+    const { nombre, contraseña, correo } = req.body;
+
+    const paswordhash = await bcrypt.hash(contraseña, 10);
+
     try {
       const usuario = new User({
-        nombre: req.body.nombre,
-        contraseña: req.body.contraseña,
-        correo: req.body.correo,
+        nombre: nombre,
+        contraseña: paswordhash,
+        correo: correo,
       });
-      await usuario.save();
+      const usuarioguardado = await usuario.save();
 
-      res.status(201).send(usuario);
+      const token = createAccessToken({ id: usuarioguardado._id });
+      res.cookie("token", token);
+      res.json({ message: "usuario creado correctamente" });
     } catch (err) {
-      res.status(400).send({ message: err.message });
+      res.status(500).send({ message: err.message });
     }
   },
   login: async (req, res) => {
+    const { nombre, contraseña } = req.body;
+
     try {
-      const UserOk = usuario.findOne(
-        { nombre: req.params.nombre },
-        { contraseña: req.params.contraseña }
-      );
-      if (UserOk) {
-        console.log(
-          "usuario exitente",
-          req.params.nombre,
-          req.params.contraseña
-        );
-        res.status(201).send(usuario);
-      } else {
-        res.status(404).send("usuario no existe");
+      const userFound = await User.findOne({ nombre });
+
+      if (!userFound) {
+        return res.status(400).send("Usuario Incorrecto");
       }
+
+      const isMatch = await bcrypt.compare(contraseña, userFound.contraseña);
+      if (!isMatch) {
+        return res.status(400).send("clave Incorrecta");
+      }
+
+      const token = await createAccessToken({ id: userFound._id });
+
+      res.cookie("token", token);
+      res.json({ message: "login exitoso" });
     } catch (error) {
-      res.status(400).send("error en backend");
+      res.status(500).send("Error en el servidor");
+    }
+  },
+
+  logout: async (req, res) => {
+    await res.cookie("token", "", { expires: new Date(0) });
+    return res.sendStatus(201);
+  },
+
+  profile: async (req, res) => {
+    try {
+      const userFound = await User.findById(req.user.id);
+
+      if (!userFound) {
+        return res.status(400).send("Usuario no encontrado");
+      }
+
+      return res.json({
+        nombre: userFound.nombre,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error en el servidor");
     }
   },
 };
