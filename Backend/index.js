@@ -24,7 +24,6 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.append("Access-Control-Allow-Origin", [
     "https://chatportfolio.vercel.app/login",
-    "http://localhost:5173",
   ]);
   res.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   res.append("Access-Control-Allow-Headers", "Content-Type");
