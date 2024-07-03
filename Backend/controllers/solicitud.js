@@ -49,7 +49,10 @@ const controller = {
       res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 day
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // true if in production
+        secure: process.env.NODE_ENV === "production",
+        domain: "https://chatportfolio-production.up.railway.app/",
+        path: "/",
+        // true if in production
       });
       res.json({ usuarioguardado });
     } catch (err) {
@@ -76,7 +79,9 @@ const controller = {
       res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 day
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // true if in production
+        secure: process.env.NODE_ENV === "production",
+        domain: "https://chatportfolio-production.up.railway.app/",
+        path: "/", // true if in production
       });
       res.json({ message: "login exitoso" });
     } catch (error) {
