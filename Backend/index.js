@@ -21,12 +21,15 @@ mongoose.connection.on("error", (err) => {
 });
 
 app.use(bodyParser.json());
-app.use(
-  cors({
-    origin: ["https://chatportfolio.vercel.app/login", "http://localhost:5173"],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  })
-);
+app.use((req, res, next) => {
+  res.append("Access-Control-Allow-Origin", [
+    "https://chatportfolio.vercel.app/login",
+    "http://localhost:5173",
+  ]);
+  res.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.append("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 
 app.use(cookieParser());
 app.use(router);
