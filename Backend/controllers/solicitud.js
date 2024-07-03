@@ -51,6 +51,7 @@ const controller = {
         httpOnly: true,
         secure: true,
         domain: "chatportfolio-production.up.railway.app",
+        samesite: "strict",
         path: "/", // Path correcto
       });
       res.json({ usuarioguardado });
@@ -79,7 +80,8 @@ const controller = {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
         httpOnly: true,
         secure: process.env.NODE_ENV === "production", // true si en producción
-        domain: "chatportfolio-production.up.railway.app", // Dominio correcto
+        domain: "chatportfolio-production.up.railway.app",
+        samesite: "strict", // Dominio correcto
         path: "/",
       });
       res.json({ message: "login exitoso" });
