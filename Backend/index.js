@@ -22,20 +22,12 @@ mongoose.connection.on("error", (err) => {
 
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  res.append("Access-Control-Allow-Origin", [
-    "https://chatportfolio-production.up.railway.app",
-  ]);
-  res.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  res.append("Access-Control-Allow-Headers", "Content-Type");
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://chatportfolio-production.up.railway.app"
-  );
-  res.header("Access-Control-Allow-Credentials", "true");
-
-  next();
-});
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://chatportfolio-production.up.railway.app",
+  })
+); // en origin va la url de nuestro frontend
 
 app.use(cookieParser());
 
