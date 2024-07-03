@@ -47,11 +47,12 @@ const controller = {
 
       const token = createAccessToken({ id: usuarioguardado._id });
       res.cookie("token", token, {
-        maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
+        maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // true si en producción
-        domain: "chatportfolio-production.up.railway.app", // Dominio correcto
-        path: "/", // Path correcto
+        secure: true,
+        domain: "chatportfolio-production.up.railway.app",
+        path: "/",
+        sameSite: "None", // Path correcto
       });
       res.json({ usuarioguardado });
     } catch (err) {
@@ -76,11 +77,12 @@ const controller = {
       const token = await createAccessToken({ id: userFound._id });
 
       res.cookie("token", token, {
-        maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
+        maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // true si en producción
-        domain: "chatportfolio-production.up.railway.app", // Dominio correcto
-        path: "/", // Path correcto
+        secure: true,
+        domain: "chatportfolio-production.up.railway.app",
+        path: "/",
+        sameSite: "None", // Path correcto
       });
       res.json({ message: "login exitoso" });
     } catch (error) {
