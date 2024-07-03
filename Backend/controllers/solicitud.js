@@ -46,7 +46,11 @@ const controller = {
       const usuarioguardado = await usuario.save();
 
       const token = createAccessToken({ id: usuarioguardado._id });
-      res.cookie("token", token);
+      res.cookie("token", token, {
+        maxAge: 24 * 60 * 60 * 1000, // 1 day
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production", // true if in production
+      });
       res.json({ usuarioguardado });
     } catch (err) {
       res.status(500).send({ message: err.message });
@@ -69,7 +73,11 @@ const controller = {
 
       const token = await createAccessToken({ id: userFound._id });
 
-      res.cookie("token", token);
+      res.cookie("token", token, {
+        maxAge: 24 * 60 * 60 * 1000, // 1 day
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production", // true if in production
+      });
       res.json({ message: "login exitoso" });
     } catch (error) {
       res.status(500).send("Error en el servidor");
