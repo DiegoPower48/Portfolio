@@ -23,10 +23,8 @@ mongoose.connection.on("error", (err) => {
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "*",
+    origin: ["https://chatportfolio.vercel.app/login", "http://localhost:5173"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
   })
 );
 
