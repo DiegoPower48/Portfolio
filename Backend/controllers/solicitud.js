@@ -60,6 +60,7 @@ const controller = {
   },
   login: async (req, res) => {
     const { nombre, contraseña } = req.body;
+    console.log("antes de setear cookies");
 
     try {
       const userFound = await User.findOne({ nombre });
@@ -72,7 +73,7 @@ const controller = {
       if (!isMatch) {
         return res.status(400).send("clave Incorrecta");
       }
-
+      console.log("casi antes de setear cookies");
       const token = await createAccessToken({ id: userFound._id });
 
       res.cookie("token", token, {
@@ -82,6 +83,7 @@ const controller = {
         domain: "chatportfolio-production.up.railway.app",
         path: "/", // Path correcto
       });
+      console.log("despues de setear cookies");
       res.json({ message: "login exitoso" });
     } catch (error) {
       res.status(500).send("Error en el servidor");
