@@ -14,5 +14,6 @@ router.post("/registro", validateSchema(registerSchema), controller.registro);
 router.post("/loginin", validateSchema(loginSchema), controller.login);
 router.post("/logout", controller.logout);
 router.get("/profile", authRequired, controller.profile);
+router.post("/verify", controller.verifyToken);
 
 module.exports = router;

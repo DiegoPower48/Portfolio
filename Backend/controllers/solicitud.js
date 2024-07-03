@@ -5,6 +5,8 @@ const Item = require("../models/solicitud");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const createAccessToken = require("./jwt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 require("dotenv").config();
 
@@ -28,9 +30,14 @@ const controller = {
   registro: async (req, res) => {
     const { nombre, contraseña, correo } = req.body;
 
-    const paswordhash = await bcrypt.hash(contraseña, 10);
-
     try {
+      const duplicated = await User.findOne({ nombre, correo });
+      if (duplicated) {
+        res.status(200).send("usuario o correo ya existente");
+      }
+
+      const paswordhash = await bcrypt.hash(contraseña, 10);
+
       const usuario = new User({
         nombre: nombre,
         contraseña: paswordhash,
@@ -40,7 +47,7 @@ const controller = {
 
       const token = createAccessToken({ id: usuarioguardado._id });
       res.cookie("token", token);
-      res.json({ message: "usuario creado correctamente" });
+      res.json({ usuarioguardado });
     } catch (err) {
       res.status(500).send({ message: err.message });
     }
@@ -87,8 +94,26 @@ const controller = {
       });
     } catch (error) {
       console.error(error);
-      res.status(500).send("Error en el servidor");
+      return res.status(500).send("Error en el servidor");
     }
+  },
+  verifyToken: async (req, res) => {
+    const { token } = req.cookies;
+    if (!token) {
+      return res.status(401).send("No autorizado");
+    }
+    jwt.verify(token, process.env.SECRET_WORD, async (err, user) => {
+      if (err) return res.status(401).send("usuario no autorizado");
+      const userFound = await User.findById(user.id);
+      if (!userFound) {
+        return res.status(401).send("no autorizado");
+      }
+      return res.json({
+        id: userFound._id,
+        nombre: userFound.nombre,
+        correo: userFound.correo,
+      });
+    });
   },
 };
 
