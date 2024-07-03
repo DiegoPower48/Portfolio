@@ -76,11 +76,6 @@ const controller = {
     }
   },
 
-  logout: async (req, res) => {
-    await res.cookie("token", "", { expires: new Date(0) });
-    return res.sendStatus(201);
-  },
-
   profile: async (req, res) => {
     try {
       const userFound = await User.findById(req.user.id);

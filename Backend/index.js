@@ -21,25 +21,24 @@ mongoose.connection.on("error", (err) => {
 });
 
 app.use(bodyParser.json());
-// app.use((req, res, next) => {
-//   res.append("Access-Control-Allow-Origin", [
-//     "https://chatportfolio.vercel.app",
-//   ]);
-//   res.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-//   res.append("Access-Control-Allow-Headers", "Content-Type");
-//   next();
-// });
 
-const corsOptions = {
-  origin: "https://chatportfolio.vercel.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true, // Permitir credenciales (cookies, authorization headers, etc.)
-  optionsSuccessStatus: 204,
-};
+app.use((req, res, next) => {
+  res.append("Access-Control-Allow-Origin", [
+    "https://chatportfolio-production.up.railway.app",
+  ]);
+  res.append("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.append("Access-Control-Allow-Headers", "Content-Type");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://chatportfolio-production.up.railway.app"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
 
-app.use(cors(corsOptions));
+  next();
+});
 
 app.use(cookieParser());
+
 app.use(router);
 app.use(taskrouter);
 
