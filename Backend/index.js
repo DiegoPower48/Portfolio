@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://chatportfolio-production.up.railway.app",
+    origin: "http://localhost:5173",
   })
 ); // en origin va la url de nuestro frontend
 

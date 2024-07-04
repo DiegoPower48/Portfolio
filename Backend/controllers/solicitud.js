@@ -46,12 +46,11 @@ const controller = {
       const usuarioguardado = await usuario.save();
 
       const token = createAccessToken({ id: usuarioguardado._id });
-      res.cookie("token", token, {
+      await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: true,
-        secure: true,
-        domain: "chatportfolio-production.up.railway.app",
-        path: "/", // Path correcto
+        httpOnly: false, // Permitir acceso desde JavaScript en desarrollo
+        secure: false, // Debe ser false en desarrollo
+        sameSite: "Lax", // Puedes usar 'Lax' o 'Strict' para localhost
       });
       res.json({ usuarioguardado });
     } catch (err) {
@@ -76,12 +75,11 @@ const controller = {
       console.log("casi antes de setear cookies");
       const token = await createAccessToken({ id: userFound._id });
 
-      res.cookie("token", token, {
+      await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // true si en producción
-        domain: "chatportfolio-production.up.railway.app",
-        path: "/", // Path correcto
+        httpOnly: false, // Permitir acceso desde JavaScript en desarrollo
+        secure: false, // Debe ser false en desarrollo
+        sameSite: "Lax", // Puedes usar 'Lax' o 'Strict' para localhost
       });
       console.log("despues de setear cookies");
       res.json({ message: "login exitoso" });
@@ -109,18 +107,16 @@ const controller = {
   verifyToken: async (req, res) => {
     const { token } = req.cookies;
     if (!token) {
-      return res.status(401).send("No autorizado");
+      return res.status(401).send("back: falta la cookie");
     }
     jwt.verify(token, process.env.SECRET_WORD, async (err, user) => {
       if (err) return res.status(401).send("usuario no autorizado");
       const userFound = await User.findById(user.id);
       if (!userFound) {
-        return res.status(401).send("no autorizado");
+        return res.status(401).send("back: cookie o token incorrecto");
       }
       return res.json({
-        id: userFound._id,
         nombre: userFound.nombre,
-        correo: userFound.correo,
       });
     });
   },
