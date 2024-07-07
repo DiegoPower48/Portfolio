@@ -88,7 +88,7 @@ const controller = {
         sameSite: "Lax", // Puedes usar 'Lax' o 'Strict' para localhost
       });
       console.log("despues de setear cookies");
-      res.json({ message: "login exitoso" });
+      res.send("login exitoso");
     } catch (error) {
       res.status(500).send("Error en el servidor");
     }
