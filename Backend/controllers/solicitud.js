@@ -31,15 +31,17 @@ const controller = {
     const { nombre, contraseña, correo } = req.body;
 
     try {
+      console.log("primera validacion");
       const nombreduplicado = await User.findOne({ nombre });
       if (nombreduplicado) {
-        return res.status(200).send("usuario  ya existente");
+        return res.status(400).send("usuario  ya existente");
       }
+      console.log("segunda validacion");
       const correoduplicado = await User.findOne({ correo });
       if (correoduplicado) {
-        return res.status(200).send(" correo ya existente");
+        return res.status(400).send(" correo ya existente");
       }
-
+      console.log("terminada validacion");
       const paswordhash = await bcrypt.hash(contraseña, 10);
 
       const usuario = new User({
