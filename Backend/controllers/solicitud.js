@@ -31,9 +31,13 @@ const controller = {
     const { nombre, contraseña, correo } = req.body;
 
     try {
-      const duplicated = await User.findOne({ nombre, correo });
-      if (duplicated) {
-        res.status(200).send("usuario o correo ya existente");
+      const nombreduplicado = await User.findOne({ nombre });
+      if (nombreduplicado) {
+        return res.status(200).send("usuario  ya existente");
+      }
+      const correoduplicado = await User.findOne({ correo });
+      if (correoduplicado) {
+        return res.status(200).send(" correo ya existente");
       }
 
       const paswordhash = await bcrypt.hash(contraseña, 10);

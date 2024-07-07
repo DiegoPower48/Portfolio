@@ -3,22 +3,20 @@
 const { z } = require("zod");
 
 const registerSchema = z.object({
-  nombre: z.string({ require_error: "nombre is required" }),
+  nombre: z.string({ require_error: "Debes ingresar un nombre de usuario" }),
   contraseña: z
-    .string({ required_error: "contraseña is required" })
-    .min(6, { message: "contraseña must be at least 6 characters" }),
+    .string({ required_error: "Debes ingresar una contraseña" })
+    .min(6, { message: "La contraseña debe tener almenos 6 caracteres" }),
   correo: z
-    .string({ required_error: "correo is required" })
-    .email({ message: "Invalid email" }),
+    .string({ required_error: "Debes ingresar un correo" })
+    .email({ message: "Correo no valido" }),
 });
 
 const loginSchema = z.object({
   nombre: z.string({
-    required_error: "nombre is required",
+    required_error: "Debes ingresar un nombre",
   }),
-  contraseña: z
-    .string({ required_error: "contraseña is required" })
-    .min(6, { message: "contraseña must be at least 6 characters" }),
+  contraseña: z.string({ required_error: "Contraseña incorrecta" }),
 });
 
 module.exports = {
