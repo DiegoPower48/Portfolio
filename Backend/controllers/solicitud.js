@@ -34,12 +34,14 @@ const controller = {
       console.log("primera validacion");
       const nombreduplicado = await User.findOne({ nombre });
       if (nombreduplicado) {
-        return res.status(400).send("usuario  ya existente");
+        return res
+          .status(400)
+          .send("El nombre de usuario ya se encuentra en uso");
       }
       console.log("segunda validacion");
       const correoduplicado = await User.findOne({ correo });
       if (correoduplicado) {
-        return res.status(400).send(" correo ya existente");
+        return res.status(400).send("El correo ya se encuentra en uso");
       }
       console.log("terminada validacion");
       const paswordhash = await bcrypt.hash(contraseña, 10);
@@ -71,12 +73,12 @@ const controller = {
       const userFound = await User.findOne({ nombre });
 
       if (!userFound) {
-        return res.status(400).send("Usuario Incorrecto");
+        return res.status(400).send("Nombre de usuario incorrecto");
       }
 
       const isMatch = await bcrypt.compare(contraseña, userFound.contraseña);
       if (!isMatch) {
-        return res.status(400).send("clave Incorrecta");
+        return res.status(400).send("Contraseña incorrecta");
       }
       console.log("casi antes de setear cookies");
       const token = await createAccessToken({ id: userFound._id });
