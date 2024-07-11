@@ -27,8 +27,8 @@ app.use(
     credentials: true,
     origin: [
       "http://localhost:5173",
-      "https://chatportfolio-production-c9b8.up.railway.app/",
-      "https://diegotorres-portfoliodev.vercel.app/",
+      "https://chatportfolio-production-c9b8.up.railway.app",
+      "https://diegotorres-portfoliodev.vercel.app",
     ],
     methods: ["GET", "PUT", "POST"],
   })

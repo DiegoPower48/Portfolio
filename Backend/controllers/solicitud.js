@@ -56,9 +56,9 @@ const controller = {
       const token = createAccessToken({ id: usuarioguardado._id });
       await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000,
-        httpOnly: false, // Permitir acceso desde JavaScript en desarrollo
-        secure: false, // Debe ser false en desarrollo
-        sameSite: "Lax", // Puedes usar 'Lax' o 'Strict' para localhost
+        httpOnly: true, // Permitir acceso desde JavaScript en desarrollo
+        secure: true, // Debe ser false en desarrollo
+        sameSite: "None", // Puedes usar 'Lax' o 'Strict' para localhost
       });
       res.json({ usuarioguardado });
     } catch (err) {
@@ -85,9 +85,9 @@ const controller = {
 
       await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
-        httpOnly: false, // Permitir acceso desde JavaScript en desarrollo
-        secure: false, // Debe ser false en desarrollo
-        sameSite: "Lax", // Puedes usar 'Lax' o 'Strict' para localhost
+        httpOnly: true, // Permitir acceso desde JavaScript en desarrollo
+        secure: true, // Debe ser false en desarrollo
+        sameSite: "None", // Puedes usar 'Lax' o 'Strict' para localhost
       });
       console.log("despues de setear cookies");
       res.send("login exitoso");
