@@ -25,7 +25,12 @@ app.use(bodyParser.json());
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://chatportfolio-production-c9b8.up.railway.app/",
+      "https://diegotorres-portfoliodev.vercel.app/",
+    ],
+    methods: ["GET", "PUT", "POST"],
   })
 ); // en origin va la url de nuestro frontend
 
