@@ -80,8 +80,8 @@ const controller = {
       if (!isMatch) {
         return res.status(400).send("Contraseña incorrecta");
       }
-      console.log("casi antes de setear cookies");
       const token = await createAccessToken({ id: userFound._id });
+      console.log("casi antes de setear cookies");
 
       await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
