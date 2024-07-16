@@ -57,6 +57,10 @@ const controller = {
       res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
         httpOnly: true,
+        domain:
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:5173"
+            : "https://chatportfolio-production-c9b8.up.railway.app",
         secure: process.env.NODE_ENV === "production", // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
       });
@@ -86,6 +90,11 @@ const controller = {
       await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
         httpOnly: true,
+        domain:
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:5173"
+            : "https://chatportfolio-production-c9b8.up.railway.app",
+
         secure: process.env.NODE_ENV === "production", // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
       });
