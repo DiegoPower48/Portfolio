@@ -59,7 +59,7 @@ const controller = {
         secure: true,
         sameSite: "None",
         maxAge: 1000 * 60 * 60 * 24, // 1 día
-        domain: "http://localhost:5173", // Ajusta esto a tu dominio
+        domain: "https://backendportfolio-one.vercel.app", // Ajusta esto a tu dominio
       });
       res.json({ usuarioguardado });
     } catch (err) {
@@ -89,7 +89,7 @@ const controller = {
         secure: true,
         sameSite: "None",
         maxAge: 1000 * 60 * 60 * 24, // 1 día
-        domain: "http://localhost:5173", // Ajusta esto a tu dominio
+        domain: "https://backendportfolio-one.vercel.app", // Ajusta esto a tu dominio
       });
       console.log("despues de setear cookies");
       res.send("login exitoso");
