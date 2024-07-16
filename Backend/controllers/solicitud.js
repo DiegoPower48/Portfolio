@@ -56,7 +56,7 @@ const controller = {
       const token = createAccessToken({ id: usuarioguardado._id });
       res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
-        httpOnly: true,
+        // httpOnly: true,
         secure: true, // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
         path: "/",
@@ -86,7 +86,7 @@ const controller = {
 
       await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
-        httpOnly: true,
+        // httpOnly: true,
         secure: true, // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
         path: "/",
@@ -116,6 +116,7 @@ const controller = {
   },
   verifyToken: async (req, res) => {
     const { token } = req.cookies;
+    console.log("verificando token");
     if (!token) {
       return res.status(401).send("back: falta la cookie");
     }
