@@ -59,6 +59,7 @@ const controller = {
         httpOnly: true,
         secure: true, // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
+        path: "/",
       });
       res.json({ usuarioguardado });
     } catch (err) {
@@ -88,6 +89,7 @@ const controller = {
         httpOnly: true,
         secure: true, // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
+        path: "/",
       });
       console.log("despues de setear cookies");
       res.send("login exitoso");
