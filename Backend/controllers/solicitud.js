@@ -57,7 +57,7 @@ const controller = {
       res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // true en producción
+        secure: true, // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
       });
       res.json({ usuarioguardado });
@@ -86,7 +86,7 @@ const controller = {
       await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production", // true en producción
+        secure: true, // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
       });
       console.log("despues de setear cookies");
