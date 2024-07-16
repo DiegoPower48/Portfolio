@@ -56,7 +56,7 @@ const controller = {
       const token = createAccessToken({ id: usuarioguardado._id });
       res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
-        // httpOnly: true,
+
         secure: true, // true en producción
         sameSite: "None", // None para permitir cookies entre sitios
         path: "/",
@@ -86,9 +86,9 @@ const controller = {
 
       await res.cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000, // 1 día de duración
-        // httpOnly: true,
-        secure: true, // true en producción
-        sameSite: "None", // None para permitir cookies entre sitios
+
+        // secure: true, // true en producción
+        sameSite: true, // None para permitir cookies entre sitios
         path: "/",
       });
       console.log("despues de setear cookies");
@@ -119,6 +119,7 @@ const controller = {
     console.log("verificando token");
     if (!token) {
       return res.status(401).send("back: falta la cookie");
+      console.log("no se encuentra el token");
     }
     jwt.verify(token, process.env.SECRET_WORD, async (err, user) => {
       if (err) return res.status(401).send("usuario no autorizado");
