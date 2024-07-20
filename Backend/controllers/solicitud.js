@@ -31,14 +31,13 @@ const controller = {
     const { nombre, contraseña, correo } = req.body;
 
     try {
-      console.log("primera validacion");
       const nombreduplicado = await User.findOne({ nombre });
       if (nombreduplicado) {
         return res
           .status(400)
           .send("El nombre de usuario ya se encuentra en uso");
       }
-      console.log("segunda validacion");
+
       const correoduplicado = await User.findOne({ correo });
       if (correoduplicado) {
         return res.status(400).send("El correo ya se encuentra en uso");
@@ -66,7 +65,6 @@ const controller = {
   },
   login: async (req, res) => {
     const { nombre, contraseña } = req.body;
-    console.log("antes de setear cookies");
 
     try {
       const userFound = await User.findOne({ nombre });
@@ -80,14 +78,13 @@ const controller = {
         return res.status(400).send("Contraseña incorrecta");
       }
       const token = await createAccessToken({ id: userFound._id });
-      console.log("casi antes de setear cookies");
 
       // await res.cookie("token", token, {
       //   secure: true,
       //   sameSite: "None",
       //   maxAge: 1000 * 60 * 60 * 24, // 1 día
       // });
-      console.log("despues de setear cookies");
+
       res.send(token);
     } catch (error) {
       res.status(500).send("Error en el servidor");
@@ -106,17 +103,14 @@ const controller = {
         nombre: userFound.nombre,
       });
     } catch (error) {
-      console.error(error);
       return res.status(500).send("Error en el servidor");
     }
   },
   verifyToken: async (req, res) => {
     const { token } = req.body;
-    console.log(token);
-    console.log("verificando token");
+
     if (!token) {
-      console.log("no se encuentra el token");
-      return res.status(401).send("back: falta la cookie");
+      return res.status(401).send("back: falta el token");
     }
     jwt.verify(token, process.env.SECRET_WORD, async (err, user) => {
       if (err) return res.status(401).send("usuario no autorizado");
