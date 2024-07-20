@@ -88,7 +88,7 @@ const controller = {
         maxAge: 1000 * 60 * 60 * 24, // 1 día
       });
       console.log("despues de setear cookies");
-      res.send("login exitoso");
+      res.send(token);
     } catch (error) {
       res.status(500).send("Error en el servidor");
     }
