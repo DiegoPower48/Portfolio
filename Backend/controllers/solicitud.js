@@ -111,6 +111,7 @@ const controller = {
     }
   },
   verifyToken: async (req, res) => {
+    console.log(req);
     const { token } = req.body;
     console.log("verificando token");
     if (!token) {
