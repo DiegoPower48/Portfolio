@@ -53,7 +53,7 @@ const controller = {
       });
       const usuarioguardado = await usuario.save();
 
-      const token = createAccessToken({ id: usuarioguardado._id });
+      const token = await createAccessToken({ id: usuarioguardado._id });
       // res.cookie("token", token, {
       //   secure: true,
       //   sameSite: "None",
