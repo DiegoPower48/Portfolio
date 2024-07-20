@@ -8,6 +8,7 @@ const cors = require("cors");
 const router = require("./routes/solicitud");
 const taskrouter = require("./routes/task");
 const cookieParser = require("cookie-parser");
+const { modelName } = require("./models/solicitud");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
+      "https://chatportfolio-1.onrender.com",
       "http://localhost:5173",
       "https://chatportfolio.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
