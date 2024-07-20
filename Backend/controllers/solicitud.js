@@ -56,6 +56,7 @@ const controller = {
       const token = createAccessToken({ id: usuarioguardado._id });
       res.cookie("token", token, {
         secure: true,
+        sameSite: "lax",
         maxAge: 1000 * 60 * 60 * 24, // 1 día
       });
       res.json({ usuarioguardado });
@@ -83,6 +84,7 @@ const controller = {
 
       await res.cookie("token", token, {
         secure: true,
+        sameSite: "lax",
         maxAge: 1000 * 60 * 60 * 24, // 1 día
       });
       console.log("despues de setear cookies");
