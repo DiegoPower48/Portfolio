@@ -54,12 +54,12 @@ const controller = {
       const usuarioguardado = await usuario.save();
 
       const token = createAccessToken({ id: usuarioguardado._id });
-      res.cookie("token", token, {
-        secure: true,
-        sameSite: "None",
-        maxAge: 1000 * 60 * 60 * 24, // 1 día
-      });
-      res.json({ usuarioguardado });
+      // res.cookie("token", token, {
+      //   secure: true,
+      //   sameSite: "None",
+      //   maxAge: 1000 * 60 * 60 * 24, // 1 día
+      // });
+      res.send(token);
     } catch (err) {
       res.status(500).send({ message: err.message });
     }
@@ -82,11 +82,11 @@ const controller = {
       const token = await createAccessToken({ id: userFound._id });
       console.log("casi antes de setear cookies");
 
-      await res.cookie("token", token, {
-        secure: true,
-        sameSite: "None",
-        maxAge: 1000 * 60 * 60 * 24, // 1 día
-      });
+      // await res.cookie("token", token, {
+      //   secure: true,
+      //   sameSite: "None",
+      //   maxAge: 1000 * 60 * 60 * 24, // 1 día
+      // });
       console.log("despues de setear cookies");
       res.send(token);
     } catch (error) {
@@ -111,7 +111,7 @@ const controller = {
     }
   },
   verifyToken: async (req, res) => {
-    const { token } = req.cookies;
+    const { token } = req.body;
     console.log("verificando token");
     if (!token) {
       console.log("no se encuentra el token");
