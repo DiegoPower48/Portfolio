@@ -26,9 +26,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
-      "https://chatportfolio-1.onrender.com",
       "http://localhost:5173",
-      "https://chatportfolio.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio-production-c9b8.up.railway.app",
     ],
