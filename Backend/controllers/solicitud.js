@@ -124,7 +124,7 @@ const controller = {
       if (!userFound) {
         return res.status(401).send("back: cookie o token incorrecto");
       }
-      return res.json({
+      return res.status(200).send({
         nombre: userFound.nombre,
       });
     });
