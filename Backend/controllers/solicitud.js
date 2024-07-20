@@ -111,7 +111,7 @@ const controller = {
     }
   },
   verifyToken: async (req, res) => {
-    const { token } = req.body;
+    const { token } = req.cookie;
     console.log("verificando token");
     if (!token) {
       console.log("no se encuentra el token");
