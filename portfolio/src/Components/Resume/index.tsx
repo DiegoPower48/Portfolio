@@ -12,7 +12,7 @@ export function Fotos() {
     <>
       <div className="fotografia">
         <img
-          src="https://i.ibb.co/d7nS8gq/foto.jpg"
+          src="https://i.ibb.co/9Vd1v22/foto.jpg"
           className="foto"
           alt="foto"
         />

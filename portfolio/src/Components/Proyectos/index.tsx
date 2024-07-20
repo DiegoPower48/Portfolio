@@ -12,11 +12,12 @@ function Trabajos() {
   const proyectos = [
     {
       nombre: "CHAT ONLINE",
-      imagen: "https://i.ibb.co/p2WFM8j/image.png",
-      direccion: "https://chatportfolio.vercel.app/",
+      imagen:
+        "https://i.ibb.co/HFVhJgC/Captura-de-pantalla-20-7-2024-7168-chatportfolio-up-railway-app.jpg",
+      direccion: "https://chatportfolio.up.railway.app/",
       descripcion:
-        "Chat en linea, implementando websockets con login y salas de chat",
-      Tecnologias: ["Websocket", "NodeJS", "React", "Vite", "MongoDB"],
+        "Chat en linea, implementando websockets con login y salas de chat, utilizando base de datos NoSQL, metodo de seguridad JWT",
+      Tecnologias: ["Websocket", "NodeJS", "React", "Vite", "MongoDB", "JWT"],
     },
     {
       nombre: "CHAT ONLINE",
@@ -45,6 +46,7 @@ function Trabajos() {
           </a>
           <p className="descripcionProyecto">{element.descripcion}</p>
           <div className="descripcion-tecnologias">
+            <br />
             {element.Tecnologias.map((element, index) => (
               <span className="descripcion-elementos" key={index}>
                 {element}

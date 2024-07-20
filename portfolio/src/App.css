@@ -75,9 +75,12 @@ body {
 
 .foto {
   margin-left: 100px;
-  height: 400px;
+  border-radius: 50%;
+  border: 5px orange solid;
   display: block;
   float: left;
+  max-width: 70%;
+  height: auto;
 }
 
 .nav-link {
@@ -89,22 +92,20 @@ body {
   border-bottom: 1px solid white;
 }
 
-.nav-item :hover {
+.nav-item :hover,
+.nav-item :focus {
   color: white;
   text-shadow: 8px 8px 8px white;
+  border-radius: 20px;
+  border: 1px white solid;
 }
 
-.nav-item :active {
-  color: white;
-  text-shadow: 8px 8px 8px white;
-}
-
-.contactos-header {
+.clicked {
   background: orange;
   border: 1px solid orange;
   border-radius: 15px;
   color: white;
-  padding: -15px;
+  transition: all 0.2s ease-in-out;
 }
 
 .card-img-top {
@@ -136,7 +137,7 @@ body {
 }
 
 .proyectos h1 {
-  padding-left: 150px;
+  margin-left: 150px;
 }
 
 .cajaProyectos {
@@ -154,7 +155,6 @@ body {
 }
 
 .tituloProyectos {
-  width: 100%;
   background-color: black;
   color: white;
   text-shadow: none;
@@ -162,7 +162,13 @@ body {
   clear: both;
   text-align: center;
   margin: 0px;
-  height: 15%;
+  border-radius: 20px 20px 0 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.tituloProyectos:hover {
+  background-color: white;
+  color: black;
 }
 
 .cajaimagen {
@@ -208,7 +214,7 @@ body {
 
 .descripcion-elementos:hover {
   color: black;
-  background-color: white;
+  background-color: orange;
 }
 
 .tecnologias {
@@ -376,7 +382,7 @@ body {
     margin: 20px;
   }
   .proyectos h1 {
-    padding-left: 0px;
+    margin-left: 0px;
   }
 }
 @media (max-width: 968px) {
@@ -411,15 +417,26 @@ body {
     text-align: center;
     background-color: orange;
   }
-  .Resume {
-    padding-top: 170px;
-  }
+
   .nav-link {
+    font-size: 20px;
     color: black;
+    padding-right: 40px;
+    margin: 3px;
+    border-bottom: 1px solid white;
   }
 
-  .nav-item :hover {
-    color: white;
+  .nav-item :hover,
+  .nav-item :focus {
+    color: black;
+    text-shadow: 8px 8px 8px black;
+  }
+
+  .clicked {
+    color: black;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 3px 3px 3px black;
   }
 
   .card,
