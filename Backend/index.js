@@ -28,7 +28,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://diegotorres-portfoliodev.vercel.app",
-      "https://chatportfolio-production-c9b8.up.railway.app",
+      "https://chatportfolio.up.railway.app",
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
