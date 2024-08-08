@@ -3,6 +3,12 @@ import { useState } from "react";
 function Header() {
   const [selected, setSelected] = useState("contactos");
 
+  const subir = () =>
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
   return (
     <ul className="nav justify-content-end header">
       <li className="nav-item">
@@ -10,8 +16,10 @@ function Header() {
           className={`nav-link contactos-header ${
             selected === "inicio" ? "clicked" : ""
           }`}
-          href="#Resume"
-          onClick={() => setSelected("inicio")}
+          onClick={() => {
+            setSelected("inicio");
+            subir();
+          }}
         >
           Inicio
         </a>
