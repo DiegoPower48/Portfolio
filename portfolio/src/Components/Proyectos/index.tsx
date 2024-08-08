@@ -16,16 +16,16 @@ function Trabajos() {
         "https://i.ibb.co/HFVhJgC/Captura-de-pantalla-20-7-2024-7168-chatportfolio-up-railway-app.jpg",
       direccion: "https://chatportfolio.up.railway.app/",
       descripcion:
-        "Chat en linea, implementando websockets con login y salas de chat, utilizando base de datos NoSQL, metodo de seguridad JWT",
-      Tecnologias: ["Websocket", "NodeJS", "React", "Vite", "MongoDB", "JWT"],
+        "Chat en linea, implementando websockets con login y salas de chat, utilizando el MERN stack, metodo de seguridad JWT",
+      Tecnologias: ["MongoDB","Express","React","NodeJS","Websocket",  "Vite",  "JWT"],
     },
     {
-      nombre: "CHAT ONLINE",
+      nombre: "TEDDYSTORE",
       imagen: "https://i.ibb.co/p2WFM8j/image.png",
       direccion: "https://chatportfolio.vercel.app/",
       descripcion:
-        "Chat en linea, implementando websockets con login y salas de chat",
-      Tecnologias: ["Websocket", "NodeJS", "React", "Vite", "MongoDB"],
+        "EN CONSTRUCCION---Tienda Online con sección completa de carrito, ofertas, productos y descripcion",
+      Tecnologias: ["Express", "NodeJS","Prism", "React", "Vite", "PostgreSQL"],
     },
   ];
 
