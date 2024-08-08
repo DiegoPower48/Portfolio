@@ -487,7 +487,8 @@ body {
     padding-top: 200px;
     text-align: center;
   }
-
+  .listaProyectos{
+    width: 100vw}
   .proyectos h1 {
     padding-left: 0px;
   }
