@@ -131,21 +131,24 @@ body {
 
 .proyectos {
   padding-top: 53px;
-  width: 100%;
-  clear: both;
+  width: 90vw;
   display: block;
+  float: left;
 }
 
 .proyectos h1 {
   margin-left: 150px;
 }
-
+.listaProyectos {
+  display: grid;
+  width: 80vw;
+  grid-template-columns: 1fr 1fr;
+}
 .cajaProyectos {
-  width: 45%;
   height: 300px;
+  width: 40vw;
   background-color: #121212;
-  display: inline-block;
-  margin: 25px;
+  margin: 20px;
   color: white;
   border-radius: 20px;
 }
@@ -223,6 +226,7 @@ body {
   padding-left: 150px;
   margin-bottom: 200px;
   display: block;
+  float: left;
   color: orange;
   text-shadow: 3px 3px 3px orange;
   padding-right: 100px;
@@ -378,11 +382,15 @@ body {
     height: 60px;
     width: 10%;
   }
-  .cajaProyectos {
-    margin: 20px;
+  .listaProyectos {
+    margin: 0;
   }
   .proyectos h1 {
     margin-left: 0px;
+  }
+  .descripcion-elementos,
+  .descripcionProyecto {
+    font-size: 12px;
   }
 }
 @media (max-width: 968px) {
@@ -397,11 +405,15 @@ body {
     height: 50px;
     width: 10%;
   }
+}
+@media (max-width: 968px) {
+  .listaProyectos {
+    display: block;
+  }
   .cajaProyectos {
-    margin: 15px;
+    width: 80vw;
   }
 }
-
 @media (max-width: 659px) {
   body {
     padding: 0px;
