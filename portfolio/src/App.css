@@ -130,7 +130,7 @@ body {
 }
 
 .proyectos {
-  padding-top: 53px;
+  padding-top: 53px;  
   width: 90vw;
   display: block;
   float: left;
@@ -141,6 +141,7 @@ body {
 }
 .listaProyectos {
   display: grid;
+  padding-left: 100px;
   width: 80vw;
   grid-template-columns: 1fr 1fr;
 }
@@ -374,7 +375,8 @@ body {
   .card-text,
   .detalle,
   .proyectos,
-  .tecnologias {
+  .tecnologias,
+  .listaProyectos{
     padding-left: 0px;
     padding-right: 0%;
   }
