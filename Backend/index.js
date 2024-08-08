@@ -6,9 +6,8 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const cors = require("cors");
 const router = require("./routes/solicitud");
-const taskrouter = require("./routes/task");
+const store = require("./routes/store");
 const cookieParser = require("cookie-parser");
-const { modelName } = require("./models/solicitud");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -30,7 +29,7 @@ app.use(
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.up.railway.app",
     ],
-    methods: ["GET", "PUT", "POST", "OPTIONS"],
+    methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
@@ -39,7 +38,7 @@ app.use(
 app.use(cookieParser());
 
 app.use(router);
-app.use(taskrouter);
+app.use(store);
 
 app.listen(port, () => {
   console.log("servidor corriendo en http://localhost:" + port);

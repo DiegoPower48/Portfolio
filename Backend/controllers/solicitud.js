@@ -8,8 +8,6 @@ const createAccessToken = require("./jwt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-require("dotenv").config();
-
 const controller = {
   correo: async (req, res) => {
     try {
@@ -88,22 +86,6 @@ const controller = {
       res.send(token);
     } catch (error) {
       res.status(500).send("Error en el servidor");
-    }
-  },
-
-  profile: async (req, res) => {
-    try {
-      const userFound = await User.findById(req.user.id);
-
-      if (!userFound) {
-        return res.status(400).send("Usuario no encontrado");
-      }
-
-      return res.json({
-        nombre: userFound.nombre,
-      });
-    } catch (error) {
-      return res.status(500).send("Error en el servidor");
     }
   },
   verifyToken: async (req, res) => {
