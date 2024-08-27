@@ -34,10 +34,10 @@ function Comentarios() {
   return (
     <form className="comentarios" id="Contactos" method="POST">
       <fieldset className="contactame">
-        <h1 className="titulo">Contactame</h1>
+        <h1 className="titulo">{"<Contact_me/>"}</h1>
       </fieldset>
       <fieldset>
-        <label htmlFor="nombre">Nombre:</label>
+        <label htmlFor="nombre">Name:</label>
         <input
           id="nombre"
           placeholder="Name"
@@ -59,7 +59,7 @@ function Comentarios() {
         />
       </fieldset>
       <fieldset>
-        <label htmlFor="comentarios">Comentarios:</label>
+        <label htmlFor="comentarios">Comments:</label>
 
         <textarea
           id="comentarios"
@@ -83,7 +83,7 @@ interface BotonProps {
 function Boton({ onClick }: BotonProps) {
   return (
     <button type="submit" className="btn btn-warning" onClick={onClick}>
-      Enviar
+      Send
     </button>
   );
 }

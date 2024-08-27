@@ -8,7 +8,7 @@ function Tecnologias(props: TecnologiasProps) {
   const { children } = props;
   return (
     <div className="tecnologias" id="Tecnologias">
-      <h1 className="titulo">{"<Tecnologias/>"}:</h1>
+      <h1 className="titulo">{"<Technologies/>"}:</h1>
       <h1 className="wrapper">{children}</h1>
     </div>
   );

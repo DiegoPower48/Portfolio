@@ -21,7 +21,7 @@ function Header() {
             subir();
           }}
         >
-          Inicio
+          About
         </a>
       </li>
       <li className="nav-item">
@@ -32,7 +32,7 @@ function Header() {
           href="#Proyectos"
           onClick={() => setSelected("proyectos")}
         >
-          Proyectos
+          Projects
         </a>
       </li>
       <li className="nav-item">
@@ -43,7 +43,7 @@ function Header() {
           href="#Tecnologias"
           onClick={() => setSelected("tecnologias")}
         >
-          Tecnologias
+          Technologies
         </a>
       </li>
       <li className="nav-item ">
@@ -54,7 +54,7 @@ function Header() {
           href="#Contactos"
           onClick={() => setSelected("contactos")}
         >
-          Contactos
+          Comments
         </a>
       </li>
     </ul>

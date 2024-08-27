@@ -130,7 +130,7 @@ body {
 }
 
 .proyectos {
-  padding-top: 53px;  
+  padding-top: 53px;
   width: 90vw;
   display: block;
   float: left;
@@ -376,7 +376,7 @@ body {
   .detalle,
   .proyectos,
   .tecnologias,
-  .listaProyectos{
+  .listaProyectos {
     padding-left: 0px;
     padding-right: 0%;
   }
@@ -487,8 +487,9 @@ body {
     padding-top: 200px;
     text-align: center;
   }
-  .listaProyectos{
-    width: 100vw}
+  .listaProyectos {
+    width: 100vw;
+  }
   .proyectos h1 {
     padding-left: 0px;
   }
