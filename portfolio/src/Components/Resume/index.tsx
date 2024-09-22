@@ -11,7 +11,11 @@ export function Fotos() {
   return (
     <>
       <div className="fotografia">
-        <img src="../../public/me.jpg" className="foto" alt="foto" />
+        <img
+          src="https://i.ibb.co/drwFYjN/me.jpg"
+          className="foto"
+          alt="foto"
+        />
 
         <div className="Footers">
           <div className="imageLink">
