@@ -4,7 +4,6 @@ import Detalle from "./Components/detalle";
 import Proyectos from "./Components/Proyectos";
 import Tecnologias, { Iconos } from "./Components/Tecnologias";
 import Comentarios from "./Components/Comentarios";
-import Footers from "./Components/Footers";
 import { Analytics } from "@vercel/analytics/react";
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
         <Iconos />
       </Tecnologias>
       <Comentarios />
-      <Footers />
       <Analytics />
     </>
   );

@@ -1,111 +1,170 @@
 body {
+  width: 100vw;
   border: 0px;
   padding: 20px;
-  font-size: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: clamp(10px, 4vw, 17px);
+
   background-color: #070e29;
   color: white;
-  font-family: Monserrat, Verdana, sans-serif;
+  font-family: Poppins, sans-serif;
   min-width: 400px;
 }
 
-@font-face {
-  font-family: Monserrat;
-  src: url("./assets/Montserrat-Light.otf");
+.header {
+  display: block;
+  position: fixed;
+  height: 100vh;
+  width: 10vw;
+  text-align: center;
+  margin: 0px;
 }
 
-.header {
-  background: #070e29;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.headerIcon {
+  padding-top: 20px;
+  margin-bottom: 5px;
+  height: 80px;
+  width: 80px;
+  display: block;
+  fill: white;
+  border-radius: 9999px;
+  box-shadow: 1px 1px 10px 1px white;
+}
+
+.Options {
+  left: 0px;
+  list-style: none;
+  font-weight: bold;
+}
+
+.Option {
+  color: #070e29;
+  padding-bottom: 25px;
+  float: left;
   text-decoration: none;
 }
 
+.Option:hover {
+  color: #008080;
+  fill: #008080;
+}
+
+.headerIcon:active {
+  translate: 5px;
+  box-shadow: none;
+}
+
 .Titulo-resume {
-  color: orange;
+  color: #008080;
 }
 
 .Resume {
-  width: 100%;
-  height: 500px;
-  box-sizing: border-box;
+  width: 80%;
+  margin: 50px;
+  margin-left: 200px;
+  height: 85vh;
+  position: relative;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px 1px white;
+}
+
+.Resume:hover {
+  background-color: #070e29;
 }
 
 .card {
-  padding-top: 50px;
-  padding-left: 50px;
-  background-color: #070e29;
-  top: 0px;
+  margin-top: 10vh;
+  background: transparent;
+  position: absolute;
   display: block;
-  width: 50%;
+  width: 55%;
   border: none;
   float: left;
 }
 
 .card-body {
-  padding: 100px;
+  height: 600px;
+  padding: 10vh;
 }
 
 .card-title {
-  color: #921e21;
-  font-size: 50px;
+  color: white;
+  font-size: 5vw;
+  font-weight: bold;
   padding-bottom: 40px;
-  text-shadow: 3px 3px 3px #921e21;
 }
 
 .titulo {
-  color: orange;
+  color: #008080;
   font-size: 50px;
-  text-shadow: 3px 3px 3px orange;
+  font-weight: bold;
   display: block;
 }
 
 .card-text {
   color: white;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .fotografia {
-  margin-top: 100px;
-  height: 400px;
+  margin-top: 10vh;
   width: 50%;
   display: block;
   float: right;
+  margin-right: 8%;
 }
 
 .foto {
-  margin-left: 100px;
+  margin-left: 50px;
   border-radius: 50%;
-  border: 5px orange solid;
+  border: 5px #008080 solid;
   display: block;
   float: left;
-  max-width: 70%;
+  max-width: 85%;
   height: auto;
 }
 
-.nav-link {
-  font-size: 20px;
-  color: white;
-  transition: 100ms all;
-  padding-right: 40px;
-  margin: 3px;
-  border-bottom: 1px solid white;
+.Footers {
+  height: 200px;
+  width: 50%;
+  display: block;
+  float: right;
+  top: 30vw;
+  position: absolute;
 }
 
-.nav-item :hover,
-.nav-item :focus {
-  color: white;
-  text-shadow: 8px 8px 8px white;
-  border-radius: 20px;
-  border: 1px white solid;
+.imageLink {
+  float: right;
+  width: 100px;
+  color: transparent;
+  display: block;
+  text-align: center;
+}
+.imageLink2 {
+  display: block;
+  text-align: center;
+  float: right;
+  margin-top: 12vh;
+  width: 100px;
+  color: transparent;
 }
 
-.clicked {
-  background: orange;
-  border: 1px solid orange;
-  border-radius: 15px;
+.imageLink:hover,
+.imageLink2:hover {
+  scale: 1.1;
   color: white;
-  transition: all 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.card-img {
+  height: 8vh;
+  display: block;
+  float: left;
+  max-width: 70px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 1000px;
 }
 
 .card-img-top {
@@ -115,41 +174,45 @@ body {
 }
 
 .detalle {
-  padding-left: 150px;
-  padding-right: 100px;
-
-  width: 100%;
+  margin: 50px;
+  margin-left: 200px;
+  padding: 50px;
+  width: 80%;
   color: white;
   height: 100%;
   display: block;
   float: left;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px 1px white;
 }
 .introduccion {
   line-height: 40px;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .proyectos {
   padding-top: 53px;
-  width: 90vw;
+  margin-left: 200px;
+  padding-bottom: 100px;
+  width: 80%;
   display: block;
   float: left;
+  border-radius: 40px;
+  box-shadow: 1px 1px 20px 2px white;
 }
 
 .proyectos h1 {
-  margin-left: 150px;
+  margin-left: 4vw;
 }
 .listaProyectos {
   display: grid;
-  padding-left: 100px;
-  width: 80vw;
+  width: 100%;
   grid-template-columns: 1fr 1fr;
 }
 .cajaProyectos {
   height: 300px;
-  width: 40vw;
   background-color: #121212;
-  margin: 20px;
+  margin: 10px;
   color: white;
   border-radius: 20px;
 }
@@ -173,6 +236,7 @@ body {
 .tituloProyectos:hover {
   background-color: white;
   color: black;
+  font-weight: bold;
 }
 
 .cajaimagen {
@@ -207,31 +271,34 @@ body {
 
 .descripcion-elementos {
   padding: 3px;
+  font-size: 14px;
   background-color: black;
   border-radius: 10px;
   text-align: center;
   margin: 3px;
   word-spacing: 10px;
   display: inline-block;
-  color: orange;
+  color: #008080;
 }
 
 .descripcion-elementos:hover {
   color: black;
-  background-color: orange;
+  scale: 1.2;
+  background-color: #008080;
 }
 
 .tecnologias {
-  width: 100%;
-  height: 150px;
-  padding-left: 150px;
-  margin-bottom: 200px;
+  width: 80%;
+  height: 350px;
+  margin: 50px;
+  margin-left: 200px;
+  padding: 50px;
   display: block;
   float: left;
-  color: orange;
-  text-shadow: 3px 3px 3px orange;
-  padding-right: 100px;
-  padding-top: 80px;
+  color: #008080;
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px 1px white;
 }
 
 /*AÑADIENDO ANIMACIONES*/
@@ -253,16 +320,38 @@ body {
 }
 
 .Iconos {
+  margin-top: 30px;
   height: 120px;
-  padding-top: 20px;
-  padding-left: 30px;
+  padding: 4px;
   position: absolute;
   left: 1000px;
+  border-radius: 20px;
 
   animation: scrollleft;
-  animation-duration: 30s;
+  animation-duration: 33s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.Icono {
+  height: 90px;
+}
+.Iconos:hover {
+  scale: 1.1;
+  translate: 1.4px;
+  background-color: white;
+  font-weight: bold;
+}
+
+.Iconos:active {
+  translate: 5px;
+}
+
+.nombreIcono {
+  font-size: 15px;
+  color: #008080;
+  text-align: center;
+  font-weight: bold;
 }
 
 @keyframes scrollleft {
@@ -301,221 +390,203 @@ body {
 .Icono10 {
   animation-delay: -30s;
 }
-
+.Icono11 {
+  animation-delay: -33s;
+}
 /*TERMINANDO ANIMACIONES*/
 
 .comentarios {
-  width: 100%;
-  height: 500px;
-  padding: 1px 20%;
+  width: 80%;
+  height: 700px;
+  margin-left: 200px;
+  padding: 40px;
   display: block;
-  float: left;
   color: black;
   clear: both;
+  border-radius: 40px;
+  margin-bottom: 50px;
+  box-shadow: 1px 1px 10px 1px white;
 }
 
-.comentarios label {
-  color: orange;
-  padding: 10px;
+.commentsField {
+  position: relative;
+  display: block;
+  height: 70px;
+  margin-bottom: 10px;
 }
 
 .formulario {
-  height: 30px;
-  width: 40%;
+  width: 70vw;
+  line-height: 40px;
+  position: absolute;
+  background-color: transparent;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #008080;
+  padding: 0 30px;
+  padding-left: 10px;
+  z-index: 9999;
+  outline: none;
+}
+
+.commentsLabel {
+  color: white;
+  position: absolute;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #070e29;
+  margin: 0 20px;
+  border-radius: 20px;
+  transition: 0.2s ease;
+  margin-top: 10px;
+}
+
+.commentsTextArea {
+  height: 200px;
+  border-radius: 20px;
 }
 
 .textarea {
+  position: absolute;
   text-align: left;
-  width: 100%;
+  width: 70vw;
+  background-color: transparent;
   height: 150px;
-  color: black;
-  border: solid 1px orange;
+  z-index: 9999;
+  border-radius: 20px;
+  font-weight: bold;
+  padding-top: 14px;
+  padding-left: 10px;
+  margin-bottom: 15px;
   resize: none;
+  outline: none;
 }
 
+.formulario:focus,
+.textarea:valid,
+.textarea:focus,
+.formulario:valid {
+  color: #008080;
+  box-shadow: 1px 1px 10px 1px #008080;
+  border: 3px solid #008080;
+}
+
+.formulario:focus + .commentsLabel,
+.formulario:valid + .commentsLabel {
+  transform: translate(-20px, -30px) scale(0.9);
+  z-index: 9999;
+  color: #008080;
+}
+.textarea:valid + .commentsLabel,
+.textarea:focus + .commentsLabel {
+  transform: translate(-40px, -25px) scale(0.9);
+  z-index: 9999;
+  color: #008080;
+}
 .contactame {
   text-align: center;
   height: 80px;
 }
 
 .btn {
-  height: 40px;
+  height: 50px;
   width: 100%;
-  margin: 10px 0%;
-  border: solid 1px orange;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background-color: #008080;
+  border: solid 1px #008080;
   color: black;
-  font-size: 17px;
+  font-size: 19px;
+  font-weight: bold;
 }
 
 .btn:hover {
-  background-color: rgb(241, 164, 20);
+  background-color: #008080;
+  border: solid 1px white;
   color: white;
 }
 
-.Footers {
-  width: 100%;
-  height: 60px;
-  display: inline-block;
-  text-align: center;
-  clear: both;
-}
-
-.card-img {
-  height: 50px;
-  background-color: white;
-  margin: 8px;
-  border-radius: 10px;
-  width: 5%;
-}
-
 @media (max-width: 1160px) {
-  .card,
-  .card-body,
-  .card-title,
-  .card-text,
+  .Resume,
   .detalle,
   .proyectos,
   .tecnologias,
-  .listaProyectos {
-    padding-left: 0px;
-    padding-right: 0%;
-  }
-  .card-img {
-    height: 60px;
-    width: 10%;
-  }
-  .listaProyectos {
-    margin: 0;
-  }
-  .proyectos h1 {
-    margin-left: 0px;
-  }
-  .descripcion-elementos,
-  .descripcionProyecto {
-    font-size: 12px;
-  }
-}
-@media (max-width: 968px) {
-  .card,
-  .card-body,
-  .card-text,
-  .card-title {
-    padding-left: 0px;
-    text-align: center;
-  }
-  .card-img {
-    height: 50px;
-    width: 10%;
-  }
-}
-@media (max-width: 968px) {
-  .listaProyectos {
+  .comentarios {
+    width: 90vw;
+    margin: 50px 0px;
     display: block;
+    float: left;
   }
-  .cajaProyectos {
-    width: 80vw;
+  .card-body {
+    padding: 6vw;
+    padding-top: 2vh;
   }
-}
-@media (max-width: 659px) {
-  body {
-    padding: 0px;
-    width: 100%;
-    box-sizing: border-box;
+  .Resume {
+    margin-top: 180px;
+    padding-right: 90px;
   }
-
-  .titulo {
-    width: 100%;
+  .Option {
+    width: 13vw;
+    height: 17vh;
+    margin-right: 5vw;
+    color: #008080;
   }
   .header {
+    position: absolute;
     display: block;
-    text-align: center;
-    background-color: orange;
-  }
-
-  .nav-link {
-    font-size: 20px;
-    color: black;
-    padding-right: 40px;
-    margin: 3px;
-    border-bottom: 1px solid white;
-  }
-
-  .nav-item :hover,
-  .nav-item :focus {
-    color: black;
-    text-shadow: 8px 8px 8px black;
-  }
-
-  .clicked {
-    color: black;
-    background-color: white;
-    transition: all 0.2s ease-in-out;
-    text-shadow: 3px 3px 3px black;
-  }
-
-  .card,
-  .card-body,
-  .card-text,
-  .card-title {
-    padding: 10px;
-    width: 100%;
-    text-align: center;
-    clear: none;
-  }
-  .fotografia,
-  .foto {
-    margin-top: 0px;
-    margin-left: 0px;
-    margin-bottom: 40px;
-
-    width: 75%;
-    text-align: center;
-    clear: none;
-  }
-  .cajaProyectos {
-    margin: 15px;
-    width: 90%;
-  }
-
-  .detalle {
-    width: 100%;
-    text-align: center;
-    padding: 0px;
-  }
-
-  .proyectos {
-    padding-top: 200px;
-    text-align: center;
-  }
-  .listaProyectos {
     width: 100vw;
-  }
-  .proyectos h1 {
-    padding-left: 0px;
-  }
-  .tecnologias {
-    text-align: center;
-    padding: 0px;
-    padding-top: 200px;
+    float: left;
+    height: 25vh;
   }
 
-  .comentarios {
-    width: 100%;
-    padding: 0;
-    padding-top: 200px;
-  }
-
-  .formulario {
-    width: 100%;
-    padding: 0;
+  .fotografia {
+    margin-right: 0;
+    height: 600px;
   }
 
   .Footers {
-    padding-top: 180px;
+    position: relative;
+    top: auto;
+    padding-left: 2vw;
+    width: 40vw;
+    margin-left: 4vw;
+  }
+  .imageLink,
+  .imageLink2 {
+    display: block;
+    margin: 20px;
+    margin-right: 5vw;
+    text-align: left;
+    color: white;
+  }
+  .listaProyectos {
+    width: 85vw;
+    grid-template-columns: 1fr;
+  }
+
+  .formulario,
+  .textarea {
+    width: 80vw;
+  }
+
+  .btn {
+    width: 80vw;
+  }
+}
+
+@media (max-width: 659px) {
+  .Resume {
+    margin-top: 180px;
+    padding-right: 90px;
+  }
+  .imageLink,
+  .imageLink2 {
+    margin-left: 4vw;
+    margin-right: 0.5vw;
   }
 
   .Iconos {
-    animation-duration: 20s;
+    animation-duration: 22s;
   }
   .Icono1 {
     animation-delay: -2s;
@@ -546,5 +617,8 @@ body {
   }
   .Icono10 {
     animation-delay: -20s;
+  }
+  .Icono11 {
+    animation-delay: -22s;
   }
 }

@@ -1,7 +1,7 @@
 function detalle() {
   return (
-    <div className="detalle">
-      <span className="titulo"> {"<About_me/>"} </span>
+    <div className="detalle" id="About">
+      <span className="titulo"> ABOUT ME: </span>
       <br />
       <p className="introduccion">
         I am a Web Developer with a deep interest in improving tools for

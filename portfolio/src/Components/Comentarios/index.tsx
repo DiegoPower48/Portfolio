@@ -34,43 +34,43 @@ function Comentarios() {
   return (
     <form className="comentarios" id="Contactos" method="POST">
       <fieldset className="contactame">
-        <h1 className="titulo">{"<Contact_me/>"}</h1>
+        <h1 className="titulo">CONTACT ME:</h1>
       </fieldset>
-      <fieldset>
-        <label htmlFor="nombre">Name:</label>
+      <fieldset className="commentsField">
         <input
           id="nombre"
-          placeholder="Name"
           type="text"
           className="formulario"
           {...register("nombre", { required: true })}
+          required
         />
+        <div className="commentsLabel">Name</div>
       </fieldset>
-      <fieldset>
-        <label htmlFor="correo"> Email: </label>
+
+      <fieldset className="commentsField">
         <input
-          placeholder="Email"
           id="correo"
-          type="email"
           className="formulario"
           {...register("correo", {
             required: { value: true, message: "ingresa correo" },
           })}
+          required
         />
+        <div className="commentsLabel">Email</div>
       </fieldset>
-      <fieldset>
-        <label htmlFor="comentarios">Comments:</label>
 
+      <fieldset className="commentsTextArea">
         <textarea
           id="comentarios"
-          placeholder="Write your questions and comments here please"
           className="textarea"
+          required
           {...register("comentario", { required: true })}
         ></textarea>
-
-        <Boton onClick={handleSubmit(Datos)} />
+        <div className="commentsLabel">
+          Write your questions and comments here please
+        </div>
       </fieldset>
-
+      <Boton onClick={handleSubmit(Datos)} />
       <Toaster />
     </form>
   );

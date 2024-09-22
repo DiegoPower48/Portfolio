@@ -1,7 +1,7 @@
 function Proyectos() {
   return (
     <div className="proyectos" id="Proyectos">
-      <h1 className="titulo">{"<Projects/>"}</h1>
+      <h1 className="titulo">PROYECTS:</h1>
       <Trabajos />
     </div>
   );
@@ -15,7 +15,7 @@ function Trabajos() {
         "https://i.ibb.co/HFVhJgC/Captura-de-pantalla-20-7-2024-7168-chatportfolio-up-railway-app.jpg",
       direccion: "https://chatportfolio.up.railway.app/",
       descripcion:
-        "Online chat, implement websockets with login and chat rooms, using the MERN stack and JWT security method",
+        "Online chat, implement websockets with login and chat rooms, JWT security method.",
       Tecnologias: [
         "MongoDB",
         "Express",

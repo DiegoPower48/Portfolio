@@ -11,11 +11,33 @@ export function Fotos() {
   return (
     <>
       <div className="fotografia">
-        <img
-          src="https://i.ibb.co/9Vd1v22/foto.jpg"
-          className="foto"
-          alt="foto"
-        />
+        <img src="../../public/me.jpg" className="foto" alt="foto" />
+
+        <div className="Footers">
+          <div className="imageLink">
+            <a href="https://github.com/DiegoPower48" target="_blank">
+              <img
+                src="https://www.svgrepo.com/show/512317/github-142.svg"
+                className="card-img"
+                alt="github-icon"
+              />
+            </a>
+            <div>Github</div>
+          </div>
+          <div className="imageLink2">
+            <a
+              href="https://www.linkedin.com/in/diego-arturo-torres-pacherres-440423242/"
+              target="_blank"
+            >
+              <img
+                src="https://www.svgrepo.com/show/473701/linkedin.svg"
+                className="card-img"
+                alt="linkedin-icon"
+              />
+            </a>
+            <div>linkedin</div>
+          </div>
+        </div>
       </div>
     </>
   );
