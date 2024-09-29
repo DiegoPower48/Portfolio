@@ -35,9 +35,6 @@ const socket = (io) => {
           hora: msg.hora,
           fecha: msg.fecha,
         });
-        console.log(
-          `guardando el mensaje de: "${msg.nombre}" el cual es:"${msg.comentario}"`
-        );
       } catch (e) {
         console.log("error en create");
       }

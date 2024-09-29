@@ -25,20 +25,20 @@ mongoose.connection.on("error", (err) => {
 
 app.use(bodyParser.json());
 
-// app.use(
-//   cors({
-//     origin: [
-//       "http://localhost:5173",
-//       "https://teddy-store.vercel.app",
-//       "https://diegotorres-portfoliodev.vercel.app",
-//       "https://chatportfolio.up.railway.app",
-//       "https://chatportfolio.vercel.app",
-//     ],
-//     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
-//     allowedHeaders: ["Content-Type", "Authorization"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://teddy-store.vercel.app",
+      "https://diegotorres-portfoliodev.vercel.app",
+      "https://chatportfolio.up.railway.app",
+      "https://chatportfolio.vercel.app",
+    ],
+    methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 app.use(cookieParser());
 
@@ -66,7 +66,7 @@ const io = new Server(server, {
 
 sockets(io);
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log("servidor corriendo en http://localhost:" + port);
 });
 
