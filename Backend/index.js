@@ -9,7 +9,8 @@ const router = require("./routes/solicitud");
 const store = require("./routes/store");
 const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
-const sockets = require("./socket/sockets");
+const sockets = require("./socket/socket");
+const http = require("http");
 
 const app = express();
 const port = process.env.PORT || 3000;
