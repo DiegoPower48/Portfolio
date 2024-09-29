@@ -8,6 +8,8 @@ const cors = require("cors");
 const router = require("./routes/solicitud");
 const store = require("./routes/store");
 const cookieParser = require("cookie-parser");
+const { Server } = require("socket.io");
+const sockets = require("./socket/sockets");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -25,7 +27,8 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173","https://teddy-store.vercel.app",
+      "http://localhost:5173",
+      "https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.up.railway.app",
     ],
@@ -39,6 +42,26 @@ app.use(cookieParser());
 
 app.use(router);
 app.use(store);
+
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: [
+      "https://chatportfolio.up.railway.app",
+      "http://localhost:5173",
+      "https://chatportfolio.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
+  },
+  transports: ["websocket", "polling"],
+  connectionStateRecovery: {
+    maxDisconnectionDuration: 2 * 60 * 1000,
+  },
+});
+
+sockets(io);
 
 app.listen(port, () => {
   console.log("servidor corriendo en http://localhost:" + port);
