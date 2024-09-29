@@ -25,20 +25,20 @@ mongoose.connection.on("error", (err) => {
 
 app.use(bodyParser.json());
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://teddy-store.vercel.app",
-      "https://diegotorres-portfoliodev.vercel.app",
-      "https://chatportfolio.up.railway.app",
-      "https://chatportfolio.vercel.app",
-    ],
-    methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-); // en origin va la url de nuestro frontend
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173",
+//       "https://teddy-store.vercel.app",
+//       "https://diegotorres-portfoliodev.vercel.app",
+//       "https://chatportfolio.up.railway.app",
+//       "https://chatportfolio.vercel.app",
+//     ],
+//     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
 
 app.use(cookieParser());
 
@@ -49,12 +49,13 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      "https://chatportfolio.up.railway.app",
       "http://localhost:5173",
+      "https://teddy-store.vercel.app",
+      "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.vercel.app",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],
+    methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   },
   transports: ["websocket", "polling"],

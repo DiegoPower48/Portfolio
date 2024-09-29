@@ -1,10 +1,4 @@
-/* RECUPERANDO DATOS DE ROOM Y USUARIO */
-
-/* CREANDO EL MODELO */
-
 const mongoose = require("mongoose");
-
-/* CREANDO EL SOCKET */
 
 const socket = (io) => {
   io.on("connection", (socket) => {
