@@ -18,9 +18,10 @@ const controller = {
       });
       await item.save();
       await sendMail(item.nombre, item.correo, item.comentario);
-
+      console.log("Se envio correo desde portfolio con exito");
       res.status(201).send(item);
     } catch (err) {
+      console.log("Error de envio de correo desde portfolio");
       res.status(400).send("error en backend");
     }
   },
