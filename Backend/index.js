@@ -38,7 +38,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
-);
+); // en origin va la url de nuestro frontend
 
 app.use(cookieParser());
 
@@ -48,14 +48,9 @@ app.use(store);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: [
-      "http://localhost:5173",
-      "https://teddy-store.vercel.app",
-      "https://diegotorres-portfoliodev.vercel.app",
-      "https://chatportfolio.vercel.app",
-    ],
-    methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: ["http://localhost:5173", "https://chatportfolio.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"],
     credentials: true,
   },
   transports: ["websocket", "polling"],
