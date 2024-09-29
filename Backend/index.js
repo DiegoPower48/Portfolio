@@ -61,7 +61,7 @@ const io = new Server(server, {
 
 sockets(io);
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log("servidor corriendo en http://localhost:" + port);
 });
 
