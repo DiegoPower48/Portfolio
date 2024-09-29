@@ -28,6 +28,7 @@ app.use(
       "http://localhost:5173","https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.up.railway.app",
+      "https://chatportfolio.vercel.app",
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
