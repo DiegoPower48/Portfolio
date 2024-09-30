@@ -1,11 +1,6 @@
 body {
-  width: 100vw;
   border: 0px;
-  padding: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
   font-size: clamp(10px, 4vw, 17px);
-
   background-color: #070e29;
   color: white;
   font-family: Poppins, sans-serif;
@@ -22,6 +17,7 @@ body {
 }
 
 .headerIcon {
+  padding: 1vw;
   padding-top: 20px;
   margin-bottom: 5px;
   height: 80px;
@@ -39,8 +35,8 @@ body {
 }
 
 .Option {
+  padding: 2vw;
   color: #070e29;
-  padding-bottom: 25px;
   float: left;
   text-decoration: none;
 }
@@ -112,11 +108,9 @@ body {
   width: 50%;
   display: block;
   float: right;
-  margin-right: 8%;
 }
 
 .foto {
-  margin-left: 50px;
   border-radius: 50%;
   border: 5px #008080 solid;
   display: block;
@@ -512,8 +506,9 @@ body {
   .proyectos,
   .tecnologias,
   .comentarios {
-    width: 90vw;
+    width: 95vw;
     margin: 50px 0px;
+    margin-left: 2vw;
     display: block;
     float: left;
   }
@@ -522,21 +517,23 @@ body {
     padding-top: 2vh;
   }
   .Resume {
-    margin-top: 180px;
-    padding-right: 90px;
+    margin-top: 20vw;
   }
   .Option {
-    width: 13vw;
-    height: 17vh;
-    margin-right: 5vw;
+    width: 12vw;
+    height: 12vw;
+    margin-right: 6vw;
+    margin-left: 0;
     color: #008080;
   }
   .header {
     position: absolute;
     display: block;
-    width: 100vw;
+    font-size: 2vw;
+    width: 98vw;
     float: left;
-    height: 25vh;
+    height: 15vh;
+    padding-left: 6vw;
   }
 
   .fotografia {
@@ -554,14 +551,19 @@ body {
   .imageLink,
   .imageLink2 {
     display: block;
+    float: left;
     margin: 20px;
-    margin-right: 5vw;
+
     text-align: left;
     color: white;
   }
   .listaProyectos {
     width: 85vw;
     grid-template-columns: 1fr;
+  }
+  .cajaProyectos {
+    width: 70vw;
+    margin: 10px 15vw;
   }
 
   .formulario,
@@ -575,14 +577,21 @@ body {
 }
 
 @media (max-width: 659px) {
-  .Resume {
-    margin-top: 180px;
-    padding-right: 90px;
+  .titulo {
+    font-size: 10vw;
   }
+
   .imageLink,
   .imageLink2 {
     margin-left: 4vw;
-    margin-right: 0.5vw;
+    margin-right: 5vw;
+  }
+  .cajaProyectos {
+    width: 90vw;
+    margin: 10px 0;
+  }
+  .header {
+    font-size: 3vw;
   }
 
   .Iconos {
