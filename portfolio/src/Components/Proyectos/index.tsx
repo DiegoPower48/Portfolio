@@ -13,7 +13,7 @@ function Trabajos() {
       nombre: "ONLINE CHAT",
       imagen:
         "https://i.ibb.co/HFVhJgC/Captura-de-pantalla-20-7-2024-7168-chatportfolio-up-railway-app.jpg",
-      direccion: "https://chatportfolio.up.railway.app/",
+      direccion: "https://chatportfolio.vercel.app",
       descripcion:
         "Online chat, implement websockets with login and chat rooms, JWT security method.",
       Tecnologias: [
