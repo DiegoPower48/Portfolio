@@ -517,7 +517,7 @@ body {
     padding-top: 2vh;
   }
   .Resume {
-    margin-top: 20vw;
+    margin-top: 25vw;
   }
   .Option {
     width: 12vw;
@@ -532,7 +532,8 @@ body {
     font-size: 2vw;
     width: 98vw;
     float: left;
-    height: 15vh;
+    height: 13vh;
+    margin-bottom: 10vw;
     padding-left: 6vw;
   }
 
@@ -581,15 +582,27 @@ body {
     font-size: 10vw;
   }
 
+  .tituloProyectos {
+    height: 10vw;
+    font-size: 5vw;
+  }
+  .descripcion-elementos {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .cajaProyectos {
+    width: 90vw;
+    height: 100vw;
+    margin: 10px 0;
+  }
+
   .imageLink,
   .imageLink2 {
     margin-left: 4vw;
     margin-right: 5vw;
   }
-  .cajaProyectos {
-    width: 90vw;
-    margin: 10px 0;
-  }
+
   .header {
     font-size: 3vw;
   }

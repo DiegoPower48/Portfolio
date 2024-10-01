@@ -63,7 +63,6 @@ function Trabajos() {
             </a>
             <p className="descripcionProyecto">{element.descripcion}</p>
             <div className="descripcion-tecnologias">
-              <br />
               {element.Tecnologias.map((element, index) => (
                 <span className="descripcion-elementos" key={index}>
                   {element}
