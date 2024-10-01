@@ -258,6 +258,7 @@ body {
   width: 50%;
   height: 55%;
   padding: 15px;
+  align-content: center;
   top: 0;
   display: inline-block;
   word-wrap: break-word;
