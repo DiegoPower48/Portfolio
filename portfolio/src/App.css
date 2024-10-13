@@ -17,8 +17,6 @@ body {
 }
 
 .headerIcon {
-  padding: 1vw;
-  padding-top: 20px;
   margin-bottom: 5px;
   height: 80px;
   width: 80px;
@@ -29,16 +27,21 @@ body {
 }
 
 .Options {
-  left: 0px;
+  display: block;
   list-style: none;
+  height: 11vw;
   font-weight: bold;
 }
 
 .Option {
-  padding: 2vw;
+  padding: 0.5vw;
   color: #070e29;
   float: left;
   text-decoration: none;
+}
+
+.textOption {
+  display: block;
 }
 
 .Option:hover {
@@ -523,9 +526,14 @@ body {
   .Option {
     width: 12vw;
     height: 12vw;
+    padding: 2.5vw;
     margin-right: 6vw;
     margin-left: 0;
     color: #008080;
+  }
+
+  .Options {
+    height: auto;
   }
   .header {
     position: absolute;
