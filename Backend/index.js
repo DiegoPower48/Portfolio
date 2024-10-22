@@ -32,7 +32,7 @@ app.use(
       "https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.up.railway.app",
-      "https://chatportfolio.vercel.app",
+      "https://chatportfolio.vercel.app","exp://192.168.18.169:8081"
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
