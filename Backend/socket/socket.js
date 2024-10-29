@@ -19,6 +19,7 @@ const socket = (io) => {
             comentario: { type: String },
             hora: { type: String },
             fecha: { type: String },
+            avatar: { type: String }
           },
           { collection: collectionName }
         )
@@ -34,6 +35,7 @@ const socket = (io) => {
           comentario: msg.comentario,
           hora: msg.hora,
           fecha: msg.fecha,
+          avatar: msg.avatar
         });
       } catch (e) {
         console.log("error en create");
