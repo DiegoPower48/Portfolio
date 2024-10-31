@@ -3,6 +3,7 @@
 const sendMail = require("../models/mail");
 const Item = require("../models/solicitud");
 const User = require("../models/user");
+const block = require("../models/block");
 const bcrypt = require("bcryptjs");
 const createAccessToken = require("./jwt");
 const jwt = require("jsonwebtoken");
@@ -105,6 +106,38 @@ const controller = {
         nombre: userFound.nombre,
       });
     });
+  },
+  blocks: async (req, res) => {
+    try {
+      const texto = await block.find({});
+      return res.status(200).send(texto);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  },
+  editblock: async (req, res) => {
+    const { id, texto } = req.body;
+    try {
+      const blockBuscado = await block.findById(id);
+
+      if (!blockBuscado) {
+        const textoNuevo = new block({
+          _id: id,
+          texto: texto,
+        });
+
+        await textoNuevo.save();
+        return res.status(200).send("registrado");
+      }
+
+      blockBuscado.texto = texto;
+      await blockBuscado.save();
+
+      return res.status(200).send("registrado");
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send(error);
+    }
   },
 };
 

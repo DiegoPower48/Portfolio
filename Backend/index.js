@@ -33,6 +33,7 @@ app.use(
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.up.railway.app",
       "https://chatportfolio.vercel.app",
+      "https://daysi-block.vercel.app",
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],

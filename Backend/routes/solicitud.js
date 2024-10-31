@@ -12,5 +12,7 @@ router.post("/correo", controller.correo);
 router.post("/registro", validateSchema(registerSchema), controller.registro);
 router.post("/loginin", validateSchema(loginSchema), controller.login);
 router.post("/verify", controller.verifyToken);
+router.get("/blocks", controller.blocks);
+router.post("/editblock", controller.editblock);
 
 module.exports = router;
