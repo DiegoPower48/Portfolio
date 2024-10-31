@@ -31,8 +31,8 @@ app.use(
       "http://localhost:5173",
       "https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
-      "https://chatportfolio.up.railway.app",
       "https://chatportfolio.vercel.app",
+      "exp://192.168.18.169:8081",
       "https://daysi-block.vercel.app",
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
@@ -49,7 +49,11 @@ app.use(store);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "https://chatportfolio.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://chatportfolio.vercel.app",
+      "exp://192.168.18.169:8081",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
     credentials: true,
