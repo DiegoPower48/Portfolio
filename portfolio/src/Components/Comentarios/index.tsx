@@ -1,3 +1,5 @@
+import styles from "./styles.module.css";
+
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Toaster, toast } from "react-hot-toast";
@@ -32,41 +34,41 @@ function Comentarios() {
   };
 
   return (
-    <form className="comentarios" id="Contactos" method="POST">
-      <fieldset className="contactame">
-        <h1 className="titulo">CONTACT ME:</h1>
+    <form className={styles.comentarios} id="Contactos" method="POST">
+      <fieldset className={styles.contactame}>
+        <h1 className={styles.titulo}>CONTACT ME:</h1>
       </fieldset>
-      <fieldset className="commentsField">
+      <fieldset className={styles.commentsField}>
         <input
           id="nombre"
           type="text"
-          className="formulario"
+          className={styles.formulario}
           {...register("nombre", { required: true })}
           required
         />
-        <div className="commentsLabel">Name</div>
+        <div className={styles.commentsLabel}>Name</div>
       </fieldset>
 
-      <fieldset className="commentsField">
+      <fieldset className={styles.commentsField}>
         <input
           id="correo"
-          className="formulario"
+          className={styles.formulario}
           {...register("correo", {
             required: { value: true, message: "ingresa correo" },
           })}
           required
         />
-        <div className="commentsLabel">Email</div>
+        <div className={styles.commentsLabel}>Email</div>
       </fieldset>
 
-      <fieldset className="commentsTextArea">
+      <fieldset className={styles.commentsTextArea}>
         <textarea
           id="comentarios"
-          className="textarea"
+          className={styles.textarea}
           required
           {...register("comentario", { required: true })}
         ></textarea>
-        <div className="commentsLabel">
+        <div className={styles.commentsLabel}>
           Write your questions and comments here please
         </div>
       </fieldset>
@@ -82,7 +84,7 @@ interface BotonProps {
 
 function Boton({ onClick }: BotonProps) {
   return (
-    <button type="submit" className="btn btn-warning" onClick={onClick}>
+    <button type="submit" className={styles.btn} onClick={onClick}>
       Send
     </button>
   );

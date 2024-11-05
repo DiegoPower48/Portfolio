@@ -1,0 +1,152 @@
+.Resume {
+  width: 80%;
+  margin: 50px;
+  margin-left: 200px;
+  height: 85vh;
+  position: relative;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px 1px white;
+}
+
+.Resume:hover {
+  background-color: #070e29;
+}
+
+.fotografia {
+  margin-top: 10vh;
+  width: 50%;
+  display: block;
+  float: right;
+}
+
+.cardtext {
+  color: white;
+  font-size: 19px;
+}
+
+.foto {
+  border-radius: 50%;
+  border: 5px #008080 solid;
+  display: block;
+  float: left;
+  max-width: 85%;
+  height: auto;
+}
+
+.Footers {
+  height: 200px;
+  width: 50%;
+  display: block;
+  float: right;
+  top: 30vw;
+  position: absolute;
+}
+
+.imageLink {
+  float: right;
+  width: 100px;
+  color: transparent;
+  display: block;
+  text-align: center;
+}
+.imageLink2 {
+  display: block;
+  text-align: center;
+  float: right;
+  margin-top: 12vh;
+  width: 100px;
+  color: transparent;
+}
+.cardimg {
+  height: 8vh;
+  width: 8vh;
+  display: block;
+  float: left;
+  background-color: white;
+  padding: 9px;
+  border-radius: 100%;
+}
+
+.cardimgtop {
+  width: 50%;
+  float: right;
+  height: 300px;
+}
+
+.imageLink:hover,
+.imageLink2:hover {
+  scale: 1.1;
+  color: white;
+  font-weight: bold;
+}
+
+.card {
+  margin-top: 10vh;
+  background: transparent;
+  position: absolute;
+  display: block;
+  width: 55%;
+  border: none;
+  float: left;
+}
+
+.cardbody {
+  height: 600px;
+  padding: 10vh;
+}
+
+.cardtitle {
+  color: white;
+  font-size: 5vw;
+  font-weight: bold;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 1160px) {
+  .Resume {
+    width: 95vw;
+    margin: 50px 0px;
+    margin-left: 2vw;
+    margin-top: 25vw;
+    display: block;
+    float: left;
+  }
+  .card-body {
+    padding: 6vw;
+    padding-top: 2vh;
+  }
+
+  .fotografia {
+    margin-right: 0;
+    height: 600px;
+  }
+
+  .Footers {
+    position: relative;
+    top: auto;
+    padding-left: 2vw;
+    width: 40vw;
+    margin-left: 4vw;
+  }
+  .imageLink,
+  .imageLink2 {
+    display: block;
+    float: left;
+    margin: 20px;
+    text-align: left;
+    color: white;
+  }
+  .titulo {
+    color: #008080;
+    font-size: 50px;
+    font-weight: bold;
+    display: block;
+  }
+}
+@media (max-width: 659px) {
+  .imageLink,
+  .imageLink2 {
+    margin-left: 4vw;
+    margin-right: 5vw;
+  }
+}

@@ -1,0 +1,144 @@
+.titulo {
+  color: #008080;
+  font-size: 50px;
+  font-weight: bold;
+  display: block;
+}
+
+.proyectos {
+  padding-top: 53px;
+  margin-left: 200px;
+  padding-bottom: 100px;
+  width: 80%;
+  display: block;
+  float: left;
+  border-radius: 40px;
+  box-shadow: 1px 1px 20px 2px white;
+}
+
+.proyectos h1 {
+  margin-left: 4vw;
+}
+.listaProyectos {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+.cajaProyectos {
+  height: 300px;
+  background-color: #121212;
+  margin: 10px;
+  color: white;
+  border-radius: 20px;
+}
+
+.cajaProyectos a {
+  text-decoration: none;
+}
+
+.tituloProyectos {
+  background-color: black;
+  color: white;
+  text-shadow: none;
+  font-size: 30px;
+  clear: both;
+  text-align: center;
+  margin: 0px;
+  border-radius: 20px 20px 0 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.tituloProyectos:hover {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+.cajaimagen {
+  width: 50%;
+  height: 85%;
+  display: block;
+  float: left;
+}
+
+.imagenProyectos {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+.descripcionProyecto {
+  height: 30%;
+  width: 50%;
+  display: block;
+  float: right;
+  text-align: left;
+  padding: 15px;
+}
+
+.descripciontecnologias {
+  width: 50%;
+  height: 55%;
+  padding: 15px;
+  align-content: center;
+  top: 0;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+.descripcionelementos {
+  padding: 3px;
+  font-size: 14px;
+  background-color: black;
+  border-radius: 10px;
+  text-align: center;
+  margin: 3px;
+  word-spacing: 10px;
+  display: inline-block;
+  color: #008080;
+}
+
+.descripcionelementos:hover {
+  color: black;
+  scale: 1.2;
+  background-color: #008080;
+}
+
+@media (max-width: 1160px) {
+  .proyectos {
+    width: 95vw;
+    margin: 50px 0px;
+    margin-left: 2vw;
+    display: block;
+    float: left;
+  }
+
+  .listaProyectos {
+    width: 85vw;
+    grid-template-columns: 1fr;
+  }
+  .cajaProyectos {
+    width: 70vw;
+    margin: 10px 15vw;
+  }
+}
+
+@media (max-width: 659px) {
+  .titulo {
+    font-size: 10vw;
+  }
+
+  .tituloProyectos {
+    height: 10vw;
+    font-size: 5vw;
+  }
+  .descripcion-elementos {
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .cajaProyectos {
+    width: 90vw;
+    height: 100vw;
+    margin: 10px 0;
+  }
+}

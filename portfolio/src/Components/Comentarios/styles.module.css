@@ -1,0 +1,139 @@
+.comentarios {
+  width: 80%;
+  height: 600px;
+  margin-left: 200px;
+  padding: 40px;
+  display: block;
+  color: black;
+  clear: both;
+  border-radius: 40px;
+  margin-bottom: 50px;
+  box-shadow: 1px 1px 10px 1px white;
+}
+
+.commentsField {
+  position: relative;
+  display: block;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.formulario {
+  width: 70vw;
+  line-height: 40px;
+  position: absolute;
+  background-color: transparent;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #008080;
+  padding: 0 30px;
+  padding-left: 10px;
+  z-index: 9999;
+  outline: none;
+}
+
+.commentsLabel {
+  color: white;
+  position: absolute;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #070e29;
+  margin: 0 20px;
+  border-radius: 20px;
+  transition: 0.2s ease;
+  margin-top: 10px;
+}
+
+.commentsTextArea {
+  height: 200px;
+  border-radius: 20px;
+}
+
+.textarea {
+  position: absolute;
+  text-align: left;
+  width: 70vw;
+  background-color: transparent;
+  height: 150px;
+  z-index: 9999;
+  border-radius: 20px;
+  font-weight: bold;
+  padding-top: 14px;
+  padding-left: 10px;
+  margin-bottom: 15px;
+  resize: none;
+  outline: none;
+}
+
+.formulario:focus,
+.textarea:valid,
+.textarea:focus,
+.formulario:valid {
+  color: #008080;
+  box-shadow: 1px 1px 10px 1px #008080;
+  border: 3px solid #008080;
+}
+
+.formulario:focus + .commentsLabel,
+.formulario:valid + .commentsLabel {
+  transform: translate(-20px, -30px) scale(0.9);
+  z-index: 9999;
+  color: #008080;
+}
+.textarea:valid + .commentsLabel,
+.textarea:focus + .commentsLabel {
+  transform: translate(-40px, -25px) scale(0.9);
+  z-index: 9999;
+  color: #008080;
+}
+.contactame {
+  text-align: center;
+  height: 80px;
+}
+
+.btn {
+  height: 50px;
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background-color: #008080;
+  border: solid 1px #008080;
+  color: black;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #008080;
+  border: solid 1px white;
+  color: white;
+}
+.titulo {
+  color: #008080;
+  font-size: 50px;
+  font-weight: bold;
+  display: block;
+}
+@media (max-width: 1160px) {
+  .comentarios {
+    width: 95vw;
+    margin: 50px 0px;
+    margin-left: 2vw;
+    display: block;
+    float: left;
+  }
+
+  .formulario,
+  .textarea {
+    width: 80vw;
+  }
+
+  .btn {
+    width: 80vw;
+  }
+  @media (max-width: 659px) {
+    .titulo {
+      font-size: 10vw;
+    }
+  }
+}

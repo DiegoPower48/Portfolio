@@ -1,0 +1,31 @@
+.detalle {
+  margin: 50px;
+  margin-left: 200px;
+  padding: 50px;
+  width: 80%;
+  color: white;
+  height: 100%;
+  display: block;
+  float: left;
+  border-radius: 40px;
+  box-shadow: 1px 1px 10px 1px white;
+}
+.introduccion {
+  line-height: 40px;
+  font-size: 19px;
+}
+.titulo {
+  color: #008080;
+  font-size: 50px;
+  font-weight: bold;
+  display: block;
+}
+@media (max-width: 1160px) {
+  .detalle {
+    width: 95vw;
+    margin: 50px 0px;
+    margin-left: 2vw;
+    display: block;
+    float: left;
+  }
+}

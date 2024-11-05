@@ -1,6 +1,8 @@
+import styles from "./styles.module.css";
+
 function Resume() {
   return (
-    <div className="Resume" id="Resume">
+    <div className={styles.Resume} id="Resume">
       <Card />
       <Fotos />
     </div>
@@ -10,32 +12,32 @@ function Resume() {
 export function Fotos() {
   return (
     <>
-      <div className="fotografia">
+      <div className={styles.fotografia}>
         <img
           src="https://i.ibb.co/drwFYjN/me.jpg"
-          className="foto"
+          className={styles.foto}
           alt="foto"
         />
 
-        <div className="Footers">
-          <div className="imageLink">
+        <div className={styles.Footers}>
+          <div className={styles.imageLink}>
             <a href="https://github.com/DiegoPower48" target="_blank">
               <img
                 src="https://www.svgrepo.com/show/512317/github-142.svg"
-                className="card-img"
+                className={styles.cardimg}
                 alt="github-icon"
               />
             </a>
             <div>Github</div>
           </div>
-          <div className="imageLink2">
+          <div className={styles.imageLink2}>
             <a
               href="https://www.linkedin.com/in/diego-arturo-torres-pacherres-440423242/"
               target="_blank"
             >
               <img
                 src="https://www.svgrepo.com/show/473701/linkedin.svg"
-                className="card-img"
+                className={styles.cardimg}
                 alt="linkedin-icon"
               />
             </a>
@@ -50,21 +52,21 @@ export function Fotos() {
 export function Card() {
   return (
     <>
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">DIEGO TORRES</h5>
-          <h3 className="Titulo-resume">WEB DEVELOPER</h3>
+      <div className={styles.card}>
+        <div className={styles.cardbody}>
+          <h5 className={styles.cardtitle}>DIEGO TORRES</h5>
+          <h3 className={styles.Titulo}>WEB DEVELOPER</h3>
           <br />
-          <p className="card-text">
+          <p className={styles.cardtext}>
             <b>Age: </b> 31 years old
           </p>
-          <p className="card-text">
+          <p className={styles.cardtext}>
             <b>Nationality: </b> Peruvian
           </p>
-          <p className="card-text">
+          <p className={styles.cardtext}>
             <b>Email: </b> diego_torres_11@hotmail.com
           </p>
-          <p className="card-text">
+          <p className={styles.cardtext}>
             <b>Phone: </b> +51 986377441
           </p>
         </div>

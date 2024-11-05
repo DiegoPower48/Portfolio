@@ -1,7 +1,9 @@
+import styles from "./styles.module.css";
+
 function Proyectos() {
   return (
-    <div className="proyectos" id="Proyectos">
-      <h1 className="titulo">PROYECTS:</h1>
+    <div className={styles.proyectos} id="Proyectos">
+      <h1 className={styles.titulo}>PROYECTS:</h1>
       <Trabajos />
     </div>
   );
@@ -47,24 +49,28 @@ function Trabajos() {
 
   return (
     <>
-      <div className="listaProyectos">
+      <div className={styles.listaProyectos}>
         {proyectos.map((element, index) => (
-          <div className="cajaProyectos" key={index}>
+          <div className={styles.cajaProyectos} key={index}>
             <a href={element.direccion}>
-              <p className="tituloProyectos">{element.nombre}</p>
+              <p className={styles.tituloProyectos}>{element.nombre}</p>
             </a>
 
-            <a href={element.direccion} target="_blank" className="cajaimagen">
+            <a
+              href={element.direccion}
+              target="_blank"
+              className={styles.cajaimagen}
+            >
               <img
                 src={element.imagen}
-                className="imagenProyectos"
+                className={styles.imagenProyectos}
                 alt="github-icon"
               />
             </a>
-            <p className="descripcionProyecto">{element.descripcion}</p>
-            <div className="descripcion-tecnologias">
+            <p className={styles.descripcionProyecto}>{element.descripcion}</p>
+            <div className={styles.descripciontecnologias}>
               {element.Tecnologias.map((element, index) => (
-                <span className="descripcion-elementos" key={index}>
+                <span className={styles.descripcionelementos} key={index}>
                   {element}
                 </span>
               ))}
