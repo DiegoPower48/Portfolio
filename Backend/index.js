@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
+      "http://localhost:5173","http://localhost:58173",
       "https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.vercel.app",
