@@ -28,7 +28,7 @@ const controller = {
   },
 
   registro: async (req, res) => {
-    const { nombre, contraseña, correo } = req.body;
+    const { nombre, contrasenia, correo } = req.body;
 
     try {
       const nombreduplicado = await User.findOne({ nombre });
@@ -43,7 +43,7 @@ const controller = {
         return res.status(400).send("El correo ya se encuentra en uso");
       }
       console.log("terminada validacion");
-      const paswordhash = await bcrypt.hash(contraseña, 10);
+      const paswordhash = await bcrypt.hash(contrasenia, 10);
 
       const usuario = new User({
         nombre: nombre,
