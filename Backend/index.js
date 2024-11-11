@@ -28,11 +28,11 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173","http://localhost:58173",
+      "http://localhost:5173","http://localhost:59231",
       "https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.vercel.app",
-      "https://daysi-block.vercel.app",
+      "https://daysi-block.vercel.app","*", 
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
