@@ -64,7 +64,7 @@ const controller = {
     }
   },
   login: async (req, res) => {
-    const { nombre, contraseña } = req.body;
+    const { nombre, contrasenia } = req.body;
 
     try {
       const userFound = await User.findOne({ nombre });
@@ -73,7 +73,7 @@ const controller = {
         return res.status(400).send("Nombre de usuario incorrecto");
       }
 
-      const isMatch = await bcrypt.compare(contraseña, userFound.contraseña);
+      const isMatch = await bcrypt.compare(contrasenia, userFound.contraseña);
       if (!isMatch) {
         return res.status(400).send("Contraseña incorrecta");
       }
