@@ -2,6 +2,7 @@
   width: 80%;
   margin: 50px;
   margin-left: 200px;
+  margin-bottom: 100px;
   height: 85vh;
   position: relative;
   border-radius: 40px;
@@ -60,6 +61,8 @@
 .cardimg {
   height: 8vh;
   width: 8vh;
+  min-width: 50px;
+  min-height: 50px;
   display: block;
   float: left;
   background-color: white;

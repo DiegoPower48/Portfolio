@@ -14,5 +14,7 @@ router.post("/loginin", validateSchema(loginSchema), controller.login);
 router.post("/verify", controller.verifyToken);
 router.get("/blocks", controller.blocks);
 router.post("/editblock", controller.editblock);
+router.get("/horario", controller.horario);
+router.post("/edithorario", controller.edithorario);
 
 module.exports = router;

@@ -7,6 +7,7 @@ const block = require("../models/block");
 const bcrypt = require("bcryptjs");
 const createAccessToken = require("./jwt");
 const jwt = require("jsonwebtoken");
+const Horario = require("../models/horario");
 require("dotenv").config();
 
 const controller = {
@@ -132,6 +133,51 @@ const controller = {
 
       blockBuscado.texto = texto;
       await blockBuscado.save();
+
+      return res.status(200).send("registrado");
+    } catch (error) {
+      console.log(error);
+      return res.status(400).send(error);
+    }
+  },
+  horario: async (req, res) => {
+    try {
+      const horario = await Horario.find({});
+      return res.status(200).send(horario);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  },
+
+  edithorario: async (req, res) => {
+    const { Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo } =
+      req.body;
+    try {
+      const horarioBuscado = await Horario.findById("672f2b4bae015af979216dac");
+
+      if (!horarioBuscado) {
+        const horario = new Horario({
+          Lunes,
+          Martes,
+          Miercoles,
+          Jueves,
+          Viernes,
+          Sabado,
+          Domingo,
+        });
+        await horario.save();
+        return res.status(200).send("registrado");
+      }
+
+      horarioBuscado.Lunes = Lunes;
+      horarioBuscado.Martes = Martes;
+      horarioBuscado.Miercoles = Miercoles;
+      horarioBuscado.Jueves = Jueves;
+      horarioBuscado.Viernes = Viernes;
+      horarioBuscado.Sabado = Sabado;
+      horarioBuscado.Domingo = Domingo;
+
+      await horarioBuscado.save();
 
       return res.status(200).send("registrado");
     } catch (error) {
