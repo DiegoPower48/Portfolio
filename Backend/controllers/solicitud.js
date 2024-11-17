@@ -29,7 +29,7 @@ const controller = {
   },
 
   registro: async (req, res) => {
-    const { nombre, contraseña, correo } = req.body;
+    const { nombre, contrasenia, correo } = req.body;
 
     try {
       const nombreduplicado = await User.findOne({ nombre });
@@ -44,7 +44,7 @@ const controller = {
         return res.status(400).send("El correo ya se encuentra en uso");
       }
       console.log("terminada validacion");
-      const paswordhash = await bcrypt.hash(contraseña, 10);
+      const paswordhash = await bcrypt.hash(contrasenia, 10);
 
       const usuario = new User({
         nombre: nombre,
@@ -65,7 +65,7 @@ const controller = {
     }
   },
   login: async (req, res) => {
-    const { nombre, contraseña } = req.body;
+    const { nombre, contrasenia } = req.body;
 
     try {
       const userFound = await User.findOne({ nombre });
@@ -74,7 +74,7 @@ const controller = {
         return res.status(400).send("Nombre de usuario incorrecto");
       }
 
-      const isMatch = await bcrypt.compare(contraseña, userFound.contraseña);
+      const isMatch = await bcrypt.compare(contrasenia, userFound.contraseña);
       if (!isMatch) {
         return res.status(400).send("Contraseña incorrecta");
       }
