@@ -21,18 +21,14 @@ function Tecnologias(props: TecnologiasProps) {
 export function Iconos() {
   const [modo, setModo] = useState(styles.Iconos);
   const [agrupar, setAgrupar] = useState("");
-  const [texto, setTexto] = useState("");
 
   const changeMode = () => {
     if (modo === styles.block || agrupar === styles.agrupar) {
       setModo(styles.Iconos);
       setAgrupar("");
-      setTexto("Release");
-      console.log(texto);
     } else {
       setModo(styles.block);
       setAgrupar(styles.agrupar);
-      setTexto("contraer");
     }
   };
 
