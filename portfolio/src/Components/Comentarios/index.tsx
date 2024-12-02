@@ -34,7 +34,7 @@ function Comentarios() {
   };
 
   return (
-    <form className={styles.comentarios} id="Contactos" method="POST">
+    <form className={styles.comentarios} method="POST" id="Contactos">
       <fieldset className={styles.contactame}>
         <h1 className={styles.titulo}>CONTACT ME:</h1>
       </fieldset>

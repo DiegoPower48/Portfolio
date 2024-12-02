@@ -18,7 +18,7 @@ function Trabajos() {
       direccion: "https://chatportfolio.vercel.app",
       descripcion:
         "Online chat, implement websockets with login and chat rooms, JWT security method.",
-      Tecnologias: [
+      tecnologias: [
         "MongoDB",
         "Express",
         "React",
@@ -35,7 +35,7 @@ function Trabajos() {
       direccion: "https://teddy-store.vercel.app",
       descripcion:
         "Online stuffed toy store with registration, login, and shopping cart.",
-      Tecnologias: [
+      tecnologias: [
         "MongoDB",
         "Express",
         "React",
@@ -52,33 +52,62 @@ function Trabajos() {
       <div className={styles.listaProyectos}>
         {proyectos.map((element, index) => (
           <div className={styles.cajaProyectos} key={index}>
-            <a href={element.direccion}>
-              <p className={styles.tituloProyectos}>{element.nombre}</p>
-            </a>
-
-            <a
-              href={element.direccion}
-              target="_blank"
-              className={styles.cajaimagen}
-            >
-              <img
-                src={element.imagen}
-                className={styles.imagenProyectos}
-                alt="github-icon"
-              />
-            </a>
-            <p className={styles.descripcionProyecto}>{element.descripcion}</p>
-            <div className={styles.descripciontecnologias}>
-              {element.Tecnologias.map((element, index) => (
-                <span className={styles.descripcionelementos} key={index}>
-                  {element}
-                </span>
-              ))}
-            </div>
+            <Products
+              nombre={element.nombre}
+              imagen={element.imagen}
+              direccion={element.direccion}
+              descripcion={element.descripcion}
+              tecnologias={element.tecnologias}
+            />
           </div>
         ))}
       </div>
     </>
   );
 }
+
+interface Props {
+  nombre: string;
+  imagen: string;
+  direccion: string;
+  descripcion: string;
+  tecnologias: string[];
+}
+
+function Products(props: Props) {
+  const { nombre, imagen, direccion, descripcion, tecnologias } = props;
+
+  return (
+    <a style={{ textDecoration: "none" }} href={direccion}>
+      <div className={styles.cards}>
+        <div className={styles.page1}>
+          <div>
+            <p className={styles.tituloProyectos}>{nombre}</p>
+          </div>
+
+          <div>
+            <div className={styles.cajaimagen}>
+              <img
+                src={imagen}
+                className={styles.imagenProyectos}
+                alt="github-icon"
+              />
+            </div>
+          </div>
+        </div>
+        <div className={styles.page2}>
+          <p className={styles.descripcionProyecto}>{descripcion}</p>
+          <div className={styles.descripcionTecnologias}>
+            {tecnologias.map((element, index) => (
+              <span className={styles.descripcionElementos} key={index}>
+                {element}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default Proyectos;

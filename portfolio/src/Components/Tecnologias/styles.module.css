@@ -1,8 +1,7 @@
 .tecnologias {
   width: 80%;
-  margin: 50px;
-  margin-top: 100px;
   margin-left: 200px;
+  margin-top: 100px;
   margin-bottom: 100px;
   padding: 50px;
   display: flex;
@@ -10,12 +9,13 @@
   color: #008080;
   font-weight: bold;
   border-radius: 40px;
-  box-shadow: 1px 1px 10px 1px white;
+  box-shadow: 1px 1px 20px 2px white;
   position: relative;
 }
 
 .titulo {
   color: #008080;
+  text-shadow: #008080 1px 0 10px;
   font-size: 50px;
   font-weight: bold;
   display: block;
@@ -23,10 +23,14 @@
 
 .wrapper {
   width: 70vw;
-  min-height: 200px;
+  margin-bottom: 20px;
+  min-height: 20vh;
   display: block;
   margin-inline: auto;
   position: relative;
+  align-items: center;
+}
+.mask {
   overflow: hidden;
   mask-image: linear-gradient(
     to right,
@@ -38,13 +42,24 @@
 }
 
 .modo {
-  width: 70vw;
-  display: block;
-  bottom: 0;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #008080;
+  display: flex;
+  color: white;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 1px #008080;
 }
-
+.modo:hover {
+  background-color: white;
+  color: black;
+}
 .block {
+  transition: all 0.5s ease-in-out;
   display: grid;
+  padding: 15px;
   border-radius: 20px;
   grid-template-columns: 1fr;
 }
@@ -58,20 +73,26 @@
 
 .agrupar {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: 1fr 0.2fr;
+  justify-content: center;
+}
+
+.category {
+  display: flex;
+  color: white;
   justify-content: center;
 }
 /*AÑADIENDO ANIMACIONES*/
 
 .Iconos {
   margin-top: 30px;
-  height: 120px;
+  height: 13vh;
   padding: 4px;
   position: absolute;
   left: 1000px;
   border-radius: 20px;
-
+  transition: all 0.1s ease-in-out;
   animation: scrollleft;
   animation-duration: 33s;
   animation-timing-function: linear;
@@ -79,24 +100,19 @@
 }
 
 .Icono {
-  height: 90px;
   width: 90px;
 }
 .Iconos:hover {
   scale: 1.1;
   translate: 1.4px;
+  box-shadow: 1px 1px 10px 1px #008080;
   background-color: #008080;
   color: white;
   font-weight: bold;
 }
 
-.Iconos:active {
-  translate: 5px;
-}
-
 .nombreIcono {
   font-size: 15px;
-  width: 90px;
   text-align: center;
   font-weight: bold;
 }
@@ -152,44 +168,58 @@
 }
 
 @media (max-width: 659px) {
+  .Icono {
+    width: 70px;
+  }
+
+  .tecnologias {
+    width: 95vw;
+    margin: 50px 0;
+    padding: 10px;
+    margin-left: 2vw;
+  }
+  .nombreIcono {
+    font-size: 3vw;
+  }
   .titulo {
     font-size: 10vw;
   }
 
   .Iconos {
-    animation-duration: 22s;
+    animation-duration: 11s;
   }
+
   .Icono1 {
-    animation-delay: -2s;
+    animation-delay: -1s;
   }
   .Icono2 {
-    animation-delay: -4s;
+    animation-delay: -2s;
   }
   .Icono3 {
-    animation-delay: -6s;
+    animation-delay: -3s;
   }
   .Icono4 {
-    animation-delay: -8s;
+    animation-delay: -4s;
   }
   .Icono5 {
-    animation-delay: -10s;
+    animation-delay: -5s;
   }
   .Icono6 {
-    animation-delay: -12s;
+    animation-delay: -6s;
   }
   .Icono7 {
-    animation-delay: -14s;
+    animation-delay: -7s;
   }
   .Icono8 {
-    animation-delay: -16s;
+    animation-delay: -8s;
   }
   .Icono9 {
-    animation-delay: -18s;
+    animation-delay: -9s;
   }
   .Icono10 {
-    animation-delay: -20s;
+    animation-delay: -10s;
   }
   .Icono11 {
-    animation-delay: -22s;
+    animation-delay: -11s;
   }
 }

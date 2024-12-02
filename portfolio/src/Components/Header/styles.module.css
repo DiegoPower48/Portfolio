@@ -9,8 +9,8 @@
 
 .headerIcon {
   margin-bottom: 5px;
-  height: 80px;
-  width: 80px;
+  height: 65px;
+  width: 65px;
   display: block;
   fill: white;
   border-radius: 9999px;
@@ -20,12 +20,12 @@
 .Options {
   display: block;
   list-style: none;
-  height: 11vw;
   font-weight: bold;
 }
 
 .Option {
-  padding: 0.5vw;
+  border: 0.1em;
+  padding: 1.1vw;
   color: #070e29;
   float: left;
   text-decoration: none;
@@ -37,7 +37,17 @@
 
 .Option:hover {
   color: #008080;
+  scale: 1.1;
+  transition: transform 0.3s ease;
+}
+
+.Option:hover svg path {
   fill: #008080;
+  box-shadow: 1px 1px 10px 1px #008080;
+}
+.Option:hover .headerIcon {
+  box-shadow: 1px 1px 10px 1px #008080;
+  border-radius: 50%;
 }
 
 .headerIcon:active {

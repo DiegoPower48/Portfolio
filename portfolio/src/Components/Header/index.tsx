@@ -38,7 +38,7 @@ function Header() {
           className={`${styles.Option} ${
             selected === "contactos" ? "clicked" : ""
           }`}
-          href="#About"
+          href="#Detail"
           onClick={() => setSelected("About")}
         >
           <svg

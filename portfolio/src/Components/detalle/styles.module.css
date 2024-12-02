@@ -1,15 +1,14 @@
 .detalle {
-  margin: 50px;
   margin-left: 200px;
-  margin-bottom: 100px;
   padding: 50px;
+  height: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  position: relative;
   width: 80%;
   color: white;
-  height: 100%;
-  display: block;
-  float: left;
   border-radius: 40px;
-  box-shadow: 1px 1px 10px 1px white;
+  box-shadow: 1px 1px 20px 2px white;
 }
 .introduccion {
   line-height: 40px;
@@ -20,6 +19,7 @@
   font-size: 50px;
   font-weight: bold;
   display: block;
+  text-shadow: #008080 1px 0 10px;
 }
 @media (max-width: 1160px) {
   .detalle {

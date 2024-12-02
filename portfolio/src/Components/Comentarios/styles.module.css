@@ -2,13 +2,15 @@
   width: 80%;
   height: 600px;
   margin-left: 200px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   padding: 40px;
   display: block;
   color: black;
   clear: both;
   border-radius: 40px;
   margin-bottom: 50px;
-  box-shadow: 1px 1px 10px 1px white;
+  box-shadow: 1px 1px 20px 2px white;
 }
 
 .commentsField {
@@ -94,25 +96,27 @@
 .btn {
   height: 50px;
   width: 100%;
-  border-radius: 20px;
   margin-bottom: 20px;
   background-color: #008080;
   border: solid 1px #008080;
-  color: black;
+  border-radius: 20px;
+  color: white;
   font-size: 19px;
   font-weight: bold;
+  box-shadow: 1px 1px 10px 1px #008080;
 }
 
 .btn:hover {
-  background-color: #008080;
+  background-color: white;
   border: solid 1px white;
-  color: white;
+  color: black;
 }
 .titulo {
   color: #008080;
   font-size: 50px;
   font-weight: bold;
   display: block;
+  text-shadow: #008080 1px 0 10px;
 }
 @media (max-width: 1160px) {
   .comentarios {

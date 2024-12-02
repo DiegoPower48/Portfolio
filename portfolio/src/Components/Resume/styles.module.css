@@ -1,21 +1,28 @@
 .Resume {
   width: 80%;
-  margin: 50px;
+  padding: 10px;
   margin-left: 200px;
+  margin-top: 50px;
   margin-bottom: 100px;
-  height: 85vh;
+  min-height: 85vh;
+  max-width: 100%;
   position: relative;
   border-radius: 40px;
-  box-shadow: 1px 1px 10px 1px white;
+  box-shadow: 1px 1px 20px 2px white;
 }
 
 .Resume:hover {
   background-color: #070e29;
 }
-
+.Titulo {
+  color: #008080;
+  text-shadow: #008080 0 0 10px;
+  line-break: auto;
+}
 .fotografia {
   margin-top: 10vh;
-  width: 50%;
+  margin-right: 50px;
+  width: 40%;
   display: block;
   float: right;
 }
@@ -30,44 +37,34 @@
   border: 5px #008080 solid;
   display: block;
   float: left;
-  max-width: 85%;
+  max-width: 100%;
   height: auto;
+  box-shadow: 1px 1px 10px 2px #008080;
 }
 
 .Footers {
-  height: 200px;
-  width: 50%;
-  display: block;
-  float: right;
-  top: 30vw;
-  position: absolute;
+  justify-content: center;
+  display: flex;
 }
 
 .imageLink {
-  float: right;
-  width: 100px;
   color: transparent;
-  display: block;
-  text-align: center;
+  width: 12vw;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-.imageLink2 {
-  display: block;
-  text-align: center;
-  float: right;
-  margin-top: 12vh;
-  width: 100px;
-  color: transparent;
-}
+
 .cardimg {
-  height: 8vh;
-  width: 8vh;
-  min-width: 50px;
-  min-height: 50px;
+  width: 70px;
+  height: 70px;
+  min-width: 30px;
+  min-height: 30px;
   display: block;
   float: left;
   background-color: white;
-  padding: 9px;
-  border-radius: 100%;
+  padding: 5px;
+  border-radius: 20px;
 }
 
 .cardimgtop {
@@ -76,26 +73,31 @@
   height: 300px;
 }
 
-.imageLink:hover,
-.imageLink2:hover {
+.imageLink:hover {
   scale: 1.1;
-  color: white;
+  color: #008080;
   font-weight: bold;
+  text-shadow: #008080 1px 1px 10px;
+}
+
+.imageLink:hover .cardimg {
+  box-shadow: 1px 1px 10px 2px #008080;
 }
 
 .card {
-  margin-top: 10vh;
   background: transparent;
   position: absolute;
   display: block;
   width: 55%;
+  height: 700px;
   border: none;
   float: left;
 }
 
 .cardbody {
-  height: 600px;
   padding: 10vh;
+  height: 60vh;
+  box-sizing: border-box;
 }
 
 .cardtitle {
@@ -113,6 +115,7 @@
     margin-top: 25vw;
     display: block;
     float: left;
+    font-size: 1rem;
   }
   .card-body {
     padding: 6vw;
@@ -123,33 +126,44 @@
     margin-right: 0;
     height: 600px;
   }
-
-  .Footers {
-    position: relative;
-    top: auto;
-    padding-left: 2vw;
-    width: 40vw;
-    margin-left: 4vw;
-  }
-  .imageLink,
-  .imageLink2 {
-    display: block;
-    float: left;
-    margin: 20px;
-    text-align: left;
-    color: white;
-  }
-  .titulo {
-    color: #008080;
-    font-size: 50px;
-    font-weight: bold;
-    display: block;
-  }
 }
 @media (max-width: 659px) {
-  .imageLink,
-  .imageLink2 {
-    margin-left: 4vw;
-    margin-right: 5vw;
+  .Resume {
+    margin-top: 25vw;
+    padding: 0;
+    height: 850px;
+    font-size: 7px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr;
+  }
+
+  .fotografia {
+    grid-column: span 2;
+    width: 80%;
+    height: 50vh;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .card {
+    height: 50vh;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .cardbody {
+    width: 200px;
+    padding: 20px;
+  }
+  .Footers {
+    display: block;
+    position: static;
+    justify-content: center;
+  }
+  .imageLink {
+    margin-top: 50px;
+    height: 10vh;
   }
 }

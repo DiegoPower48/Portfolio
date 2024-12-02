@@ -1,4 +1,5 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
 import styles from "./styles.module.css";
 
@@ -7,7 +8,6 @@ interface TecnologiasProps {
 }
 
 function Tecnologias(props: TecnologiasProps) {
-  // useEffect(() => setModo(styles.titulo), []);
   const { children } = props;
 
   return (
@@ -21,16 +21,32 @@ function Tecnologias(props: TecnologiasProps) {
 export function Iconos() {
   const [modo, setModo] = useState(styles.Iconos);
   const [agrupar, setAgrupar] = useState("");
+  const [texto, setTexto] = useState("");
 
   const changeMode = () => {
-    setModo(styles.block);
-    setAgrupar(styles.agrupar);
+    if (modo === styles.block || agrupar === styles.agrupar) {
+      setModo(styles.Iconos);
+      setAgrupar("");
+      setTexto("Release");
+    } else {
+      setModo(styles.block);
+      setAgrupar(styles.agrupar);
+      setTexto("contraer");
+    }
   };
 
   return (
     <>
-      <div className={styles.wrapper}>
-        {agrupar === styles.agrupar ? <div>frontend</div> : ""}
+      <div
+        className={`${styles.wrapper}  ${
+          modo === styles.Iconos ? styles.mask : ""
+        }`}
+      >
+        {agrupar === styles.agrupar ? (
+          <div className={styles.category}>-= Frontend =-</div>
+        ) : (
+          ""
+        )}
         <div className={styles.agrupar}>
           <span className={`${styles.Icono1} ${modo}`}>
             <img
@@ -39,6 +55,22 @@ export function Iconos() {
               alt="html"
             />
             <div className={styles.nombreIcono}>Html</div>
+          </span>
+          <span className={`${modo} ${styles.Icono5}`}>
+            <img
+              className={styles.Icono}
+              src="https://www.svgrepo.com/show/439290/react.svg"
+              alt="react-logo"
+            />
+            <div className={styles.nombreIcono}>React</div>
+          </span>
+          <span className={`${modo}  ${styles.Icono7}`}>
+            <img
+              className={styles.Icono}
+              src="https://www.svgrepo.com/show/452156/angular.svg"
+              alt="angular-logo"
+            />
+            <div className={styles.nombreIcono}>Angular</div>
           </span>
           <span className={`${modo} ${styles.Icono2}`}>
             <img
@@ -49,16 +81,21 @@ export function Iconos() {
             <div className={styles.nombreIcono}>Css</div>
           </span>
         </div>
-        {agrupar === styles.agrupar ? <div>frontend</div> : ""}
+        {agrupar === styles.agrupar ? (
+          <div className={styles.category}>Backend</div>
+        ) : (
+          ""
+        )}
         <div className={styles.agrupar}>
-          <span className={`${modo}  ${styles.Icono3}`}>
+          <span className={`${modo} ${styles.Icono6}`}>
             <img
               className={styles.Icono}
-              src="https://www.svgrepo.com/show/353498/bootstrap.svg"
-              alt="bootstrap-logo"
+              src="https://www.svgrepo.com/show/452091/python.svg"
+              alt="python-logo"
             />
-            <div className={styles.nombreIcono}>Bootstrap</div>
+            <div className={styles.nombreIcono}>Python</div>
           </span>
+
           <span className={`${modo} ${styles.Icono4}`}>
             <img
               className={styles.Icono}
@@ -76,34 +113,11 @@ export function Iconos() {
             <div className={styles.nombreIcono}>Typescript</div>
           </span>
         </div>
-        {agrupar === styles.agrupar ? <div>frontend</div> : ""}
-        <div className={styles.agrupar}>
-          <span className={`${modo} ${styles.Icono5}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/439290/react.svg"
-              alt="react-logo"
-            />
-            <div className={styles.nombreIcono}>React</div>
-          </span>
-          <span className={`${modo}  ${styles.Icono7}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/452156/angular.svg"
-              alt="angular-logo"
-            />
-            <div className={styles.nombreIcono}>Angular</div>
-          </span>
-          <span className={`${modo} ${styles.Icono6}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/452091/python.svg"
-              alt="python-logo"
-            />
-            <div className={styles.nombreIcono}>Python</div>
-          </span>
-        </div>
-        {agrupar === styles.agrupar ? <div>frontend</div> : ""}
+        {agrupar === styles.agrupar ? (
+          <div className={styles.category}>Database</div>
+        ) : (
+          ""
+        )}
         <div className={styles.agrupar}>
           <span className={`${modo}  ${styles.Icono9}`}>
             <img
@@ -121,6 +135,22 @@ export function Iconos() {
             />
             <div className={styles.nombreIcono}>MongoDB</div>
           </span>
+        </div>
+        {agrupar === styles.agrupar ? (
+          <div className={styles.category}>Tools</div>
+        ) : (
+          ""
+        )}
+        <div className={styles.agrupar}>
+          <span className={`${modo}  ${styles.Icono3}`}>
+            <img
+              className={styles.Icono}
+              src="https://www.svgrepo.com/show/353498/bootstrap.svg"
+              alt="bootstrap-logo"
+            />
+            <div className={styles.nombreIcono}>Bootstrap</div>
+          </span>
+
           <span className={`${modo}  ${styles.Icono11}`}>
             <img
               className={styles.Icono}
@@ -131,12 +161,15 @@ export function Iconos() {
           </span>
         </div>
       </div>
-      <input
-        className={styles.modo}
-        type="button"
-        onClick={changeMode}
-        value={agrupar === "" ? "release" : "contraer"}
-      />
+      {modo === styles.Iconos ? (
+        <div className={styles.modo} onClick={changeMode}>
+          <SlArrowDown />
+        </div>
+      ) : (
+        <div className={styles.modo} onClick={changeMode}>
+          <SlArrowUp />
+        </div>
+      )}
     </>
   );
 }

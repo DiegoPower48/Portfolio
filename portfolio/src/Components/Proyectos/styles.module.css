@@ -1,20 +1,19 @@
+.proyectos {
+  min-height: 550px;
+  padding-top: 53px;
+  margin-left: 200px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 80%;
+  border-radius: 40px;
+  box-shadow: 1px 1px 20px 2px white;
+}
 .titulo {
   color: #008080;
   font-size: 50px;
   font-weight: bold;
   display: block;
-}
-
-.proyectos {
-  padding-top: 53px;
-  margin-left: 200px;
-  padding-bottom: 100px;
-  width: 80%;
-  display: block;
-  float: left;
-  border-radius: 40px;
-  box-shadow: 1px 1px 20px 2px white;
-  margin-bottom: 100px;
+  text-shadow: #008080 1px 0 10px;
 }
 
 .proyectos h1 {
@@ -23,18 +22,44 @@
 .listaProyectos {
   display: grid;
   width: 100%;
+  margin-top: 40px;
   grid-template-columns: 1fr 1fr;
 }
 .cajaProyectos {
   height: 300px;
-  background-color: #121212;
-  margin: 10px;
   color: white;
   border-radius: 20px;
+  perspective: 1000px;
+}
+.cards {
+  height: 100%;
+  width: 80%;
+  margin-left: 10%;
+  margin-left: 10%;
+  background-color: black;
+  box-shadow: 1px 1px 10px 2px #008080;
+  border-radius: 20px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
 }
 
-.cajaProyectos a {
-  text-decoration: none;
+.page1 {
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+}
+.page2 {
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+.cajaProyectos:hover .cards {
+  transform: rotateY(180deg);
 }
 
 .tituloProyectos {
@@ -49,56 +74,54 @@
   transition: all 0.5s ease-in-out;
 }
 
-.tituloProyectos:hover {
-  background-color: white;
-  color: black;
-  font-weight: bold;
-}
-
 .cajaimagen {
-  width: 50%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   display: block;
   float: left;
 }
 
 .imagenProyectos {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 250px;
   padding: 15px;
 }
 .descripcionProyecto {
   height: 30%;
-  width: 50%;
+  width: 100%;
   display: block;
+  font-size: 19px;
   float: right;
   text-align: left;
   padding: 15px;
+  color: #008080;
 }
 
-.descripciontecnologias {
-  width: 50%;
+.descripcionTecnologias {
+  width: 100%;
   height: 55%;
   padding: 15px;
   align-content: center;
   top: 0;
   display: inline-block;
   word-wrap: break-word;
+  margin: 5px;
 }
 
-.descripcionelementos {
-  padding: 3px;
-  font-size: 14px;
+.descripcionElementos {
+  padding: 10px;
+  font-size: 1.1vw;
   background-color: black;
   border-radius: 10px;
   text-align: center;
-  margin: 3px;
+  margin: 5px;
   word-spacing: 10px;
   display: inline-block;
   color: #008080;
+  box-shadow: 1px 1px 10px 2px #008080;
 }
 
-.descripcionelementos:hover {
+.descripcionElementos:hover {
   color: black;
   scale: 1.2;
   background-color: #008080;
@@ -107,19 +130,21 @@
 @media (max-width: 1160px) {
   .proyectos {
     width: 95vw;
-    margin: 50px 0px;
+    margin: 50px 0;
     margin-left: 2vw;
     display: block;
     float: left;
   }
 
   .listaProyectos {
-    width: 85vw;
+    width: 95vw;
+    margin: 1vw;
+    margin-top: 50px;
     grid-template-columns: 1fr;
   }
   .cajaProyectos {
-    width: 70vw;
-    margin: 10px 15vw;
+    width: 95vw;
+    margin-bottom: 50px;
   }
 }
 
@@ -138,8 +163,6 @@
   }
 
   .cajaProyectos {
-    width: 90vw;
     height: 100vw;
-    margin: 10px 0;
   }
 }
