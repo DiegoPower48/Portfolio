@@ -1,4 +1,6 @@
 import styles from "./styles.module.css";
+import "@justinribeiro/lite-youtube";
+import { ReactNode } from "react";
 
 function Proyectos() {
   return (
@@ -49,6 +51,7 @@ function Trabajos() {
 
   return (
     <>
+      <div className={styles.titleDevice}>Web</div>
       <div className={styles.listaProyectos}>
         {proyectos.map((element, index) => (
           <div className={styles.cajaProyectos} key={index}>
@@ -62,6 +65,17 @@ function Trabajos() {
           </div>
         ))}
       </div>
+      {/* <div className={styles.titleDevice}>Mobile</div>
+      <div className={styles.listaProyectos}>
+        <div className={styles.cards}>
+          <div className={styles.liteyoutubefallback}>
+            <lite-youtube
+              videoid="K1r-oVYgjiE"
+              videotitle="This is a video title"
+            ></lite-youtube>
+          </div>
+        </div>
+      </div> */}
     </>
   );
 }

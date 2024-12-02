@@ -3,7 +3,7 @@
   padding-top: 53px;
   margin-left: 200px;
   margin-top: 100px;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
   width: 80%;
   border-radius: 40px;
   box-shadow: 1px 1px 20px 2px white;
@@ -16,13 +16,22 @@
   text-shadow: #008080 1px 0 10px;
 }
 
+.titleDevice {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  font-size: 40px;
+  color: white;
+  text-shadow: white 1px 0 10px;
+}
+
 .proyectos h1 {
   margin-left: 4vw;
 }
 .listaProyectos {
   display: grid;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 10px;
   grid-template-columns: 1fr 1fr;
 }
 .cajaProyectos {
@@ -30,12 +39,13 @@
   color: white;
   border-radius: 20px;
   perspective: 1000px;
+  margin-bottom: 40px;
 }
 .cards {
   height: 100%;
   width: 80%;
   margin-left: 10%;
-  margin-left: 10%;
+  margin-right: 10%;
   background-color: black;
   box-shadow: 1px 1px 10px 2px #008080;
   border-radius: 20px;
@@ -60,6 +70,17 @@
 }
 .cajaProyectos:hover .cards {
   transform: rotateY(180deg);
+}
+
+.liteyoutubefallback {
+  display: flex;
+  height: 300px;
+  border-radius: 20px;
+  padding: 15px;
+  color: #008080;
+}
+.liteyoutubefallback:hover {
+  box-shadow: 1px 1px 20px 2px #008080;
 }
 
 .tituloProyectos {
