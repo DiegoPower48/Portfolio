@@ -28,6 +28,7 @@ export function Iconos() {
       setModo(styles.Iconos);
       setAgrupar("");
       setTexto("Release");
+      console.log(texto);
     } else {
       setModo(styles.block);
       setAgrupar(styles.agrupar);
