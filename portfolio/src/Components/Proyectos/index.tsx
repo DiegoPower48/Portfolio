@@ -48,32 +48,44 @@ function Trabajos() {
       ],
     },
   ];
+  const proyectosMovil = [
+    "K1r-oVYgjiE",
+    "K1r-oVYgjiE",
+    "K1r-oVYgjiE",
+    "K1r-oVYgjiE",
+  ];
 
   return (
     <>
-      <div className={styles.titleDevice}>Web</div>
-      <div className={styles.listaProyectos}>
-        {proyectos.map((element, index) => (
-          <div className={styles.cajaProyectos} key={index}>
-            <Products
-              nombre={element.nombre}
-              imagen={element.imagen}
-              direccion={element.direccion}
-              descripcion={element.descripcion}
-              tecnologias={element.tecnologias}
-            />
-          </div>
-        ))}
+      <div className={styles.groups}>
+        <div className={styles.titleDevice}>Web</div>
+        <div className={styles.listaProyectos}>
+          {proyectos.map((element, index) => (
+            <div className={styles.cajaProyectos} key={index}>
+              <Products
+                nombre={element.nombre}
+                imagen={element.imagen}
+                direccion={element.direccion}
+                descripcion={element.descripcion}
+                tecnologias={element.tecnologias}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-      {/* <div className={styles.titleDevice}>Mobile</div>
-      <div className={styles.listaProyectos}>
-        <div className={styles.cards}>
-          <div className={styles.liteyoutubefallback}>
-            <lite-youtube
-              videoid="K1r-oVYgjiE"
-              videotitle="This is a video title"
-            ></lite-youtube>
-          </div>
+      {/* <div className={styles.groups}>
+        <div className={styles.titleDevice}>Mobile</div>
+        <div className={styles.listaProyectos}>
+          {proyectosMovil.map((e, i) => (
+            <div key={i} className={styles.cards}>
+              <div className={styles.liteyoutubefallback}>
+                <lite-youtube
+                  videoid="K1r-oVYgjiE"
+                  videotitle="This is a video title"
+                ></lite-youtube>
+              </div>
+            </div>
+          ))}
         </div>
       </div> */}
     </>

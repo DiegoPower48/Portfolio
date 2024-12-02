@@ -78,9 +78,19 @@
   justify-content: center;
 }
 
+.wrapper:hover {
+}
+
+.groups {
+  border-radius: 20px;
+  border: 1px solid #008080;
+  margin-top: 50px;
+  box-shadow: 1px 1px 5px 1px #008080;
+}
 .category {
   display: flex;
   color: white;
+  text-shadow: white 1px 0 10px;
   justify-content: center;
 }
 /*AÑADIENDO ANIMACIONES*/
@@ -194,6 +204,10 @@
   }
   .agrupar {
     grid-template-columns: auto auto auto;
+    width: 100%;
+  }
+  .wrapper {
+    width: 90vw;
   }
 
   .tecnologias {

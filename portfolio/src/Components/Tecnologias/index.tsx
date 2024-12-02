@@ -137,73 +137,81 @@ export function Iconos() {
           modo === styles.Iconos ? styles.mask : ""
         }`}
       >
-        {agrupar === styles.agrupar ? (
-          <div className={styles.category}>-= Frontend =-</div>
-        ) : (
-          ""
-        )}
-        <div className={styles.agrupar}>
-          {Frontend.map((element, i) => (
-            <span key={i} className={`${element.style} ${modo}`}>
-              <img
-                className={styles.Icono}
-                src={element.url}
-                alt={element.alt}
-              />
-              <div className={styles.nombreIcono}>{element.alt}</div>
-            </span>
-          ))}
+        <div className={modo === styles.block ? styles.groups : ""}>
+          {agrupar === styles.agrupar ? (
+            <div className={styles.category}> Frontend </div>
+          ) : (
+            ""
+          )}
+          <div className={styles.agrupar}>
+            {Frontend.map((element, i) => (
+              <span key={i} className={`${element.style} ${modo}`}>
+                <img
+                  className={styles.Icono}
+                  src={element.url}
+                  alt={element.alt}
+                />
+                <div className={styles.nombreIcono}>{element.alt}</div>
+              </span>
+            ))}
+          </div>
         </div>
-        {agrupar === styles.agrupar ? (
-          <div className={styles.category}>Backend</div>
-        ) : (
-          ""
-        )}
-        <div className={styles.agrupar}>
-          {Backend.map((element, i) => (
-            <span key={i} className={`${element.style} ${modo}`}>
-              <img
-                className={styles.Icono}
-                src={element.url}
-                alt={element.alt}
-              />
-              <div className={styles.nombreIcono}>{element.alt}</div>
-            </span>
-          ))}
+        <div className={modo === styles.block ? styles.groups : ""}>
+          {agrupar === styles.agrupar ? (
+            <div className={styles.category}>Backend</div>
+          ) : (
+            ""
+          )}
+          <div className={styles.agrupar}>
+            {Backend.map((element, i) => (
+              <span key={i} className={`${element.style} ${modo}`}>
+                <img
+                  className={styles.Icono}
+                  src={element.url}
+                  alt={element.alt}
+                />
+                <div className={styles.nombreIcono}>{element.alt}</div>
+              </span>
+            ))}
+          </div>
         </div>
-        {agrupar === styles.agrupar ? (
-          <div className={styles.category}>Database</div>
-        ) : (
-          ""
-        )}
-        <div className={styles.agrupar}>
-          {Database.map((element, i) => (
-            <span key={i} className={`${element.style} ${modo}`}>
-              <img
-                className={styles.Icono}
-                src={element.url}
-                alt={element.alt}
-              />
-              <div className={styles.nombreIcono}>{element.alt}</div>
-            </span>
-          ))}
+        <div className={modo === styles.block ? styles.groups : ""}>
+          {agrupar === styles.agrupar ? (
+            <div className={styles.category}>Database</div>
+          ) : (
+            ""
+          )}
+          <div className={styles.agrupar}>
+            {Database.map((element, i) => (
+              <span key={i} className={`${element.style} ${modo}`}>
+                <img
+                  className={styles.Icono}
+                  src={element.url}
+                  alt={element.alt}
+                />
+                <div className={styles.nombreIcono}>{element.alt}</div>
+              </span>
+            ))}
+          </div>
         </div>
-        {agrupar === styles.agrupar ? (
-          <div className={styles.category}>Tools</div>
-        ) : (
-          ""
-        )}
-        <div className={styles.agrupar}>
-          {Tools.map((element, i) => (
-            <span key={i} className={`${element.style} ${modo}`}>
-              <img
-                className={styles.Icono}
-                src={element.url}
-                alt={element.alt}
-              />
-              <div className={styles.nombreIcono}>{element.alt}</div>
-            </span>
-          ))}
+        <div className={modo === styles.block ? styles.groups : ""}>
+          {agrupar === styles.agrupar ? (
+            <div className={styles.category}>Tools</div>
+          ) : (
+            ""
+          )}
+          <div className={styles.agrupar}>
+            {Tools.map((element, i) => (
+              <span key={i} className={`${element.style} ${modo}`}>
+                <img
+                  className={styles.Icono}
+                  src={element.url}
+                  alt={element.alt}
+                />
+                <div className={styles.nombreIcono}>{element.alt}</div>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
       {modo === styles.Iconos ? (
