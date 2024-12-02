@@ -32,6 +32,104 @@ export function Iconos() {
     }
   };
 
+  const Frontend = [
+    {
+      url: "https://www.svgrepo.com/show/373669/html.svg",
+      alt: "Html",
+      style: styles.Icono1,
+    },
+    {
+      url: "https://www.svgrepo.com/show/452185/css-3.svg",
+      alt: "Css",
+      style: styles.Icono2,
+    },
+    {
+      url: "https://www.svgrepo.com/show/349419/javascript.svg",
+      alt: "Javascript",
+      style: styles.Icono3,
+    },
+    {
+      url: "https://www.svgrepo.com/show/439290/react.svg",
+      alt: "React",
+      style: styles.Icono4,
+    },
+    {
+      url: "https://www.svgrepo.com/show/369457/nextjs.svg",
+      alt: "NextJs",
+      style: styles.Icono5,
+    },
+
+    {
+      url: "https://www.svgrepo.com/show/374146/typescript-official.svg",
+      alt: "Typescript",
+      style: styles.Icono6,
+    },
+    {
+      url: "https://www.svgrepo.com/show/503536/react.svg",
+      alt: "React Native",
+      style: styles.Icono7,
+    },
+  ];
+
+  const Backend = [
+    {
+      url: "https://www.svgrepo.com/show/452091/python.svg",
+      alt: "Python",
+      style: styles.Icono8,
+    },
+    {
+      url: "https://www.svgrepo.com/show/354180/php.svg",
+      alt: "PHP",
+      style: styles.Icono9,
+    },
+
+    {
+      url: "https://www.svgrepo.com/show/369381/laravel.svg",
+      alt: "Laravel",
+      style: styles.Icono10,
+    },
+    {
+      url: "https://www.svgrepo.com/show/354107/nestjs.svg",
+      alt: "NestJs",
+      style: styles.Icono11,
+    },
+  ];
+  const Database = [
+    {
+      url: "https://www.svgrepo.com/show/373595/firebase.svg",
+      alt: "Firebase",
+      style: styles.Icono12,
+    },
+    {
+      url: "https://www.svgrepo.com/show/303301/postgresql-logo.svg",
+      alt: "PostgreSQL",
+      style: styles.Icono13,
+    },
+    {
+      url: "https://www.svgrepo.com/show/342053/mysql.svg",
+      alt: "MySQL",
+      style: styles.Icono14,
+    },
+    {
+      url: "https://www.svgrepo.com/show/331488/mongodb.svg",
+      alt: "MongoDB",
+      style: styles.Icono15,
+    },
+  ];
+  const Tools = [
+    {
+      url: "https://www.svgrepo.com/show/353498/bootstrap.svg",
+      alt: "Bootstrap",
+      style: styles.Icono16,
+    },
+
+    {
+      url: "https://www.svgrepo.com/show/374118/tailwind.svg",
+      alt: "Tailwind",
+      style: styles.Icono17,
+    },
+  ];
+
   return (
     <>
       <div
@@ -45,38 +143,16 @@ export function Iconos() {
           ""
         )}
         <div className={styles.agrupar}>
-          <span className={`${styles.Icono1} ${modo}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/373669/html.svg"
-              alt="html"
-            />
-            <div className={styles.nombreIcono}>Html</div>
-          </span>
-          <span className={`${modo} ${styles.Icono5}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/439290/react.svg"
-              alt="react-logo"
-            />
-            <div className={styles.nombreIcono}>React</div>
-          </span>
-          <span className={`${modo}  ${styles.Icono7}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/452156/angular.svg"
-              alt="angular-logo"
-            />
-            <div className={styles.nombreIcono}>Angular</div>
-          </span>
-          <span className={`${modo} ${styles.Icono2}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/452185/css-3.svg"
-              alt="css"
-            />
-            <div className={styles.nombreIcono}>Css</div>
-          </span>
+          {Frontend.map((element, i) => (
+            <span key={i} className={`${element.style} ${modo}`}>
+              <img
+                className={styles.Icono}
+                src={element.url}
+                alt={element.alt}
+              />
+              <div className={styles.nombreIcono}>{element.alt}</div>
+            </span>
+          ))}
         </div>
         {agrupar === styles.agrupar ? (
           <div className={styles.category}>Backend</div>
@@ -84,31 +160,16 @@ export function Iconos() {
           ""
         )}
         <div className={styles.agrupar}>
-          <span className={`${modo} ${styles.Icono6}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/452091/python.svg"
-              alt="python-logo"
-            />
-            <div className={styles.nombreIcono}>Python</div>
-          </span>
-
-          <span className={`${modo} ${styles.Icono4}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/349419/javascript.svg"
-              alt="javascript-logo"
-            />
-            <div className={styles.nombreIcono}>Javascript</div>
-          </span>
-          <span className={`${modo}  ${styles.Icono8}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/374146/typescript-official.svg"
-              alt="typescript-logo"
-            />
-            <div className={styles.nombreIcono}>Typescript</div>
-          </span>
+          {Backend.map((element, i) => (
+            <span key={i} className={`${element.style} ${modo}`}>
+              <img
+                className={styles.Icono}
+                src={element.url}
+                alt={element.alt}
+              />
+              <div className={styles.nombreIcono}>{element.alt}</div>
+            </span>
+          ))}
         </div>
         {agrupar === styles.agrupar ? (
           <div className={styles.category}>Database</div>
@@ -116,22 +177,16 @@ export function Iconos() {
           ""
         )}
         <div className={styles.agrupar}>
-          <span className={`${modo}  ${styles.Icono9}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/331761/sql-database-sql-azure.svg"
-              alt="sql-logo"
-            />
-            <div className={styles.nombreIcono}>SQL</div>
-          </span>
-          <span className={`${modo} ${styles.Icono10}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/331488/mongodb.svg"
-              alt="mongodb-logo"
-            />
-            <div className={styles.nombreIcono}>MongoDB</div>
-          </span>
+          {Database.map((element, i) => (
+            <span key={i} className={`${element.style} ${modo}`}>
+              <img
+                className={styles.Icono}
+                src={element.url}
+                alt={element.alt}
+              />
+              <div className={styles.nombreIcono}>{element.alt}</div>
+            </span>
+          ))}
         </div>
         {agrupar === styles.agrupar ? (
           <div className={styles.category}>Tools</div>
@@ -139,23 +194,16 @@ export function Iconos() {
           ""
         )}
         <div className={styles.agrupar}>
-          <span className={`${modo}  ${styles.Icono3}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/353498/bootstrap.svg"
-              alt="bootstrap-logo"
-            />
-            <div className={styles.nombreIcono}>Bootstrap</div>
-          </span>
-
-          <span className={`${modo}  ${styles.Icono11}`}>
-            <img
-              className={styles.Icono}
-              src="https://www.svgrepo.com/show/439238/nodejs.svg"
-              alt="mongodb-logo"
-            />
-            <div className={styles.nombreIcono}>NodeJs</div>
-          </span>
+          {Tools.map((element, i) => (
+            <span key={i} className={`${element.style} ${modo}`}>
+              <img
+                className={styles.Icono}
+                src={element.url}
+                alt={element.alt}
+              />
+              <div className={styles.nombreIcono}>{element.alt}</div>
+            </span>
+          ))}
         </div>
       </div>
       {modo === styles.Iconos ? (

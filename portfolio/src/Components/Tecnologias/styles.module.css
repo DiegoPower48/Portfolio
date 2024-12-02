@@ -90,11 +90,11 @@
   height: 13vh;
   padding: 4px;
   position: absolute;
-  left: 1000px;
+  left: 1800px;
   border-radius: 20px;
   transition: all 0.1s ease-in-out;
   animation: scrollleft;
-  animation-duration: 33s;
+  animation-duration: 85s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -124,37 +124,55 @@
 }
 
 .Icono1 {
-  animation-delay: -3s;
+  animation-delay: -5s;
 }
 .Icono2 {
-  animation-delay: -6s;
+  animation-delay: -10s;
 }
 .Icono3 {
-  animation-delay: -9s;
-}
-.Icono4 {
-  animation-delay: -12s;
-}
-.Icono5 {
   animation-delay: -15s;
 }
+.Icono4 {
+  animation-delay: -20s;
+}
+.Icono5 {
+  animation-delay: -25s;
+}
 .Icono6 {
-  animation-delay: -18s;
-}
-.Icono7 {
-  animation-delay: -21s;
-}
-.Icono8 {
-  animation-delay: -24s;
-}
-.Icono9 {
-  animation-delay: -27s;
-}
-.Icono10 {
   animation-delay: -30s;
 }
+.Icono7 {
+  animation-delay: -35s;
+}
+.Icono8 {
+  animation-delay: -40s;
+}
+.Icono9 {
+  animation-delay: -45s;
+}
+.Icono10 {
+  animation-delay: -50s;
+}
 .Icono11 {
-  animation-delay: -33s;
+  animation-delay: -55s;
+}
+.Icono12 {
+  animation-delay: -60s;
+}
+.Icono13 {
+  animation-delay: -65s;
+}
+.Icono14 {
+  animation-delay: -70s;
+}
+.Icono15 {
+  animation-delay: -75s;
+}
+.Icono16 {
+  animation-delay: -80s;
+}
+.Icono17 {
+  animation-delay: -85s;
 }
 
 @media (max-width: 1160px) {
@@ -169,7 +187,13 @@
 
 @media (max-width: 659px) {
   .Icono {
-    width: 70px;
+    width: 80px;
+  }
+  .Iconos {
+    left: 1600px;
+  }
+  .agrupar {
+    grid-template-columns: auto auto auto;
   }
 
   .tecnologias {
@@ -186,7 +210,7 @@
   }
 
   .Iconos {
-    animation-duration: 11s;
+    animation-duration: 17s;
   }
 
   .Icono1 {
@@ -221,5 +245,24 @@
   }
   .Icono11 {
     animation-delay: -11s;
+  }
+  .Icono12 {
+    animation-delay: -12s;
+  }
+  .Icono13 {
+    animation-delay: -13s;
+  }
+  .Icono14 {
+    animation-delay: -14s;
+  }
+  .Icono15 {
+    animation-delay: -15s;
+  }
+  .Icono16 {
+    animation-delay: -16s;
+  }
+
+  .Icono17 {
+    animation-delay: -17s;
   }
 }
