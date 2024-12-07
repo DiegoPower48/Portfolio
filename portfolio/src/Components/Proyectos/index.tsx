@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import "@justinribeiro/lite-youtube";
-import { ReactNode } from "react";
 
 function Proyectos() {
   return (
@@ -48,12 +47,13 @@ function Trabajos() {
       ],
     },
   ];
-  const proyectosMovil = [
-    "K1r-oVYgjiE",
-    "K1r-oVYgjiE",
-    "K1r-oVYgjiE",
-    "K1r-oVYgjiE",
-  ];
+
+  // const proyectosMovil = [
+  //   "K1r-oVYgjiE",
+  //   "K1r-oVYgjiE",
+  //   "K1r-oVYgjiE",
+  //   "K1r-oVYgjiE",
+  // ];
 
   return (
     <>
