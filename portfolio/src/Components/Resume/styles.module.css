@@ -1,14 +1,17 @@
 .Resume {
   width: 80%;
+  height: 100%;
   padding: 10px;
   margin-left: 200px;
   margin-top: 50px;
   margin-bottom: 100px;
-  min-height: 85vh;
+  min-height: 750px;
+  max-width: 1100px;
   max-width: 100%;
   position: relative;
   border-radius: 40px;
   box-shadow: 1px 1px 20px 2px white;
+  box-sizing: content-box;
 }
 
 .Resume:hover {
@@ -23,6 +26,7 @@
   margin-top: 10vh;
   margin-right: 50px;
   width: 40%;
+  height: 100%;
   display: block;
   float: right;
 }
@@ -38,7 +42,6 @@
   display: block;
   float: left;
   max-width: 100%;
-  height: auto;
   box-shadow: 1px 1px 10px 2px #008080;
 }
 
@@ -96,7 +99,6 @@
 
 .cardbody {
   padding: 10vh;
-  height: 60vh;
   box-sizing: border-box;
 }
 
@@ -140,17 +142,17 @@
 
   .fotografia {
     grid-column: span 2;
+    height: 100%;
     width: 80%;
-    height: 50vh;
     margin-left: 10%;
     margin-right: 10%;
   }
   .card {
-    height: 50vh;
     grid-row: 2/3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
+    justify-items: center;
   }
 
   .cardbody {
@@ -160,7 +162,6 @@
   .Footers {
     display: block;
     position: static;
-    justify-content: center;
   }
   .imageLink {
     margin-top: 50px;
