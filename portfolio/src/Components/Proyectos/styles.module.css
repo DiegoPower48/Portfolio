@@ -176,13 +176,11 @@
   }
 
   .listaProyectos {
-    width: 95vw;
-    margin: 1vw;
     margin-top: 50px;
     grid-template-columns: 1fr;
+    justify-content: center;
   }
   .cajaProyectos {
-    width: 95vw;
     margin-bottom: 50px;
   }
 }
@@ -192,7 +190,7 @@
     font-size: 10vw;
   }
   .cards {
-    width: 70%;
+    width: 90%;
     margin: 5%;
     height: 80%;
   }
