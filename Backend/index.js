@@ -7,6 +7,7 @@ require("dotenv").config();
 const cors = require("cors");
 const router = require("./routes/solicitud");
 const store = require("./routes/store");
+const utp = require("./routes/utpRoutes");
 const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
 const sockets = require("./socket/socket");
@@ -28,11 +29,13 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173","http://localhost:59231",
+      "http://localhost:5173",
+      "http://localhost:59231",
       "https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.vercel.app",
-      "https://daysi-block.vercel.app","*", 
+      "https://daysi-block.vercel.app",
+      "*",
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
@@ -44,6 +47,7 @@ app.use(cookieParser());
 
 app.use(router);
 app.use(store);
+app.use(utp);
 
 const server = http.createServer(app);
 const io = new Server(server, {
