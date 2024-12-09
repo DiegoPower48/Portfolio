@@ -9,10 +9,7 @@ const registerSchema = z.object({
     .min(6, { message: "La contraseña debe tener almenos 6 caracteres" }),
   correo: z
     .string({ required_error: "Debes ingresar un correo" })
-    .email({ message: "Correo no válido" })
-    .refine((correo) => correo.endsWith("@utp.com"), {
-      message: "El correo ingresado no es un correo institucional",
-    }),
+    .email({ message: "Correo no válido" }),
 });
 
 const loginSchema = z.object({
