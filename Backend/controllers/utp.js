@@ -26,7 +26,7 @@ const controller = {
       if (correoduplicado) {
         return res.status(400).send("El correo ya se encuentra en uso");
       }
-      console.log("terminada validacion");
+
       const paswordhash = await bcrypt.hash(contrasenia, 10);
 
       const usuario = new UserApp({

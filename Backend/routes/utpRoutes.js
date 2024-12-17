@@ -10,10 +10,10 @@ var router = express.Router();
 
 router.post(
   "/appregistro",
-  // validateSchema(registerSchema),
+  validateSchema(registerSchema),
   controller.registro
 );
-router.post("/applogin", validateSchema(loginSchema), controller.login);
+router.post("/applogin", controller.login);
 router.post("/appverify", controller.verifyToken);
 
 module.exports = router;
