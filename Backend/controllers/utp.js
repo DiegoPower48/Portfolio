@@ -9,43 +9,43 @@ require("dotenv").config();
 const controller = {
   registro: async (req, res) => {
     const { nombre, contrasenia, correo } = req.body;
-    console.log(req.body);
-    try {
-      const nombreduplicado = await UserApp.findOne({ nombre });
-      if (nombreduplicado) {
-        return res
-          .status(400)
-          .send("El nombre de usuario ya se encuentra en uso");
-      }
+    console.log("registro", req.body);
+    // try {
+    //   const nombreduplicado = await UserApp.findOne({ nombre });
+    //   if (nombreduplicado) {
+    //     return res
+    //       .status(400)
+    //       .send("El nombre de usuario ya se encuentra en uso");
+    //   }
 
-      const correoduplicado = await UserApp.findOne({ correo });
-      if (correoduplicado) {
-        return res.status(400).send("El correo ya se encuentra en uso");
-      }
-      console.log("terminada validacion");
-      const paswordhash = await bcrypt.hash(contrasenia, 10);
+    //   const correoduplicado = await UserApp.findOne({ correo });
+    //   if (correoduplicado) {
+    //     return res.status(400).send("El correo ya se encuentra en uso");
+    //   }
+    //   console.log("terminada validacion");
+    //   const paswordhash = await bcrypt.hash(contrasenia, 10);
 
-      const usuario = new UserApp({
-        nombre: nombre,
-        contraseña: paswordhash,
-        correo: correo,
-      });
-      const usuarioguardado = await usuario.save();
+    //   const usuario = new UserApp({
+    //     nombre: nombre,
+    //     contraseña: paswordhash,
+    //     correo: correo,
+    //   });
+    //   const usuarioguardado = await usuario.save();
 
-      const token = await createAccessToken({ id: usuarioguardado._id });
-      // res.cookie("token", token, {
-      //   secure: true,
-      //   sameSite: "None",
-      //   maxAge: 1000 * 60 * 60 * 24, // 1 día
-      // });
-      res.send(token);
-    } catch (err) {
-      res.status(500).send({ message: err.message });
-    }
+    //   const token = await createAccessToken({ id: usuarioguardado._id });
+    //   // res.cookie("token", token, {
+    //   //   secure: true,
+    //   //   sameSite: "None",
+    //   //   maxAge: 1000 * 60 * 60 * 24, // 1 día
+    //   // });
+    //   res.send(token);
+    // } catch (err) {
+    //   res.status(500).send({ message: err.message });
+    // }
   },
   login: async (req, res) => {
     const { nombre, contrasenia } = req.body;
-    console.log(req.body);
+    console.log("login", req.body);
     try {
       const userFound = await UserApp.findOne({ nombre });
 
