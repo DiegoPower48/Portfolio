@@ -14,9 +14,7 @@ async function sendMail(nombre, correo, comentario) {
 
     const enviarCorreo = new brevo.SendSmtpEmail();
     enviarCorreo.subject = "COMENTARIO DE PORTFOLIO";
-    enviarCorreo.to = [
-      { email: "diego_torres_11@hotmail.com", name: "Portfolio dice" },
-    ];
+    enviarCorreo.to = [{ email: "marco96392@gmail.com", name: "backend dice" }];
 
     const templatePath = path.join(__dirname, "..", "models", "template.html");
     let htmlContent = fs.readFileSync(templatePath, "utf8");
