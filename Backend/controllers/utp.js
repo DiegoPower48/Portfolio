@@ -45,7 +45,7 @@ const controller = {
   },
   login: async (req, res) => {
     const { nombre, contrasenia } = req.body;
-
+    console.log(req.body);
     try {
       const userFound = await UserApp.findOne({ nombre });
 
