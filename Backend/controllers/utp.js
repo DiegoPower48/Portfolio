@@ -31,18 +31,18 @@ const controller = {
 
       const usuario = new UserApp({
         nombre: nombre,
-        contraseña: paswordhash,
         correo: correo,
+        contraseña: paswordhash,
       });
       const usuarioguardado = await usuario.save();
 
-      //   const token = await createAccessToken({ id: usuarioguardado._id });
-      //   // res.cookie("token", token, {
-      //   //   secure: true,
-      //   //   sameSite: "None",
-      //   //   maxAge: 1000 * 60 * 60 * 24, // 1 día
-      //   // });
-      //   res.send(token);
+      const token = await createAccessToken({ id: usuarioguardado._id });
+      // res.cookie("token", token, {
+      //   secure: true,
+      //   sameSite: "None",
+      //   maxAge: 1000 * 60 * 60 * 24, // 1 día
+      // });
+      res.send(token);
     } catch (err) {
       res.status(500).send({ message: err.message });
     }

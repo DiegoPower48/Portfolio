@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const itemSchema = new mongoose.Schema(
   {
     nombre: { type: String },
-    contraseña: { type: String },
     correo: { type: String, unique: true },
+    contraseña: { type: String },
   },
   { timestamps: true },
   { collection: "UserApp" }
