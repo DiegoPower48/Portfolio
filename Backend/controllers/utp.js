@@ -9,7 +9,7 @@ require("dotenv").config();
 const controller = {
   registro: async (req, res) => {
     const { nombre, contrasenia, correo } = req.body;
-
+    console.log(req.body);
     try {
       const nombreduplicado = await UserApp.findOne({ nombre });
       if (nombreduplicado) {

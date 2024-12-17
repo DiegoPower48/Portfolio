@@ -62,6 +62,14 @@
   background-color: black;
   box-shadow: 1px 1px 10px 2px #008080;
 }
+.sliderContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
 .page2 {
   transform: rotateY(180deg);
   backface-visibility: hidden;

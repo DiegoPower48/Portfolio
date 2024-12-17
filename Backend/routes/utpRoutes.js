@@ -13,7 +13,7 @@ router.post(
   validateSchema(registerSchema),
   controller.registro
 );
-router.get("/applogin", validateSchema(loginSchema), controller.login);
+router.post("/applogin", validateSchema(loginSchema), controller.login);
 router.post("/appverify", controller.verifyToken);
 
 module.exports = router;

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./styles.module.css";
 import "@justinribeiro/lite-youtube";
 
@@ -48,13 +49,6 @@ function Trabajos() {
     },
   ];
 
-  // const proyectosMovil = [
-  //   "K1r-oVYgjiE",
-  //   "K1r-oVYgjiE",
-  //   "K1r-oVYgjiE",
-  //   "K1r-oVYgjiE",
-  // ];
-
   return (
     <>
       <div className={styles.groups}>
@@ -76,14 +70,15 @@ function Trabajos() {
       {/* <div className={styles.groups}>
         <div className={styles.titleDevice}>Mobile</div>
         <div className={styles.listaProyectos}>
-          {proyectosMovil.map((e, i) => (
-            <div key={i} className={styles.cards}>
-              <div className={styles.liteyoutubefallback}>
-                <lite-youtube
-                  videoid="K1r-oVYgjiE"
-                  videotitle="This is a video title"
-                ></lite-youtube>
-              </div>
+          {proyectos.map((element, index) => (
+            <div className={styles.cajaProyectos} key={index}>
+              <Products
+                nombre={element.nombre}
+                imagen={element.imagen}
+                direccion={element.direccion}
+                descripcion={element.descripcion}
+                tecnologias={element.tecnologias}
+              />
             </div>
           ))}
         </div>
@@ -135,5 +130,56 @@ function Products(props: Props) {
     </a>
   );
 }
+
+const Slider = () => {
+  const slides = [
+    "https://i.ibb.co/HFVhJgC/Captura-de-pantalla-20-7-2024-7168-chatportfolio-up-railway-app.jpg",
+    "https://i.ibb.co/28k3ndT/Opera-Captura-de-pantalla-2024-08-08-014230-localhost.png",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+  };
+
+  const goToPrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+    );
+  };
+
+  return (
+    <div className="relative max-w-2xl mx-auto overflow-hidden">
+      <div
+        className="flex transition-transform duration-500"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {slides.map((slide, index) => (
+          <img
+            src={slide}
+            alt={`Slide ${index + 1}`}
+            className="w-full flex-shrink-0"
+            key={index}
+          />
+        ))}
+      </div>
+      <div className="absolute inset-0 flex justify-between items-center px-4">
+        <button
+          onClick={goToPrev}
+          className="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+        >
+          ❮
+        </button>
+        <button
+          onClick={goToNext}
+          className="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+        >
+          ❯
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Proyectos;
