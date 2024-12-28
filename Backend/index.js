@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const cors = require("cors");
 const router = require("./routes/solicitud");
+const webdata = require("./routes/webdata");
 const store = require("./routes/store");
 const utp = require("./routes/utpRoutes");
 const cookieParser = require("cookie-parser");
@@ -47,6 +48,7 @@ app.use(cookieParser());
 
 app.use(router);
 app.use(store);
+app.use(webdata);
 app.use(utp);
 
 const server = http.createServer(app);
