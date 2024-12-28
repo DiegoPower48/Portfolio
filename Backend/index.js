@@ -36,7 +36,7 @@ app.use(
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.vercel.app",
       "https://daysi-block.vercel.app",
-      "criptoweb-portfolio.vercel.app",
+      "https://criptoweb-portfolio.vercel.app",
       "*",
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
