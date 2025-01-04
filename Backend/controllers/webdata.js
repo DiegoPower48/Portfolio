@@ -1,13 +1,23 @@
 "use strict";
 
 const puppeteer = require("puppeteer");
+require("dotenv").config();
 
 const controller = {
   data: async (req, res) => {
     try {
       const browser = await puppeteer.launch({
+        args: [
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--single-process",
+          "--no-zygote",
+        ], // Recomendado para entornos de hosting
+        executablePath:
+          process.env.NODE_ENV === "production"
+            ? process.env.PUPPETEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
         headless: true,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"], // Recomendado para entornos de hosting
       });
 
       const page = await browser.newPage();
