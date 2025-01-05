@@ -8,5 +8,17 @@ WORKDIR /usr/scr/app
 COPY  package*.json ./
 RUN npm ci
 
+
+RUN apt-get update && apt-get install -y \
+    chromium-browser \
+    fonts-liberation \
+    libatk-bridge2.0-0 \
+    libcups2 \
+    libnss3 \
+    libxcomposite1 \
+    libxrandr2 \
+    xdg-utils
+
+
 COPY . .
 CMD ["node", "index.js"]
