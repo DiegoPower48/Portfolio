@@ -1,34 +1,10 @@
 FROM ghcr.io/puppeteer/puppeteer:23.11.1
 
-# Configura variables de entorno necesarias para Puppeteer
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
-    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
 
-# Instala dependencias adicionales para Puppeteer
-# Esto asegura que las bibliotecas necesarias para Chromium estén presentes
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    fonts-ipafont-gothic \
-    fonts-wqy-zenhei \
-    fonts-thai-tlwg \
-    fonts-khmeros \
-    fonts-kacst \
-    fonts-freefont-ttf \
-    dbus \
-    dbus-x11 && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Establece el directorio de trabajo
-WORKDIR /usr/scr/app
-
-# Copia los archivos de dependencias y las instala
+WORKDIR /usr/src/app
 COPY package*.json ./
-RUN npm ci
-
-# Copia el resto de los archivos de la aplicación
+RUN npm install
 COPY . .
-
-# Asegúrate de que Puppeteer reconozca y configure correctamente el navegador
-RUN npx puppeteer browsers install chrome --install-deps
-
-# Define el comando de inicio
 CMD ["node", "index.js"]
