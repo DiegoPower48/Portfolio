@@ -17,7 +17,7 @@ const controller = {
           process.env.NODE_ENV === "production"
             ? process.env.PUPPETEER_EXECUTABLE_PATH
             : puppeteer.executablePath(),
-        headless: false,
+        headless: true,
       });
 
       const page = await browser.newPage();
@@ -26,18 +26,16 @@ const controller = {
       await page.setUserAgent(
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
       );
-      await page.setViewport({ width: 1280, height: 800 });
 
       // Navega a la página y espera hasta que cargue el DOM
       await page.goto("https://www.coingecko.com/es", {
         waitUntil: "domcontentloaded",
-        timeout: 60000, // 60 segundos
       });
 
       // Espera a que el selector esté presente
       await page.waitForSelector(
         "div[class='tw-text-gray-700 dark:tw-text-moon-100 tw-font-semibold tw-text-sm tw-leading-5']",
-        { timeout: 60000 } // 10 segundos de tiempo máximo de espera
+        { timeout: 10000 } // 10 segundos de tiempo máximo de espera
       );
 
       // Extrae los datos
