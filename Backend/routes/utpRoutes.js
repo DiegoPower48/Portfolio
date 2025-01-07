@@ -15,5 +15,7 @@ router.post(
 );
 router.post("/applogin", controller.login);
 router.post("/appverify", controller.verifyToken);
+router.get("/appuserdata", controller.userData);
+router.put("/appuseredit", controller.userEdit);
 
 module.exports = router;

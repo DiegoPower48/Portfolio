@@ -91,6 +91,68 @@ const controller = {
       });
     });
   },
+  userData: async (req, res) => {
+    const { nombre } = req.body;
+
+    try {
+      // Buscar usuario por el nombre
+      const userFound = await UserApp.findOne({ nombre }).select(
+        "-contraseña -updatedAt -createdAt -_id -__v"
+      );
+
+      if (!userFound) {
+        return res.status(400).send("Nombre de usuario incorrecto");
+      }
+
+      // Enviar los datos del usuario encontrados
+      return res.status(200).json(userFound);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send("Error al recuperar los datos del usuario");
+    }
+  },
+
+  userEdit: async (req, res) => {
+    const { nombre, correo } = req.body;
+
+    try {
+      // Validar que ambos campos estén presentes
+      if (!nombre) {
+        return res.status(400).send("Nombre requerido");
+      }
+
+      if (correo[0] != "u" && correo[0] != "U") {
+        return res.status(400).send("Correo invalido");
+      }
+
+      // Buscar y actualizar el usuario
+      const updatedUser = await UserApp.findOneAndUpdate(
+        { nombre },
+        { correo },
+        { new: true }
+      );
+
+      if (!updatedUser) {
+        return res.status(404).send("Usuario no encontrado");
+      }
+
+      // Eliminar el campo 'contraseña' antes de enviar la respuesta
+      const {
+        contraseña,
+        createdAt,
+        updatedAt,
+        _id,
+        __v,
+        ...userWithoutPassword
+      } = updatedUser.toObject();
+
+      // Enviar el usuario actualizado sin la contraseña
+      return res.status(200).json(userWithoutPassword);
+    } catch (error) {
+      console.error(error);
+      return res.status(500).send("Error al actualizar los datos del usuario");
+    }
+  },
 };
 
 module.exports = controller;
