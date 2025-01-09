@@ -74,7 +74,7 @@ const controller = {
       // const data = webdata.find();
       // return res.status(200).send(data);
 
-      const datos = criptoweb();
+      const datos = await criptoweb();
 
       res.status(200).send(datos);
     } catch (error) {
