@@ -74,7 +74,9 @@ const controller = {
       // const data = webdata.find();
       // return res.status(200).send(data);
 
-      criptoweb();
+      const datos = criptoweb();
+
+      res.status(200).send(datos);
     } catch (error) {
       console.error("Error al ejecutar Puppeteer:", error);
       return res.status(500).send("Error interno del servidor");

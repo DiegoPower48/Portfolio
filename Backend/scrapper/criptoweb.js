@@ -65,7 +65,7 @@ const criptoweb = async () => {
       { $set: quote },
       { upsert: true, new: true }
     );
-
+    console.log("guardado en la base de datos");
     return quote;
   } catch (error) {
     console.log(error);
