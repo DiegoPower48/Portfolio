@@ -60,17 +60,18 @@ const criptoweb = async () => {
     });
 
     // Cierra el navegador y devuelve la respuesta
-    await browser.close();
 
     await webdata.findOneAndUpdate(
-      { $set: quote },
+      { $set: { data: quote } },
       { upsert: true, new: true }
     );
-    console.log("guardado en la base de datos");
+    console.log("Datos guardados en la base de datos");
   } catch (error) {
-    console.log("Error en el proceso de scrapping");
-    console.log(error);
+    console.log("Error en el proceso de scrapping:", error);
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
   }
 };
-
 module.exports = criptoweb;
