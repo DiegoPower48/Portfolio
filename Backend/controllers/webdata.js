@@ -71,8 +71,8 @@ const controller = {
 
       // return res.status(200).send(quote);
 
-      const data = webdata.findOne();
-      return res.status(200).send(data);
+      const data = await webdata.findOne({}, "data").select("-_id -__v");
+      return res.status(200).send(data.data);
     } catch (error) {
       console.error("Error al ejecutar Puppeteer:", error);
       return res.status(500).send("Error interno del servidor");
