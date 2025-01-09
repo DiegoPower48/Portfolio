@@ -1,10 +1,10 @@
 "use strict";
 
-const criptoweb = require("../scrapper/criptoweb");
+const webdata = require("../models/webdata");
+// const criptoweb = require("../scrapper/criptoweb");
 
 // const puppeteer = require("puppeteer");
 // require("dotenv").config();
-const webdata = require("../models/webdata");
 
 const controller = {
   data: async (req, res) => {
@@ -71,12 +71,8 @@ const controller = {
 
       // return res.status(200).send(quote);
 
-      // const data = webdata.find();
-      // return res.status(200).send(data);
-
-      const datos = await criptoweb();
-
-      res.status(200).send(datos);
+      const data = webdata.findOne();
+      return res.status(200).send(data);
     } catch (error) {
       console.error("Error al ejecutar Puppeteer:", error);
       return res.status(500).send("Error interno del servidor");

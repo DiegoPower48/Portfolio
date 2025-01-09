@@ -12,7 +12,9 @@ const utp = require("./routes/utpRoutes");
 const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
 const sockets = require("./socket/socket");
+const schedule = require("node-schedule");
 const http = require("http");
+const criptoweb = require("./scrapper/criptoweb");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -55,7 +57,11 @@ app.use(utp);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "https://chatportfolio.vercel.app","https://teddy-store.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://chatportfolio.vercel.app",
+      "https://teddy-store.vercel.app",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
     credentials: true,
@@ -65,6 +71,8 @@ const io = new Server(server, {
     maxDisconnectionDuration: 2 * 60 * 1000,
   },
 });
+
+schedule.scheduleJob("* * * * *", criptoweb);
 
 sockets(io);
 
