@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema(
   {
-    data: [],
+    data: { type: Array, required: true },
   },
   { collection: "Webdata" },
   { _id: false }
