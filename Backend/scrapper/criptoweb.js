@@ -62,6 +62,7 @@ const criptoweb = async () => {
     // Cierra el navegador y devuelve la respuesta
 
     await webdata.findOneAndUpdate(
+      {},
       { $set: { data: quote } },
       { upsert: true, new: true }
     );
