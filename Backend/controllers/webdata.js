@@ -2,6 +2,7 @@
 
 const puppeteer = require("puppeteer");
 require("dotenv").config();
+const webdata = require("../models/webdata");
 
 const controller = {
   data: async (req, res) => {
@@ -60,6 +61,12 @@ const controller = {
 
       // Cierra el navegador y devuelve la respuesta
       await browser.close();
+
+      const item = new webdata({
+        data: quote,
+      });
+      await item.save();
+
       return res.status(200).send(quote);
     } catch (error) {
       console.error("Error al ejecutar Puppeteer:", error);
