@@ -72,7 +72,7 @@ const io = new Server(server, {
   },
 });
 
-schedule.scheduleJob("* * * * *", criptoweb);
+schedule.scheduleJob("0 * * * *", criptoweb);
 
 sockets(io);
 
