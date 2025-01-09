@@ -5,6 +5,7 @@ require("dotenv").config();
 const webdata = require("../models/webdata");
 
 const criptoweb = async () => {
+  console.log("Iniciando el proceso de scrapping");
   try {
     const browser = await puppeteer.launch({
       args: [
@@ -67,6 +68,7 @@ const criptoweb = async () => {
     );
     console.log("guardado en la base de datos");
   } catch (error) {
+    console.log("Error en el proceso de scrapping");
     console.log(error);
   }
 };
