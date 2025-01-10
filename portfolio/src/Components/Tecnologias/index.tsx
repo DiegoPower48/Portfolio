@@ -54,7 +54,7 @@ export function Iconos() {
       style: styles.Icono4,
     },
     {
-      url: "https://www.svgrepo.com/show/369457/nextjs.svg",
+      url: "https://www.iconbolt.com/iconsets/teenyicons-outline/nextjs.svg",
       alt: "NextJs",
       style: styles.Icono5,
     },
@@ -93,40 +93,45 @@ export function Iconos() {
       alt: "NestJs",
       style: styles.Icono11,
     },
+    {
+      url: "https://www.svgrepo.com/show/354228/puppeteer.svg",
+      alt: "Puppeteer",
+      style: styles.Icono12,
+    },
   ];
   const Database = [
     {
       url: "https://www.svgrepo.com/show/373595/firebase.svg",
       alt: "Firebase",
-      style: styles.Icono12,
+      style: styles.Icono13,
     },
     {
       url: "https://www.svgrepo.com/show/303301/postgresql-logo.svg",
       alt: "PostgreSQL",
-      style: styles.Icono13,
+      style: styles.Icono14,
     },
     {
       url: "https://www.svgrepo.com/show/342053/mysql.svg",
       alt: "MySQL",
-      style: styles.Icono14,
+      style: styles.Icono15,
     },
     {
       url: "https://www.svgrepo.com/show/331488/mongodb.svg",
       alt: "MongoDB",
-      style: styles.Icono15,
+      style: styles.Icono16,
     },
   ];
   const Tools = [
     {
       url: "https://www.svgrepo.com/show/353498/bootstrap.svg",
       alt: "Bootstrap",
-      style: styles.Icono16,
+      style: styles.Icono17,
     },
 
     {
       url: "https://www.svgrepo.com/show/374118/tailwind.svg",
       alt: "Tailwind",
-      style: styles.Icono17,
+      style: styles.Icono18,
     },
   ];
 

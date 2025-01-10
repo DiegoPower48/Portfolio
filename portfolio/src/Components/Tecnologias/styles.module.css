@@ -60,16 +60,18 @@
 .block {
   transition: all 0.5s ease-in-out;
   display: grid;
-  padding: 15px;
+  padding: 10px;
   border-radius: 20px;
   grid-template-columns: 1fr;
 }
+
 .block:hover {
   scale: 1.1;
   translate: 1.4px;
   background-color: #008080;
   color: white;
   font-weight: bold;
+  box-shadow: 1px 1px 20px 1px #008080;
 }
 
 .agrupar {
@@ -77,9 +79,6 @@
   grid-template-columns: auto auto auto auto auto;
   grid-template-rows: 1fr 0.2fr;
   justify-content: center;
-}
-
-.wrapper:hover {
 }
 
 .groups {
@@ -99,19 +98,22 @@
 .Iconos {
   margin-top: 30px;
   height: 13vh;
-  padding: 4px;
+  padding: 5px;
   position: absolute;
   left: 1800px;
   border-radius: 20px;
   transition: all 0.1s ease-in-out;
   animation: scrollleft;
-  animation-duration: 85s;
+  animation-duration: 90s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 .Icono {
   width: 90px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px;
 }
 .Iconos:hover {
   scale: 1.1;
@@ -184,6 +186,9 @@
 }
 .Icono17 {
   animation-delay: -85s;
+}
+.Icono18 {
+  animation-delay: -90s;
 }
 
 @media (max-width: 1160px) {

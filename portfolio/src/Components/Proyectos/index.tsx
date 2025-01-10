@@ -47,6 +47,14 @@ function Trabajos() {
         "JWT",
       ],
     },
+    {
+      nombre: "CRIPTO LIVES RATES",
+      imagen: "https://i.ibb.co/9NK54C6/image.png",
+      direccion: "https://criptoweb-portfolio.vercel.app",
+      descripcion:
+        "A project focused on extracting cryptocurrency price data from a webpage using Web Scraping techniques.",
+      tecnologias: ["MongoDB", "Express", "React", "NodeJS", "Puppeteer"],
+    },
   ];
 
   return (
@@ -131,55 +139,55 @@ function Products(props: Props) {
   );
 }
 
-const Slider = () => {
-  const slides = [
-    "https://i.ibb.co/HFVhJgC/Captura-de-pantalla-20-7-2024-7168-chatportfolio-up-railway-app.jpg",
-    "https://i.ibb.co/28k3ndT/Opera-Captura-de-pantalla-2024-08-08-014230-localhost.png",
-  ];
+// const Slider = () => {
+//   const slides = [
+//     "https://i.ibb.co/HFVhJgC/Captura-de-pantalla-20-7-2024-7168-chatportfolio-up-railway-app.jpg",
+//     "https://i.ibb.co/28k3ndT/Opera-Captura-de-pantalla-2024-08-08-014230-localhost.png",
+//   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+//   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
+//   const goToNext = () => {
+//     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+//   };
 
-  const goToPrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? slides.length - 1 : prevIndex - 1
-    );
-  };
+//   const goToPrev = () => {
+//     setCurrentIndex((prevIndex) =>
+//       prevIndex === 0 ? slides.length - 1 : prevIndex - 1
+//     );
+//   };
 
-  return (
-    <div className="relative max-w-2xl mx-auto overflow-hidden">
-      <div
-        className="flex transition-transform duration-500"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {slides.map((slide, index) => (
-          <img
-            src={slide}
-            alt={`Slide ${index + 1}`}
-            className="w-full flex-shrink-0"
-            key={index}
-          />
-        ))}
-      </div>
-      <div className="absolute inset-0 flex justify-between items-center px-4">
-        <button
-          onClick={goToPrev}
-          className="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
-        >
-          ❮
-        </button>
-        <button
-          onClick={goToNext}
-          className="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
-        >
-          ❯
-        </button>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="relative max-w-2xl mx-auto overflow-hidden">
+//       <div
+//         className="flex transition-transform duration-500"
+//         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+//       >
+//         {slides.map((slide, index) => (
+//           <img
+//             src={slide}
+//             alt={`Slide ${index + 1}`}
+//             className="w-full flex-shrink-0"
+//             key={index}
+//           />
+//         ))}
+//       </div>
+//       <div className="absolute inset-0 flex justify-between items-center px-4">
+//         <button
+//           onClick={goToPrev}
+//           className="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+//         >
+//           ❮
+//         </button>
+//         <button
+//           onClick={goToNext}
+//           className="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+//         >
+//           ❯
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default Proyectos;
