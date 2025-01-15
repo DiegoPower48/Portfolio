@@ -39,13 +39,14 @@ app.use(
       "https://chatportfolio.vercel.app",
       "https://daysi-block.vercel.app",
       "https://criptoweb-portfolio.vercel.app",
+      "https://fasttools.vercel.app",
       "*",
     ],
     methods: ["GET", "PUT", "POST", "OPTIONS", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
-); // en origin va la url de nuestro frontend
+);
 
 app.use(cookieParser());
 

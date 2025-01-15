@@ -5,6 +5,7 @@ const Item = require("../models/solicitud");
 const User = require("../models/user");
 const block = require("../models/block");
 const bcrypt = require("bcryptjs");
+const webPush = require("web-push");
 const createAccessToken = require("./jwt");
 const jwt = require("jsonwebtoken");
 const Horario = require("../models/horario");
@@ -183,6 +184,36 @@ const controller = {
     } catch (error) {
       console.log(error);
       return res.status(400).send(error);
+    }
+  },
+
+  notificaciones: async (req, res) => {
+    webPush.setVapidDetails(
+      "mailto:tuemail@example.com",
+      process.env.PUBLIC_VAPID_KEY,
+      process.env.PRIVATE_VAPID_KEY
+    );
+
+    const { subscription, title, description, icon } = req.body;
+
+    if (!subscription || !subscription.endpoint) {
+      return res
+        .status(400)
+        .json({ error: "Suscripción inválida o no proporcionada." });
+    }
+
+    const payload = JSON.stringify({
+      title: title || "Notificación por defecto",
+      body: description || "Esta es una notificación por defecto.",
+      icon: icon || "icono",
+    });
+
+    try {
+      await webPush.sendNotification(subscription, payload);
+      res.status(200).json({ message: "Notificación enviada" });
+    } catch (error) {
+      console.error("Error enviando notificación:", error);
+      res.status(500).json({ error: "Error enviando notificación" });
     }
   },
 };

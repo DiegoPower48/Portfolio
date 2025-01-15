@@ -16,5 +16,6 @@ router.get("/blocks", controller.blocks);
 router.post("/editblock", controller.editblock);
 router.get("/horario", controller.horario);
 router.post("/edithorario", controller.edithorario);
+router.post("/notificacion", controller.notificaciones);
 
 module.exports = router;
