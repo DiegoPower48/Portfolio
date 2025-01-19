@@ -189,7 +189,7 @@ const controller = {
   },
 
   notificaciones: async (req, res) => {
-    const { subscription, message, timeZone } = req.body;
+    const { subscription, message, time, timeZone } = req.body;
     const [hour, minute] = time.split(":").map(Number);
 
     webPush.setVapidDetails(
