@@ -9,6 +9,7 @@ const webPush = require("web-push");
 const createAccessToken = require("./jwt");
 const jwt = require("jsonwebtoken");
 const Horario = require("../models/horario");
+const schedule = require("node-schedule");
 require("dotenv").config();
 
 const controller = {
@@ -188,13 +189,14 @@ const controller = {
   },
 
   notificaciones: async (req, res) => {
+    const { subscription, message, timeZone } = req.body;
+    const [hour, minute] = time.split(":").map(Number);
+
     webPush.setVapidDetails(
-      "mailto:tuemail@example.com",
+      "mailto:examplemail.com",
       process.env.PUBLIC_VAPID_KEY,
       process.env.PRIVATE_VAPID_KEY
     );
-
-    const { subscription, title, description, icon } = req.body;
 
     if (!subscription || !subscription.endpoint) {
       return res
@@ -202,14 +204,23 @@ const controller = {
         .json({ error: "Suscripción inválida o no proporcionada." });
     }
 
+    const rule = new schedule.RecurrenceRule();
+    rule.hour = hour;
+    rule.minute = minute;
+    rule.second = 0;
+    rule.tz = timeZone;
+
     const payload = JSON.stringify({
-      title: title || "Notificación por defecto",
-      body: description || "Esta es una notificación por defecto.",
-      icon: icon || "icono",
+      title: "Reminder",
+      body: message,
+      icon: "icono",
     });
 
     try {
-      await webPush.sendNotification(subscription, payload);
+      schedule.scheduleJob(rule, async () => {
+        await webPush.sendNotification(subscription, payload);
+      });
+
       res.status(200).json({ message: "Notificación enviada" });
     } catch (error) {
       console.error("Error enviando notificación:", error);
