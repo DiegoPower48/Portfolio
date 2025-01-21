@@ -2,7 +2,11 @@ body {
   padding: 0;
   margin: 0;
   font-size: clamp(10px, 4vw, 17px);
-  background-color: #070e29;
+  background-image: url("../public//background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   color: white;
   font-family: Poppins, sans-serif;
 }

@@ -221,7 +221,7 @@ const controller = {
         await webPush.sendNotification(subscription, payload);
       });
 
-      res.status(200).json({ message: "Notificación enviada" });
+      res.status(200).json({ message: "Notificación generada" });
     } catch (error) {
       console.error("Error enviando notificación:", error);
       res.status(500).json({ error: "Error enviando notificación" });

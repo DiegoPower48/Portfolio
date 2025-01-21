@@ -53,7 +53,22 @@ function Trabajos() {
       direccion: "https://criptoweb-portfolio.vercel.app",
       descripcion:
         "A project focused on extracting cryptocurrency price data from a webpage using Web Scraping techniques.",
-      tecnologias: ["MongoDB", "Express", "React", "NodeJS", "Puppeteer"],
+      tecnologias: [
+        "MongoDB",
+        "Express",
+        "React",
+        "NodeJS",
+        "Puppeteer",
+        "Tailwind",
+      ],
+    },
+    {
+      nombre: "FAST WEB TOOLS",
+      imagen: "https://i.ibb.co/R6k7Tz3/webtools.png",
+      direccion: "https://fasttools.vercel.app",
+      descripcion:
+        "Web application equipped with tools, using the native functions of the browser.",
+      tecnologias: ["Express", "NextJs", "NodeJS", "Tailwind"],
     },
   ];
 

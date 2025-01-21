@@ -14,9 +14,6 @@
   box-sizing: content-box;
 }
 
-.Resume:hover {
-  background-color: #070e29;
-}
 .Titulo {
   color: #008080;
   text-shadow: #008080 0 0 10px;
