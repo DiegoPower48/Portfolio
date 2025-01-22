@@ -34,6 +34,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:59231",
+      "http://localhost:3000",
       "https://teddy-store.vercel.app",
       "https://diegotorres-portfoliodev.vercel.app",
       "https://chatportfolio.vercel.app",
@@ -60,6 +61,7 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:5173",
+      "http://localhost:3000",
       "https://chatportfolio.vercel.app",
       "https://teddy-store.vercel.app",
     ],
