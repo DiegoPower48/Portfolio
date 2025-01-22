@@ -2,6 +2,23 @@ const mongoose = require("mongoose");
 
 const socket = (io) => {
   io.on("connection", (socket) => {
+    /* VIDEOCALL*/
+    socket.emit("me", socket.id);
+    socket.on("disconnect", () => {
+      socket.broadcast.emit("callEnded");
+    });
+    socket.on("callUser", (data) => {
+      io.to(data.userToCall).emit("callUser", {
+        signal: data.signalData,
+        from: data.from,
+        name: data.name,
+      });
+    });
+    socket.on("answerCall", (data) => {
+      io.to(data.to).emit("callAccepted"), data.signal;
+    });
+    /*END VIDEOCALL*/
+
     const room = socket.handshake.query.room;
     console.log("un usuario se ha conectado");
 
@@ -19,7 +36,7 @@ const socket = (io) => {
             comentario: { type: String },
             hora: { type: String },
             fecha: { type: String },
-            avatar: { type: String }
+            avatar: { type: String },
           },
           { collection: collectionName }
         )
@@ -35,7 +52,7 @@ const socket = (io) => {
           comentario: msg.comentario,
           hora: msg.hora,
           fecha: msg.fecha,
-          avatar: msg.avatar
+          avatar: msg.avatar,
         });
       } catch (e) {
         console.log("error en create");
