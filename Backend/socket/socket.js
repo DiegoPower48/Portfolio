@@ -58,7 +58,7 @@ const socket = (io) => {
           avatar: msg.avatar,
         });
       } catch (e) {
-        console.log("error en create");
+        console.log("error en creates");
       }
       socket.broadcast.emit(`chat${room}`, msg);
     });
