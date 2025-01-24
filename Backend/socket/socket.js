@@ -16,8 +16,9 @@ const socket = (io) => {
     });
     socket.on("answerCall", (data) => {
       io.to(data.to).emit("callAccepted", {
-        signal:data.signal,
+        signal: data.signal,
         name: data.userName,
+      });
     });
     /*END VIDEOCALL*/
 
