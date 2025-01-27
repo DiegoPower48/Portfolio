@@ -64,7 +64,7 @@ function Trabajos() {
     {
       nombre: "SCREEN SHARER",
       imagen: "https://i.ibb.co/2grLcKW/screensharer.png",
-      direccion: "https://dev-screenshare.vercel.app",
+      direccion: "https://dev-screensharer.vercel.app",
       descripcion:
         "Web application for real-time screen sharing between two computers focused on delivering a fast and seamless user experience.",
       tecnologias: [
