@@ -6,8 +6,9 @@ const webdata = require("../models/webdata");
 
 const criptoweb = async () => {
   console.log("Iniciando el proceso de scrapping");
+  let browser; // Declarar browser fuera del bloque try
   try {
-    const browser = await puppeteer.launch({
+    browser = await puppeteer.launch({
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
@@ -40,7 +41,6 @@ const criptoweb = async () => {
     );
 
     // Extrae los datos
-
     const quote = await page.evaluate(() => {
       const quotes = document.querySelectorAll(
         "tr[class='hover:tw-bg-gray-50 tw-bg-white dark:tw-bg-moon-900 hover:dark:tw-bg-moon-800 tw-text-sm']"
@@ -59,8 +59,7 @@ const criptoweb = async () => {
       return data;
     });
 
-    // Cierra el navegador y devuelve la respuesta
-
+    // Cierra el navegador y guarda los datos en la base de datos
     await webdata.findOneAndUpdate(
       {},
       { $set: { data: quote } },
@@ -70,9 +69,11 @@ const criptoweb = async () => {
   } catch (error) {
     console.log("Error en el proceso de scrapping:", error);
   } finally {
+    // Asegúrate de cerrar el navegador si fue inicializado
     if (browser) {
       await browser.close();
     }
   }
 };
+
 module.exports = criptoweb;
