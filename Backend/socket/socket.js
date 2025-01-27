@@ -20,6 +20,11 @@ const socket = (io) => {
         name: data.userName,
       });
     });
+
+    socket.on("rejectCall", (data) => {
+      const { to } = data;
+      io.to(to).emit("callRejected", { from: socket.id });
+    });
     /*END VIDEOCALL*/
 
     const room = socket.handshake.query.room;
