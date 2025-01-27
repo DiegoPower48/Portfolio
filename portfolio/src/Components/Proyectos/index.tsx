@@ -26,7 +26,6 @@ function Trabajos() {
         "React",
         "NodeJS",
         "Websocket",
-        "Vite",
         "JWT",
       ],
     },
@@ -37,15 +36,7 @@ function Trabajos() {
       direccion: "https://teddy-store.vercel.app",
       descripcion:
         "Online stuffed toy store with registration, login, and shopping cart.",
-      tecnologias: [
-        "MongoDB",
-        "Express",
-        "React",
-        "NodeJS",
-        "React",
-        "Vite",
-        "JWT",
-      ],
+      tecnologias: ["MongoDB", "Express", "React", "NodeJS", "React", "JWT"],
     },
     {
       nombre: "CRIPTO LIVES RATES",
@@ -69,6 +60,21 @@ function Trabajos() {
       descripcion:
         "Web application equipped with tools, using the native functions of the browser.",
       tecnologias: ["Express", "NextJs", "NodeJS", "Tailwind"],
+    },
+    {
+      nombre: "SCREEN SHARER",
+      imagen: "https://i.ibb.co/2grLcKW/screensharer.png",
+      direccion: "https://dev-screenshare.vercel.app",
+      descripcion:
+        "Web application for real-time screen sharing between two computers focused on delivering a fast and seamless user experience.",
+      tecnologias: [
+        "Express",
+        "NextJs",
+        "NodeJS",
+        "Tailwind",
+        "Socket.io",
+        "Simple-peer",
+      ],
     },
   ];
 
